@@ -6,7 +6,10 @@
 
 
     <div class="content-main p-[32px] h-[90vh]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Category {{ $category->title }}</p>
+        <div class="flex gap-3">
+            <a href="/dashboard/categories"><img src="/asset/back logo.svg" alt=""></a>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Category {{ $category->title }}</p>
+        </div>
         <form action="/dashboard/categories/{{ $category->slug }}" method="post">
         @csrf
         @method('PUT')

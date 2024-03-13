@@ -6,7 +6,10 @@
 
 
     <div class="content-main p-[32px] h-[90vh]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Category {{ $category->name }}</p>
+        <div class="flex gap-3">
+            <a href="/dashboard/categories"><img src="/asset/back logo.svg" alt=""></a>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Category {{ $category->name }}</p>
+        </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Name</label>

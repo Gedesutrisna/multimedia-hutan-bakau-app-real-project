@@ -6,8 +6,13 @@
 
 
     <div class="content-main p-[32px]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Answer</p>
-        <p class="text-[#141414] text-[14px] font-Urbanist font-semibold"><span class="text-red-500 text-[20px]">*</span>4 answer</p>
+        <div class="flex gap-3 items-center">
+            <a href="/dashboard/answers"><img src="/asset/back logo.svg" alt=""></a>
+            <div class="">
+                <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Answer</p>
+                <p class="text-[#141414] text-[14px] font-Urbanist font-semibold"><span class="text-red-500 text-[20px]">*</span>4 answer</p>
+            </div>
+        </div>
         <form action="/dashboard/answers/bulk-create" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -65,7 +70,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"><span class="text-red-500 text-[20px]">*</span>Answer Image</label>
                 <input name="answers[0][answer_image]" id="answer_image" value="{{ old('answer_image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter answer image.." @error('answer_image') is-invalid @enderror
                 />
                 @error('answer_image')
@@ -137,7 +142,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"><span class="text-red-500 text-[20px]">*</span>Answer Image</label>
                 <input name="answers[1][answer_image]" id="answer_image" value="{{ old('answer_image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter answer image.." @error('answer_image') is-invalid @enderror
                 />
                 @error('answer_image')
@@ -209,7 +214,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"><span class="text-red-500 text-[20px]">*</span>Answer Image</label>
                 <input name="answers[2][answer_image]" id="answer_image" value="{{ old('answer_image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter answer image.." @error('answer_image') is-invalid @enderror
                 />
                 @error('answer_image')
@@ -281,7 +286,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"><span class="text-red-500 text-[20px]">*</span>Answer Image</label>
                 <input name="answers[3][answer_image]" id="answer_image" value="{{ old('answer_image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter answer image.." @error('answer_image') is-invalid @enderror
                 />
                 @error('answer_image')

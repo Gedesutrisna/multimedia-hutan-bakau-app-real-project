@@ -6,7 +6,10 @@
 
 
     <div class="content-main p-[32px]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Blog {{ $blog->title }}</p>
+        <div class="flex gap-3">
+            <a href="/dashboard/blogs"><img src="/asset/back logo.svg" alt=""></a>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Blog {{ $blog->title }}</p>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Title</label>
@@ -29,6 +32,16 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Body</label>
+                <textarea name="body" value="{{ old('body', $blog->body) }}" disabled
+                    type="text"
+                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white h-[250px]"
+                    placeholder="Enter body.." style="resize: none" @error('body') is-invalid @enderror
+                >{!! $blog->body !!}</textarea>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 mt-9 gap-4">
+            <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium mb-2">Image</label>
                 @if($blog->assets)
                 <img class="img-preview" id="img-preview" src="{{ asset('images/'.$blog->assets) }}" frameborder="0" style="width: 200px">
@@ -38,16 +51,7 @@
             </div>
         </div>
         
-        <div class="grid grid-cols-1 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Body</label>
-                <textarea name="body" value="{{ old('body', $blog->body) }}" disabled
-                    type="text"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
-                    placeholder="Enter body.." style="resize: none" @error('body') is-invalid @enderror
-                >{{ old('body', $blog->body) }}</textarea>
-            </div>
-        </div>
+
 
     </div>
 

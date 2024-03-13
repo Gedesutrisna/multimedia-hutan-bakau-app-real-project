@@ -41,7 +41,7 @@
                             <a class="flex items-center" href="/dashboard/blogs">
                                 <div href="#" class="default-style {{ request()->is('dashboard/blogs*') ? 'active' : '' }}">
 
-                                    @if (request()->is('dashboard/blogs'))
+                                    @if (request()->is('dashboard/blogs*'))
                                     <img src="/asset/report-logo.svg" alt="">
                                     @else
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -82,8 +82,8 @@
 
                         <nav class="appointment-page">
                             <a class="flex items-center" href="/dashboard/categories">
-                                <div href="#" class="default-style {{ request()->is('dashboard/categories*') ? 'active' : '' }}">
-                                    @if (request()->is('dashboard/categories'))
+                                <div href="#" class="default-style {{ request()->is('dashboard/categories**') ? 'active' : '' }}">
+                                    @if (request()->is('dashboard/categories*'))
                                     <img src="/asset/report-logo.svg" alt="">
                                     @else
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -116,7 +116,7 @@
                                     @endif
                                 </div>
 
-                                <p class="text-appointment ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/categories*') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
+                                <p class="text-appointment ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/categories**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
                                     Categories
                                 </p>
                             </a>
@@ -124,8 +124,8 @@
 
                         <nav class="patient-page">
                             <a class="flex items-center" href="/dashboard/quizzes">
-                                <div href="#" class="default-style {{ request()->is('dashboard/quizzes*') ? 'active' : '' }}">
-                                    @if (request()->is('dashboard/quizzes'))
+                                <div href="#" class="default-style {{ request()->is('dashboard/quizzes**') ? 'active' : '' }}">
+                                    @if (request()->is('dashboard/quizzes*'))
                                     <img src="/asset/report-logo.svg" alt="">
                                     @else
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -158,7 +158,7 @@
                                     @endif
                                 </div>
 
-                                <p class="text-record ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/quizzes*') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
+                                <p class="text-record ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/quizzes**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
                                     Quizzes
                                 </p>
                             </a>
@@ -166,8 +166,8 @@
 
                         <nav class="immunization-page">
                             <a class="flex items-center" href="/dashboard/questions">
-                                <div href="#" class="default-style {{ request()->is('dashboard/questions*') ? 'active' : '' }}">
-                                    @if (request()->is('dashboard/questions'))
+                                <div href="#" class="default-style {{ request()->is('dashboard/questions**') ? 'active' : '' }}">
+                                    @if (request()->is('dashboard/questions*'))
                                     <img src="/asset/report-logo.svg" alt="">
                                     @else
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -200,15 +200,15 @@
                                     @endif
                                 </div>
 
-                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/questions*') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
+                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/questions**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
                                     Question
                                 </p>
                             </a>
                         </nav>
                         <nav class="immunization-page">
                             <a class="flex items-center" href="/dashboard/answers">
-                                <div href="#" class="default-style {{ request()->is('dashboard/answers*') ? 'active' : '' }}">
-                                    @if (request()->is('dashboard/answers'))
+                                <div href="#" class="default-style {{ request()->is('dashboard/answers**') ? 'active' : '' }}">
+                                    @if (request()->is('dashboard/answers*'))
                                     <img src="/asset/report-logo.svg" alt="">
                                     @else
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -241,7 +241,7 @@
                                     @endif
                                 </div>
 
-                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/answers*') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
+                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/answers**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
                                     Answer
                                 </p>
                             </a>
@@ -249,8 +249,8 @@
 
                         <nav class="immunization-page">
                             <a class="flex items-center" href="/dashboard/quiz/results">
-                                <div href="#" class="default-style {{ request()->is('dashboard/quiz/results*') ? 'active' : '' }}">
-                                    @if (request()->is('dashboard/quiz/results'))
+                                <div href="#" class="default-style {{ request()->is('dashboard/quiz/results**') ? 'active' : '' }}">
+                                    @if (request()->is('dashboard/quiz/results*'))
                                     <img src="/asset/report-logo.svg" alt="">
                                     @else
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
@@ -283,7 +283,7 @@
                                     @endif
                                 </div>
 
-                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/quiz/results*') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
+                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/quiz/results**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
                                     Quiz Results
                                 </p>
                             </a>
@@ -299,15 +299,15 @@
                 <hr class="line-sidebar" />
                                         <nav class="immunization-page">
                             <a class="flex items-center" href="/dashboard/profile">
-                                <div href="#" class="default-style {{ request()->is('dashboard/profile') ? 'active' : '' }}">
-                                    @if (request()->is('dashboard/profile'))
+                                <div href="#" class="default-style {{ request()->is('dashboard/profile*') ? 'active' : '' }}">
+                                    @if (request()->is('dashboard/profile*'))
                                     <img src="/asset/username-white.svg" alt="">
                                     @else
                                     <img src="/asset/username-normal.svg" alt="">
                                     @endif
                                 </div>
 
-                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/profile') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
+                                <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/profile*') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
                                     Profile
                                 </p>
                             </a>

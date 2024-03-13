@@ -9,7 +9,7 @@
     </button>
 
     <div class="search-nav xl:w-[80%] lg:w-[60%] hidden lg:flex">
-        @if (request()->is('dashboard/blogs'))
+        @if (request()->is('dashboard/blogs*'))
         <form action="/dashboard/blogs" method="get" class="w-[100%]">
             <input
                 type="text"
@@ -19,7 +19,7 @@
                 placeholder="Search anything.."
             />
         </form>
-        @elseif(request()->is('dashboard/categories'))
+        @elseif(request()->is('dashboard/categories*'))
         <form action="/dashboard/categories" method="get" class="w-[100%]">
             <input
                 type="text"
@@ -29,7 +29,7 @@
                 placeholder="Search anything.."
             />
         </form>
-        @elseif(request()->is('dashboard/quizzes'))
+        @elseif(request()->is('dashboard/quizzes*'))
         <form action="/dashboard/quizzes" method="get" class="w-[100%]">
             <input
                 type="text"
@@ -39,7 +39,7 @@
                 placeholder="Search anything.."
             />
         </form>
-        @elseif(request()->is('dashboard/questions'))
+        @elseif(request()->is('dashboard/questions*'))
         <form action="/dashboard/questions" method="get" class="w-[100%]">
             <input
                 type="text"
@@ -50,7 +50,7 @@
             />
         </form>
         
-        @elseif(request()->is('dashboard/answers'))
+        @elseif(request()->is('dashboard/answers*'))
         <form action="/dashboard/answers" method="get" class="w-[100%]">
             <input
                 type="text"
@@ -61,7 +61,7 @@
             />
         </form>
         
-        @elseif(request()->is('dashboard/quiz/results'))
+        @elseif(request()->is('dashboard/quiz/results*'))
         <form action="/dashboard/quiz/results" method="get" class="w-[100%]">
         <input
             type="text"

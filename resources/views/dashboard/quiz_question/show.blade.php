@@ -6,8 +6,9 @@
 
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0">
             <div class="sm:flex sm:justify-between block items-end">
-                <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Questions</h1>
+                <div class="flex gap-3">
+                    <a href="/dashboard/questions"><img src="/asset/back logo.svg" alt=""></a>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Question</h1>
                 </div>
             </div>
 

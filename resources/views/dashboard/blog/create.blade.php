@@ -6,7 +6,10 @@
 
 
     <div class="content-main p-[32px]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Blog</p>
+        <div class="flex gap-3">
+            <a href="/dashboard/blogs"><img src="/asset/back logo.svg" alt=""></a>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Blog</p>
+        </div>
         <form action="/dashboard/blogs" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -64,7 +67,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image</label>
                 <input name="assets" id="assets" value="{{ old('assets') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('assets') is-invalid @enderror
                 />
                 @error('assets')

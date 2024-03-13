@@ -6,8 +6,13 @@
 
 
     <div class="content-main p-[32px]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Question</p>
-        <p class="text-[#141414] text-[14px] font-Urbanist font-semibold"><span class="text-red-500 text-[20px]">*</span>15 question</p>
+        <div class="flex gap-3 items-center">
+            <a href="/dashboard/questions"><img src="/asset/back logo.svg" alt=""></a>
+            <div class="">
+                <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Question</p>
+                <p class="text-[#141414] text-[14px] font-Urbanist font-semibold"><span class="text-red-500 text-[20px]">*</span>15 question</p>
+            </div>
+        </div>
         <form action="/dashboard/questions/bulk-create" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -64,7 +69,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[0][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -100,7 +105,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[1][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -136,7 +141,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[2][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -172,7 +177,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[3][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -208,7 +213,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[4][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -244,7 +249,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[5][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -280,7 +285,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[6][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -316,7 +321,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[7][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -352,7 +357,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[8][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -388,7 +393,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[9][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -424,7 +429,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[10][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -460,7 +465,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[11][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -496,7 +501,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[12][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -532,7 +537,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[13][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')
@@ -568,7 +573,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image (optional)</label>
                 <input name="questions[14][image]" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('image') is-invalid @enderror
                 />
                 @error('image')

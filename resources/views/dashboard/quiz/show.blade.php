@@ -6,7 +6,10 @@
 
 
     <div class="content-main p-[32px]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Quiz {{ $quiz->name }}</p>
+        <div class="flex gap-3">
+            <a href="/dashboard/quizzes"><img src="/asset/back logo.svg" alt=""></a>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Quiz {{ $quiz->name }}</p>
+        </div>
         <div class="overflow-x-auto">
             <ul class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
                 <li class="">Image</li>

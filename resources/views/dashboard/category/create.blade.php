@@ -6,7 +6,10 @@
 
 
     <div class="content-main p-[32px] h-[90vh]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold ">Add New Category</p>
+        <div class="flex gap-3">
+            <a href="/dashboard/categories"><img src="/asset/back logo.svg" alt=""></a>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold ">Add New Category</p>
+        </div>
         <form action="/dashboard/categories" method="post">
         @csrf
         @method('POST')

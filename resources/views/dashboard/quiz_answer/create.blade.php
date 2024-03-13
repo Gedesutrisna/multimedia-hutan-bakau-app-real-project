@@ -6,8 +6,13 @@
 
 
     <div class="content-main p-[32px]">
-        <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Answer</p>
-        <p class="text-[#535355] text-[14px] font-Urbanist font-medium mt-1"><span class="text-red-500 text-[20px]">*</span>Choose answer using Text or Image</p>
+        <div class="flex gap-3 items-center">
+            <a href="/dashboard/answers"><img src="/asset/back logo.svg" alt=""></a>
+            <div class="">
+                <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Answer</p>
+                <p class="text-[#535355] text-[14px] font-Urbanist font-medium mt-1"><span class="text-red-500 text-[20px]">*</span>Choose answer using Text or Image</p>
+            </div>
+        </div>
         <form action="/dashboard/answers" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -60,7 +65,7 @@
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"><span class="text-red-500 text-[20px]">*</span>Answer Image</label>
                 <input name="answer_image" id="answer_image" value="{{ old('answer_image') }}" onchange="previewImage()"
                     type="file"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                     placeholder="Enter image.." @error('answer_image') is-invalid @enderror
                 />
                 @error('answer_image')

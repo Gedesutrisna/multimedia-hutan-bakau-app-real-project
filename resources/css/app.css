@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.main-content-login {
+		@apply xl:col-span-6 2xl:col-span-5 mt-[50px] 2xl:mt-[100px] xl:mt-[50px] xl:ms-[104px];
+	}
+}
+
+@layer components {
+	.wrapper-content-login {
+		@apply xl:grid xl:grid-cols-12 xl:place-items-center xl:place-self-center xl:pt-0;
+	}
+}
+
+
+@layer components {
+	.left-wrapper-img {
+		@apply col-span-6;
+	}
+}
+
+@layer components {
+	.right-wrapper-login {
+		@apply xl:col-span-6 sm:mx-[50px] 2xl:col-span-5 mt-10 xl:mt-0;
+	}
+}
+
+@layer components {
+	.wrapper-content-register {
+		@apply xl:grid xl:grid-cols-12;
+	}
+}
+
+@layer components {
+	.register-text {
+		@apply text-center font-Urbanist text-[32px] font-bold text-[#141414] xl:text-start xl:text-[52px] leading-[116%];
+	}
+}
+
+@layer components {
+	.left-img-hero {
+		@apply mt-[32px] h-[710px] w-[892px];
+	}
+}
+
+@layer components {
+	.button-register {
+		@apply mt-[10px] flex h-[49px] w-full items-center justify-center gap-2 rounded-[999px] bg-primary font-Urbanist text-[14px] font-medium text-white xl:w-[340px];
+	}
+}
+
+@layer components {
+	.button-login {
+		@apply mt-[10px] flex h-[49px] w-full items-center justify-center gap-2 rounded-[999px] bg-primary font-Urbanist text-[14px] font-medium text-white xl:w-[340px] focus:outline-none;
+	}
+}
+
+@layer components {
+	.text-link {
+		@apply text-center font-Urbanist text-[14px] font-medium text-[#858585] xl:text-left mb-10;
+	}
+}
+
+@layer components {
+	.input-email-register {
+		@apply py-[20px] px-[22px] flex w-full justify-start rounded-[999px] border border-[#E2E2E2];
+	}
+}
+
+@layer components {
+	.input-password-register {
+		@apply py-[20px] px-[22px] flex justify-start rounded-[999px] border border-[#E2E2E2] w-full;
+	}
+}
+
+@layer components {
+	.input-email-login {
+		@apply py-[20px] px-[22px] flex w-full justify-start rounded-[999px] border border-[#E2E2E2];
+	}
+}
+
+@layer components {
+	.input-password-login {
+		@apply py-[20px] px-[22px] flex justify-start rounded-[999px] border border-[#E2E2E2] w-full;
+	}
+}
+
+@layer components {
+	.sidebar-container {
+		@apply fixed bg-white lg:px-[26px] md:px-[33px] 2xl:px-[50px] xl:px-[35px] py-[40px] px-[20px] h-full top-0 left-0;
+	}
+}
+
+@layer components {
+	.right-img-hero {
+		@apply h-[710px] w-[892px];
+	}
+}
+
+@layer components {
+	.sidebar {
+		@apply bg-white;
+	}
+}
+
+@layer components {
+	.logo-position {
+		@apply flex justify-center;
+	}
+}
+
+@layer components {
+	.text-sidebar-overview {
+		@apply font-Urbanist text-[14px] font-medium text-[#858585];
+	}
+}
+
+@layer components {
+	.text-sidebar-setting {
+		@apply font-Urbanist text-[14px] font-medium text-[#858585];
+	}
+}
+
+@layer components {
+	.line-sidebar {
+		@apply mt-2 border border-[#E2E2E2];
+	}
+}
+
+@layer components {
+	.nav-page-spacing {
+		@apply mt-3 space-y-[12px];
+	}
+}
+
+@layer components {
+	.logout-setting-position {
+		@apply mb-[40px] space-y-4 mt-[20px] xl:mt-0;
+	}
+}
+
+@layer components {
+	.logout-page {
+		@apply mb-[40px];
+	}
+}
+
+@layer components {
+	.logout-setting-position {
+		@apply mb-[40px] space-y-4;
+	}
+}
+@layer components {
+	.logout-setting-position {
+		@apply mb-[40px] space-y-4;
+	}
+}
+
+@layer components {
+	.banner-btn-login {
+		@apply py-4 px-[20px] rounded-[999px] bg-banner font-Urbanist text-[14px] font-medium text-primary;
+	}
+}
+
+@layer components {
+	.banner-btn-register {
+		@apply py-4 px-[20px] rounded-[999px] bg-banner font-Urbanist text-[14px] font-medium text-primary;
+	}
+}
+
+@layer components {
+	.login-dashboard {
+		@apply text-center font-Urbanist text-[32px] font-bold text-[#141414] xl:text-start xl:text-[52px];
+	}
+}
+
+@layer components {
+	.nav-main {
+		@apply container mx-auto flex h-[76px] w-full items-center  bg-white pt-[16px];
+	}
+}
+
+@layer components {
+	.nav-wrapper {
+		@apply flex items-center;
+	}
+}
+
+@layer components {
+	.bell-icon {
+		@apply ms-[24px] flex items-center justify-center rounded-[4px] border-[2px] border-[#D9DADE] px-[16px] py-[16px] bg-[#F5F6FB];
+	}
+}
+
+@layer components {
+	.hamburger-menu {
+		@apply ms-[12px] flex items-center justify-center rounded-[4px] border-[1.5px] border-[#D9DADE] px-[16px] py-[16px];
+	}
+}
+
+@layer components {
+	.toggle-mode {
+		@apply ms-1 flex items-center justify-center rounded-[4px] bg-[#F5F6FB] px-[16px] py-[16px];
+	}
+}
+
+@layer components {
+	.avatar-profile {
+		@apply flex items-center;
+	}
+}
+
+@layer components {
+	.login-text {
+		@apply text-center font-Urbanist text-[24px] font-bold text-[#141414]  sm:text-[36px] lg:text-[52px] xl:text-left xl:text-[52px];
+	}
+}
+
+@layer components {
+	.default-style {
+		@apply flex lg:h-[32px] lg:w-[32px] w-[50px] h-[50px] items-center justify-center rounded-[4px] bg-[#EDEDED] text-[#858585];
+	}
+}
+
+@layer components {
+	.active {
+		@apply bg-[#6E62E5] text-black;
+	}
+}
+
+@layer components {
+	.text-active {
+		@apply font-Urbanist font-medium text-[15px1] text-black;
+	}
+}
+
+/* @layer components{
+    .{
+        @apply   
+    }
+  } */
+
+@media (max-width: 348px) {
+	.container-fluid {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.container-fluid {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 2rem !important;
+		padding-right: 2rem !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.container-fluid {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 4rem !important;
+		padding-right: 4rem !important;
+	}
+}
+
+@media (max-width: 1028px) {
+	.container-fluid {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 4rem !important;
+		padding-right: 4rem !important;
+	}
+}
+
+@media (max-width: 1280px) {
+	.container-fluid {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+}
+
+@media (max-width: 1536px) {
+	.container-fluid {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 0rem;
+		padding-right: 0rem;
+	}
+}
+
+.sidebar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000; /* Atur nilai sesuai kebutuhan */
+	/* tambahkan properti lain sesuai kebutuhan */
+}

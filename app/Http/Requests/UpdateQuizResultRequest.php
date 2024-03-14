@@ -25,7 +25,7 @@ class UpdateQuizResultRequest extends FormRequest
             'guest' => 'required|string|max:255',
             'answer' => 'required|string|max:255',
             'point' => 'required|integer',
-            'question_id' => 'required|exists:questions,id',
+            'quiz_question_id' => 'required|exists:quiz_questions,id',
             'quiz_id' => 'required|exists:quizzes,id',
         ];
     }

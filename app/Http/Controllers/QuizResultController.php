@@ -30,7 +30,7 @@ class QuizResultController extends Controller
     {
         $validatedData = $request->validate([
             'quiz_id' => 'required',
-            'questions.*.question_id' => 'required',
+            'questions.*.quiz_question_id' => 'required',
             'answers.*.answer_id' => 'required',
         ]);
 

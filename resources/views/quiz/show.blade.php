@@ -14,7 +14,7 @@
             <label for="q{{ $loop->iteration }}" class="text-lg text-gray-800 mb-2">
                 {{ $loop->iteration }}. {{ $question->question }}
             </label>
-            <input type="hidden" name="questions[{{ $questionIndex }}][question_id]" value="{{ $question->id }}">
+            <input type="hidden" name="questions[{{ $questionIndex }}][quiz_question_id]" value="{{ $question->id }}">
             @foreach ($question->answers as $answerIndex => $answer)
                 
             <div class="flex items-center space-x-4">

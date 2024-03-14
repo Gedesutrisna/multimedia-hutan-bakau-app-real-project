@@ -13,7 +13,7 @@
                 <p class="text-[#535355] text-[14px] font-Urbanist font-medium mt-1"><span class="text-red-500 text-[20px]">*</span>Choose answer using Text or Image</p>
             </div>
         </div>
-        <form action="/dashboard/questions/{{ $answer->id }}" method="post" enctype="multipart/form-data">
+        <form action="/dashboard/answers/{{ $answer->id }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="grid grid-cols-1 mt-9 gap-4">
@@ -101,7 +101,7 @@
 
         <input type="hidden" class="form-control @error('slug') is-invalid @enderror form-control-sm" name="slug" id="slug" value="{{ old('slug') }}" required>
         <div class="flex items-center gap-2 mt-[26px]">
-            <button type="s" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit Answer</button>
+            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit Answer</button>
             <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Cancel Edit</button>
         </div>
     </form>
@@ -118,7 +118,7 @@
         });
 
         function previewImage(){
-            const img = document.querySelector('#image');
+            const img = document.querySelector('#answer_image');
             const imgPreview = document.querySelector('#img-preview');
             if (img.files.length > 0) {
                 const blob = URL.createObjectURL(img.files[0]);

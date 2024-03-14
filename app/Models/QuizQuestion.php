@@ -10,6 +10,8 @@ class QuizQuestion extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'quiz_questions';
+
     public function quiz()
     {
         return $this->belongsTo(Quiz::class);

@@ -22,9 +22,9 @@ class UpdateQuizAnswerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'answer_text' => 'string|max:255',
-            'answer_image' => 'image',
-            'quiz_question_id' => 'required|exists:questions,id',
+            'answer_text' => 'nullable',
+            'answer_image' => 'nullable|image',
+            'quiz_question_id' => 'required|exists:quiz_questions,id',
             'is_correct' => 'required',
         ];
     }

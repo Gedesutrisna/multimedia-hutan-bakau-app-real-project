@@ -586,7 +586,7 @@
             </div>
         </div>
         <div class="flex items-center gap-2 mt-[26px]">
-            <button type="s" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Add New Question</button>
+            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Add New Question</button>
             <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Cancel Add</button>
         </div>
     </form>

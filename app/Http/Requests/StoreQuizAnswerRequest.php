@@ -24,7 +24,7 @@ class StoreQuizAnswerRequest extends FormRequest
         return [
             'answer_text' => 'string|max:255',
             'answer_image' => 'image',
-            'quiz_question_id' => 'required|exists:questions,id',
+            'quiz_question_id' => 'required|exists:quiz_questions,id',
             'is_correct' => 'required',
         ];
     }

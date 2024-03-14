@@ -60,9 +60,8 @@ class QuizAnswerController extends Controller
     {
         $validatedData = $request->validate([
             'quiz_question_id' => 'required|exists:quiz_questions,id',
-            'answers.*.answer_text' => 'string|max:255',
-            'answers.*.answer_image' => 'image',
-            'answers.*.point' => 'required|integer',
+            'answers.*.answer_text' => 'nullable|string|max:255',
+            'answers.*.answer_image' => 'nullable|image',
             'answers.*.is_correct' => 'required',
         ]);
 
@@ -77,20 +76,26 @@ class QuizAnswerController extends Controller
         foreach ($validatedData['answers'] as $answerData) {
             $answer = [
                 'quiz_question_id' => $questionId,
-                'answer_text' => $answerData['answer_text'],
-                'point' => $answerData['point'],
                 'is_correct' => $answerData['is_correct'],
+                'answer_text' => null,
+                'answer_image' => null, 
             ];
+        
+            // Cek apakah ada teks jawaban
+            if (isset($answerData['answer_text'])) {
+                $answer['answer_text'] = $answerData['answer_text'];
+            }
+        
+            // Cek apakah ada gambar jawaban
             if (isset($answerData['answer_image'])) {
                 $fileExtension = $answerData['answer_image']->getClientOriginalExtension();
                 $randomFileName = hash('md5', time()) . '.' . $fileExtension;
-                $answerData['answer_image']->move('images/', $randomFileName);
                 $answer['answer_image'] = $randomFileName;
+                $answerData['answer_image']->move('images/', $randomFileName);
             }
-
             $answersToInsert[] = $answer;
         }
-
+        
         QuizAnswer::insert($answersToInsert);
 
         return redirect('/dashboard/answers')->with('success','Quiz Questions Added Successfully!');

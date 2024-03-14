@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('answer_text')->nullable();
             $table->string('answer_image')->nullable();
-            $table->integer('point');
             $table->foreignId('quiz_question_id');
             $table->enum('is_correct',['true','false']);
             $table->timestamps();

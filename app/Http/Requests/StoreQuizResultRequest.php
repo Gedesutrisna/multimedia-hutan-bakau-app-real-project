@@ -22,10 +22,6 @@ class StoreQuizResultRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'guest' => 'required|string|max:255',
-            'answer' => 'required|string|max:255',
-            'point' => 'required|integer',
-            'question_id' => 'required|exists:questions,id',
             'quiz_id' => 'required|exists:quizzes,id',
         ];
     }

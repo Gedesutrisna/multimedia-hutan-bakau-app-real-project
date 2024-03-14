@@ -36,10 +36,10 @@ class BlogController extends Controller
             $randomFileName = hash('md5', time()) . '.' . $fileExtension;
             $request->file('assets')->move('images/', $randomFileName);
         }
-        $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
         if(isset($randomFileName)) {
             $validatedData['assets'] = $randomFileName;
         }
+        $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
         Blog::create($validatedData);
         return redirect('/dashboard/blogs')->with('success', 'Blog Added Successfully!');
     }

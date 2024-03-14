@@ -82,20 +82,7 @@
 
             </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Point</label>
-                <input name="answers[0][point]" id="point" value="{{ old('point') }}"
-                    type="number"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                    placeholder="Enter point.." @error('point') is-invalid @enderror
-                />
-                @error('point')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
+        <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
                     >Is Correct</label
@@ -154,20 +141,8 @@
 
             </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Point</label>
-                <input name="answers[1][point]" id="point" value="{{ old('point') }}"
-                    type="number"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                    placeholder="Enter point.." @error('point') is-invalid @enderror
-                />
-                @error('point')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
+        <div class="grid grid-cols-1 mt-9 gap-4">
+
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
                     >Is Correct</label
@@ -226,20 +201,7 @@
 
             </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Point</label>
-                <input name="answers[2][point]" id="point" value="{{ old('point') }}"
-                    type="number"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                    placeholder="Enter point.." @error('point') is-invalid @enderror
-                />
-                @error('point')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
+        <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
                     >Is Correct</label
@@ -298,20 +260,7 @@
 
             </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Point</label>
-                <input name="answers[3][point]" id="point" value="{{ old('point') }}"
-                    type="number"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                    placeholder="Enter point.." @error('point') is-invalid @enderror
-                />
-                @error('point')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
+        <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
                     >Is Correct</label

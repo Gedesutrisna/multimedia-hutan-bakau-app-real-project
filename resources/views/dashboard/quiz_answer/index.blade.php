@@ -22,8 +22,7 @@
             <div class="overflow-x-auto">
                 <ul class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
                     <li class="">#</li>
-                    <li class="">Quiz</li>
-                    <li class="">Point</li>
+                    <li class="col-span-2">Quiz</li>
                     <li class="">Is Correct</li>
                     <li class="col-span-5">Answer</li>
                     <li class=""></li>
@@ -31,14 +30,13 @@
                 @foreach ($answers as $answer)
                 <ul class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start">
                     <li>{{ ($answers->currentPage() - 1) * $answers->perPage() + $loop->index + 1 }}</li>
-                    <li class="">
+                    <li class="col-span-2">
                         @if ($answer->quiz_question && $answer->quiz_question->quiz)
                         {{ $answer->quiz_question->quiz->name }}
                         @else
                             N/A
                         @endif
                     </li>
-                    <li class="">{{ $answer->point }}</li>
                     @if ($answer->is_correct == "true")
                     <li class="">Correct</li>
                     @elseif($answer->is_correct == "false")
@@ -47,7 +45,7 @@
                     @if (empty($answer->answer_image))
                     <li class="col-span-5">{{ $answer->answer_text }}</li>
                     @else
-                    <li class=""><img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px"></li>
+                    <li class="col-span-5"><img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px"></li>
                     @endif
                     <div class="flex items-center gap-[4px]">
                         <a href="/dashboard/answers/{{ $answer->id }}">

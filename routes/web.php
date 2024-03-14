@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\QuizResultController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\admin\BlogController;
@@ -11,6 +12,9 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\QuizAnswerController;
 use App\Http\Controllers\admin\QuizQuestionController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
+use App\Http\Controllers\BlogController as ControllersBlogController;
+use App\Http\Controllers\QuizController as ControllersQuizController;
+use App\Http\Controllers\QuizResultController as ControllersQuizResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +27,7 @@ use App\Http\Controllers\admin\LoginController as AdminLoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:admin']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -57,6 +59,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:admin']], function
     Route::put('/profile/update', [AdminController::class, 'update'])->name('admin.update');
 
 });
+
+//testing jawab quiz
+Route::resource('/quizzes', ControllersQuizController::class);
+Route::resource('/quiz/results', ControllersQuizResultController::class);
+
+Route::resource('/blogs', ControllersBlogController::class);
 
 //user
 Route::get('/login', [LoginController::class,'index'])->middleware('guest')->name('login');

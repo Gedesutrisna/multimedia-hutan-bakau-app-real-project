@@ -137,33 +137,444 @@ class DatabaseSeeder extends Seeder
             'image' => '/profile-img.svg',
             'quiz_id' => 1,
         ]);
+        QuizQuestion::create([
+            'question' => 'question 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 9 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 10 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 11 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 12 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 13 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 14 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
+        QuizQuestion::create([
+            'question' => 'question 15 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'image' => '/profile-img.svg',
+            'quiz_id' => 1,
+        ]);
 
         QuizAnswer::create([
             'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
             'answer_image' => null,
-            'point' => 6.6666666666666,
             'quiz_question_id' => 1,
             'is_correct' => "true",
         ]);
         QuizAnswer::create([
             'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
             'answer_image' => null,
-            'point' => 0,
             'quiz_question_id' => 1,
             'is_correct' => "false",
         ]);
         QuizAnswer::create([
             'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
             'answer_image' => null,
-            'point' => 0,
             'quiz_question_id' => 1,
             'is_correct' => "false",
         ]);
         QuizAnswer::create([
             'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
             'answer_image' => null,
-            'point' => 0,
             'quiz_question_id' => 1,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 2,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 2,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 2,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 2,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 3,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 3,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 3,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 3,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 4,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 4,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 4,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 4,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 5,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 5,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 5,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 5,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 6,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 6,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 6,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 6,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 7,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 7,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 7,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 7,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 8,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 8,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 8,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 8,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 9,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 9,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 9,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 9,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 10,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 10,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 10,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 10,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 11,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 11,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 11,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 11,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 12,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 12,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 12,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 12,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 13,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 13,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 13,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 13,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 14,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 14,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 14,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 14,
+            'is_correct' => "false",
+        ]);
+
+        QuizAnswer::create([
+            'answer_text' => 'answer 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 15,
+            'is_correct' => "true",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 15,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 15,
+            'is_correct' => "false",
+        ]);
+        QuizAnswer::create([
+            'answer_text' => 'answer 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
+            'answer_image' => null,
+            'quiz_question_id' => 15,
             'is_correct' => "false",
         ]);
 

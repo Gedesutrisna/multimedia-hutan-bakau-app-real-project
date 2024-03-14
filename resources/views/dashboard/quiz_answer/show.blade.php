@@ -28,15 +28,15 @@
                     type="text"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
                    style="resize: none" @error('answer_text') is-invalid @enderror
-                >{{ old('answer_text', $answer->answer_text) }}</textarea>
+                >{{ $answer->answer_text }}</textarea>
                 </div>
         </div>
         @else
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium mb-2">Answer Image</label>
-                @if($answer->image)
-                <img class="img-preview" id="img-preview" src="{{ asset('images/'.$answer->image) }}" frameborder="0" style="width: 200px">
+                @if($answer->answer_image)
+                <img class="img-preview" id="img-preview" src="{{ asset('images/'.$answer->answer_image) }}" frameborder="0" style="width: 200px">
                 @else
                 <img class="img-preview" id="img-preview" src="" frameborder="0">
                 @endif
@@ -44,15 +44,7 @@
         </div>
         @endif
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Point</label>
-                <input name="point" id="point" value="{{ old('point', $answer->point) }}"
-                    type="number" disabled
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
-                    placeholder="Enter point.." @error('point') is-invalid @enderror
-                />
-            </div>
+        <div class="grid grid-cols-1  mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
                     >Is Correct</label

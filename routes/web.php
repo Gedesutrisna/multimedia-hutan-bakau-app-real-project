@@ -1,19 +1,21 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\QuizResultController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\QuizController;
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\QuizAnswerController;
+use App\Http\Controllers\admin\QuizResultController;
 use App\Http\Controllers\admin\QuizQuestionController;
-use App\Http\Controllers\admin\LoginController as AdminLoginController;
 use App\Http\Controllers\BlogController as ControllersBlogController;
 use App\Http\Controllers\QuizController as ControllersQuizController;
+use App\Http\Controllers\admin\LoginController as AdminLoginController;
 use App\Http\Controllers\QuizResultController as ControllersQuizResultController;
 
 /*
@@ -57,8 +59,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:admin']], function
 
     Route::get('/profile', [AdminController::class, 'index'])->name('profile');
     Route::put('/profile/update', [AdminController::class, 'update'])->name('admin.update');
-
+    
 });
+
+Route::get('/profile', [UserController::class, 'index'])->name('profile');
+Route::put('/profile/update', [UserController::class, 'update'])->name('user.update');
 
 //testing jawab quiz
 Route::resource('/quizzes', ControllersQuizController::class);
@@ -76,3 +81,7 @@ Route::get('/login/admin', [AdminLoginController::class,'index'])->middleware('g
 Route::post('/login/admin', [AdminLoginController::class,'login'])->middleware('guest');
 Route::post('/logout/admin', [AdminLoginController::class, 'logout']);
 
+
+//user
+Route::get('/register', [RegisterController::class,'index'])->name('register');
+Route::post('/register', [RegisterController::class,'store'])->middleware('guest');

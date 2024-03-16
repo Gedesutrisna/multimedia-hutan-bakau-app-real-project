@@ -27,7 +27,7 @@
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Email</label>
                 <input name="email" id="email" value="{{ old('email',auth()->guard('admin')->user()->email) }}"
-                    type="text"
+                    type="email"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
                     placeholder="Enter email.." @error('email') is-invalid @enderror
                 />

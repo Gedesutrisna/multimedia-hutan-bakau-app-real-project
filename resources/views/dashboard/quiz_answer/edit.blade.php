@@ -7,7 +7,9 @@
 
     <div class="content-main p-[32px]">
         <div class="flex gap-3 items-center">
-            <a href="/dashboard/answers"><img src="/asset/back logo.svg" alt=""></a>
+            <a href="/dashboard/quizzes/{{ $answer->quiz_question->quiz->slug }}/questions/{{ $answer->quiz_question->id }}">
+                <img src="/asset/back logo.svg" alt="">
+            </a>
             <div class="">
                 <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Answer</p>
                 <p class="text-[#535355] text-[14px] font-Urbanist font-medium mt-1"><span class="text-red-500 text-[20px]">*</span>Choose answer using Text or Image</p>
@@ -22,17 +24,36 @@
                     >Question</label
                 >
                 <select name="quiz_question_id" id="" class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none" @error('quiz_question_id') is-invalid @enderror>
+                    <option value="" disabled>Select Question</option>
+                    @php $lastQuizName = null; @endphp
                     @foreach ($questions as $question)
                         @php
                             $questionCount = $question->answers()->count();
+                            $currentQuizName = $question->quiz->name;
                         @endphp
-                            @if (old('quiz_question_id', $answer->quiz_question_id) == $question->id)
-                            <option value="{{ $question->id }}" selected>{{ $question->question}}</option>    
-                            @else
+                        @if (old('quiz_question_id', $answer->quiz_question_id) == $question->id)
+                            @if ($currentQuizName != $lastQuizName)
+                            @php $lastQuizName = $currentQuizName; @endphp
+                                <optgroup label="{{ $currentQuizName }}">
+                            @endif
+                                <option value="{{ $question->id }}" selected>{{ $question->question}}</option>   
+                            @if ($currentQuizName != $lastQuizName)
+                                </optgroup>
+                            @endif 
+                        @else
                             @if ($questionCount < 4)
-                                <option value="{{ $question->id }}">{{ $question->question}}</option>
+                                @if ($currentQuizName != $lastQuizName)
+                                    @php $lastQuizName = $currentQuizName; @endphp
+                                    <optgroup label="{{ $currentQuizName }}">
+                                @endif
+                    
+                                <option value="{{ $question->id }}">{{ $question->question }}</option>
+                    
+                                @if ($currentQuizName != $lastQuizName)
+                                    </optgroup>
                                 @endif
                             @endif
+                        @endif
                     @endforeach
                 </select>
                 @error('quiz_question_id')

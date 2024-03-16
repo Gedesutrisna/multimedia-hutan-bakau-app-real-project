@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateQuizAnswerRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,10 @@ class UpdateQuizAnswerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'answer_text' => 'nullable',
-            'answer_image' => 'nullable|image',
-            'quiz_question_id' => 'required|exists:quiz_questions,id',
+            'name' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|string|min:3',
         ];
     }
 }

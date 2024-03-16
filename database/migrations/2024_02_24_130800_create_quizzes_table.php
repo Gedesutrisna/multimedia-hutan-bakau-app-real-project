@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('image');
-            $table->string('description');
+            $table->text('description');
             $table->integer('duration');
             $table->timestamps();
         });

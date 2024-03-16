@@ -40,7 +40,7 @@
                         <div class="mx-4 mt-4 flex flex-col gap-4 rounded-none bg-transparent bg-clip-border text-gray-700">
                             <div>
                                 <div class="flex justify-between">
-                                    <h6 class="font-Urbanist text-[20px] font-semibold text-[#141414]">Total People Consultation</h6>
+                                    <h6 class="font-Urbanist text-[20px] font-semibold text-[#141414]">Statistik</h6>
                                 </div>
                                 <hr class="mt-4" />
                             </div>
@@ -56,11 +56,10 @@
                         class="xl:ms-5 lg:ms-0 xl:mt-0 xl:py-[26px] px-[24px] md:py-[28px] lg:py-[25px] py-[25px] rounded-[16px] bg-white h-full"
                     >
                         <p class="text-[#141414] font-Urbanist text-[20px] font-semibold lg:pt-2">Notification</p>
-                        @foreach ($quiz_results as $quiz_result)
-                            
+                        @foreach ($quiz_results->take(3) as $quiz_result)
                         <div class="ps-4 py-4 rounded-l-[8px] rounded-tr-[8px] bg-[#F5F6FB] mt-[18px] relative">
                             <p class="text-[#3D3D3E] font-Urbanist text-[14px] font-medium">
-                                {{ $quiz_result->user->name }} User successfully did the quiz {{ $quiz_result->quiz->name }} with score {{ $quiz_result->point }}
+                                {{ $quiz_result->user->name }} successfully did the quiz {{ $quiz_result->quiz->name }} with score {{ $quiz_result->point }}
                             </p>
                             <div class="flex items-center mt-[14px] lg:space-x-[8px] xl:space-x-[42px]">
                                 <p class="text-[#3D3D3E] font-Urbanist text-[12px] font-medium flex items-center">
@@ -69,7 +68,7 @@
                                 </p>
                             </div>
                         </div>
-                        @endforeach
+                    @endforeach                    
                     </div>
                 </div>
             </div>
@@ -89,7 +88,7 @@
 
                 // ... (konfigurasi lainnya tetap sama)
 
-                colors: ["#8C80FF"],
+                colors: ["#8C80FF","6E62E5"],
                 chart: {
                     type: "bar",
                     height: 250,

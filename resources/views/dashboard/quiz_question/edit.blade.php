@@ -7,7 +7,9 @@
 
     <div class="content-main p-[32px]">
         <div class="flex gap-3">
-            <a href="/dashboard/questions"><img src="/asset/back logo.svg" alt=""></a>
+            <a href="/dashboard/quizzes/{{ $question->quiz->slug }}">
+                <img src="/asset/back logo.svg" alt="">
+            </a>
             <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Question</p>
         </div>
         <form action="/dashboard/questions/{{ $question->id }}" method="post" enctype="multipart/form-data">
@@ -23,13 +25,13 @@
                     @php
                         $questionCount = $quiz->questions()->count();
                     @endphp
-                    @if ($questionCount < 15)
                         @if (old('quiz_id', $question->quiz_id) == $quiz->id)
                             <option value="{{ $quiz->id }}" selected>{{ $quiz->name}}</option>    
                         @else
-                            <option value="{{ $quiz->id }}">{{ $quiz->name}}</option>
+                            @if ($questionCount < 15)
+                                <option value="{{ $quiz->id }}">{{ $quiz->name}}</option>
+                            @endif
                         @endif
-                    @endif
                     @endforeach
                 </select>
                 @error('quiz_id')

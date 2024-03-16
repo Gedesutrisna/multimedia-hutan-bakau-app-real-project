@@ -8,7 +8,7 @@
 						<img class="left-img-hero hidden xl:grid" src="/asset/img-hero-login.svg" alt="" />
 					</div>
 
-					<div class="right-wrapper-login">
+					<div class="right-wrapper-login mb-[120px]">
 
 						<div class="flex justify-center xl:justify-start">
 							<button class="banner-btn-login mb-4">Login Account Page</button>
@@ -47,12 +47,6 @@
 								</div>
 								<button type="submit" class="button-login">Login account<img src="/asset/arrow-btn.svg" alt="" /></button>
 							</form>
-						</div>
-
-						<hr class="my-[32px]" />
-
-						<div class="flex justify-center xl:justify-start">
-							<a href="/public/register.html" class="text-center font-Urbanist text-[14px] font-medium text-[#858585] xl:text-left">Don’t have an account?<span class="text-primary"> Register for Free </span></a>
 						</div>
 
 					</div>

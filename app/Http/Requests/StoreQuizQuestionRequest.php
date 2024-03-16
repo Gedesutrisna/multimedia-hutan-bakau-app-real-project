@@ -25,6 +25,7 @@ class StoreQuizQuestionRequest extends FormRequest
             'question' => 'required|string|max:255',
             'quiz_id' => 'required|exists:quizzes,id',
             'image' => 'image',
+            'correct' => 'required|string',
         ];
     }
 }

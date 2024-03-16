@@ -9,13 +9,21 @@
     </button>
 
     <div class="search-nav xl:w-[80%] lg:w-[60%] hidden lg:flex">
-        @if (request()->is('dashboard/blogs*'))
+        @if (request()->is('dashboard'))
+            <input
+                type="text"
+                name="search"
+                id="" style="background-image: url('/asset/search.svg')"
+                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+                placeholder="Search anything.."
+            />
+        @elseif (request()->is('dashboard/blogs*'))
         <form action="/dashboard/blogs" method="get" class="w-[100%]">
             <input
                 type="text"
                 name="search"
-                id=""
-                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB] bg-[url('/asset/search.svg')] bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+                id="" style="background-image: url('/asset/search.svg')"
+                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
                 placeholder="Search anything.."
             />
         </form>
@@ -24,8 +32,8 @@
             <input
                 type="text"
                 name="search"
-                id=""
-                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB] bg-[url('/asset/search.svg')] bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+                id="" style="background-image: url('/asset/search.svg')"
+                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
                 placeholder="Search anything.."
             />
         </form>
@@ -34,8 +42,8 @@
             <input
                 type="text"
                 name="search"
-                id=""
-                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB] bg-[url('/asset/search.svg')] bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+                id="" style="background-image: url('/asset/search.svg')"
+                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
                 placeholder="Search anything.."
             />
         </form>
@@ -44,8 +52,8 @@
             <input
                 type="text"
                 name="search"
-                id=""
-                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB] bg-[url('/asset/search.svg')] bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+                id="" style="background-image: url('/asset/search.svg')"
+                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
                 placeholder="Search anything.."
             />
         </form>
@@ -55,8 +63,8 @@
             <input
                 type="text"
                 name="search"
-                id=""
-                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB] bg-[url('/asset/search.svg')] bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+                id="" style="background-image: url('/asset/search.svg')"
+                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
                 placeholder="Search anything.."
             />
         </form>
@@ -66,11 +74,23 @@
         <input
             type="text"
             name="search"
-            id=""
-            class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB] bg-[url('/asset/search.svg')] bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+            id="" style="background-image: url('/asset/search.svg')"
+            class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
             placeholder="Search anything.."
         />
         </form>
+
+        @elseif(request()->is('dashboard/users*'))
+        <form action="/dashboard/users" method="get" class="w-[100%]">
+        <input
+            type="text"
+            name="search"
+            id="" style="background-image: url('/asset/search.svg')"
+            class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+            placeholder="Search anything.."
+        />
+        </form>
+        
         
         @endif
     </div>

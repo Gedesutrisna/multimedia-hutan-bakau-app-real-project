@@ -7,7 +7,9 @@
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="flex gap-3">
-                    <a href="/dashboard/questions"><img src="/asset/back logo.svg" alt=""></a>
+                    <a href="/dashboard/quizzes/{{ $quiz->slug }}">
+                        <img src="/asset/back logo.svg" alt="">
+                    </a>
                     <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Question</h1>
                 </div>
             </div>
@@ -20,11 +22,12 @@
                     <li class="">Image</li>
                     <li class="col-span-5">Question</li>
                     <li class="">Answer</li>
+                    <li class="">Correct Answer</li>
                 </ul>
                 <ul
                 class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start"
             >
-                <li class="col-span-2">{{ $question->quiz->name }}</li>
+                <li class="col-span-2">{{ $quiz->name }}</li>
                 @if (empty($question->image))
                     
                 <li class="">-</li>
@@ -34,6 +37,10 @@
                 @endif
                 <li class="col-span-5">{{ $question->question }}</li>
                 <li class="">{{ $question->answers->count() }} Answer</li>
+                <li class="">{{ $question->correct }}</li>
+                {{-- @if ($question->answers->is_correct == "true")
+                <li class="">{{ $question->answers-> }}</li>
+                @endif --}}
             </ul>
             </div>
             <div class="sm:flex sm:justify-between block items-end mt-4">
@@ -44,27 +51,21 @@
             <div class="overflow-x-auto">
                 <ul class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
                     <li class="">#</li>
-                    <li class="">Point</li>
-                    <li class="">Is Correct</li>
-                    <li class="col-span-6">Answer</li>
+                    <li class="col-span-8">Answer</li>
                     <li class=""></li>
                 </ul>
-                @foreach ($question->answers as $answer)
+                @foreach ($question->answers as $i => $answer)
                 <ul class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start">
-                    <li>{{ $loop->iteration }}</li>
-                    <li class="">{{ $answer->point }}</li>
-                    @if ($answer->is_correct == "true")
-                    <li class="">Correct</li>
-                    @elseif($answer->is_correct == "false")
-                    <li class="">Incorrect</li>
-                    @endif
-                    @if (empty($answer->answer_image))
-                    <li class="col-span-6">{{ $answer->answer_text }}</li>
-                    @else
-                    <li class=""><img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px"></li>
-                    @endif
+                    <li>{{ $answer->option }}</li>
+                    @if (empty($answer->answer_image) && !empty($answer->answer_text))
+                        <li class="col-span-8">{{ Str::limit($answer->answer_text, 130) }}</li>
+                    @elseif (!empty($answer->answer_image) && empty($answer->answer_text))
+                        <li class="col-span-8"><img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px"></li>
+                    @elseif (empty($answer->answer_image) && empty($answer->answer_text))
+                        <li class="col-span-8">-</li>
+                    @endif  
                     <div class="flex items-center gap-[4px]">
-                        <a href="/dashboard/answers/{{ $answer->id }}">
+                        <a href="/dashboard/quizzes/{{ $quiz->slug }}/questions/{{ $question->id }}/answers/{{ $answer->id }}">
                             <button
                                 class="py-[6px] px-[3px] bg-[#E1E7F7] rounded-[5px] w-[32px] h-[32px] flex justify-center items-center"
                             >

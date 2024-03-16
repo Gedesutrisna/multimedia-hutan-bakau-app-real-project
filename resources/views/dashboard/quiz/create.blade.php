@@ -44,10 +44,9 @@
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Description</label>
-                <textarea name="description" value="{{ old('description') }}"
-                type="text"
-                class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                placeholder="Enter description.." style="resize: none" @error('description') is-invalid @enderror
+                <textarea name="description" id="description" value="{{ old('description') }}"
+                    type="text"
+                    style="resize: none" @error('description') is-invalid @enderror
                 >{{ old('description') }}</textarea>
                 @error('description')
                 <div class="invalid-feedback">
@@ -75,6 +74,9 @@
             </div>
         </div>
         <input type="hidden" class="form-control @error('slug') is-invalid @enderror form-control-sm" name="slug" id="slug" value="{{ old('slug') }}" required>
+
+        <hr class="mt-1">
+
         <div class="flex items-center gap-2 mt-[26px]">
             <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Add New Quiz</button>
             <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Cancel Add</button>
@@ -83,6 +85,7 @@
 
     </div>
     <script>
+        let description = new RichTextEditor("#description");
 
         const titleInput = document.querySelector('#name');
         const slugInput = document.querySelector('#slug');

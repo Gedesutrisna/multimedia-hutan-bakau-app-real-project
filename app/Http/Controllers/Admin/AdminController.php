@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Models\Admin;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
@@ -24,8 +25,9 @@ class AdminController extends Controller
         }
         if(isset($randomFileName)) {
             $validatedData['image'] = $randomFileName;
-            if (auth()->guard('admin')->user()->image) {
-                Storage::delete('images/' . auth()->guard('admin')->user()->image);
+            $oldImagePath = public_path('images/') . auth()->guard('admin')->user()->image;
+            if(File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
             }
         }
 

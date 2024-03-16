@@ -23,15 +23,23 @@
                 >
                 <select name="quiz_question_id" id="" class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none" @error('quiz_question_id') is-invalid @enderror>
                     <option value="" disabled>Select Question</option>
+                    @php $lastQuizName = null; @endphp
                     @foreach ($questions as $question)
                         @php
                             $questionCount = $question->answers()->count();
+                            $currentQuizName = $question->quiz->name;
                         @endphp
+                
                         @if ($questionCount < 4)
-                            @if (old('quiz_question_id') == $question->id)
-                                <option value="{{ $question->id }}">{{ $question->question}}</option>    
-                            @else
-                                <option value="{{ $question->id }}">{{ $question->question}}</option>
+                            @if ($currentQuizName != $lastQuizName)
+                                @php $lastQuizName = $currentQuizName; @endphp
+                                <optgroup label="{{ $currentQuizName }}">
+                            @endif
+                
+                            <option value="{{ $question->id }}" @if(old('quiz_question_id') == $question->id) selected @endif>{{ $question->question }}</option>
+                
+                            @if ($currentQuizName != $lastQuizName)
+                                </optgroup>
                             @endif
                         @endif
                     @endforeach
@@ -291,13 +299,6 @@
     </div>
     <script>
 
-        const titleInput = document.querySelector('#name');
-        const slugInput = document.querySelector('#slug');
-
-        titleInput.addEventListener('change', function() {
-        const titleValue = titleInput.value.toLowerCase().trim().replace(/\s+/g, '-');
-        slugInput.value = titleValue;
-        });
 
         function previewImage() {
             const imgInputs = document.querySelectorAll('input[type="file"][name^="answers"]');

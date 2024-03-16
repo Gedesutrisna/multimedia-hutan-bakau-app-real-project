@@ -4,7 +4,7 @@
     <!-- Main content -->
 
 
-        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body  {{ $blogs->count() < 3 ? 'h-[100vh]' : '' }} ">
+        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body  {{ $blogs->count() < 4 ? 'h-[100vh]' : '' }} ">
             <div class="sm:flex sm:justify-between block items-end">   
                 <div class="flex gap-3">
                     <a href="/"><img src="/asset/back logo.svg" alt=""></a>
@@ -18,7 +18,7 @@
                 >
                     <li class="">#</li>
                     <li class="col-span-2">Title</li>
-                    <li class="">Category</li>
+                    <li class="">Category</li>`
                     <li class="col-span-5">Body</li>
                     <li class=""></li>
                 </ul>
@@ -29,7 +29,7 @@
                 <li>{{ ($blogs->currentPage() - 1) * $blogs->perPage() + $loop->index + 1 }}</li>
                 <li class="col-span-2 whitespace-normal">{{ $blog->title }}</li>
                 <li class="">{{ $blog->category->name }}</li>
-                <li class="col-span-5">{!! $blog->body !!}</li>
+                <li class="col-span-5">{!! Str::limit($blog->body, 100) !!}</li>
                 <div class="flex items-center gap-[4px]">
                     <a href="/blogs/{{ $blog->slug }}">
                         <button

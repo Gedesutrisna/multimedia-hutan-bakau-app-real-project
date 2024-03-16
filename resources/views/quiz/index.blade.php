@@ -4,7 +4,7 @@
     <!-- Main content -->
 
 
-        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $quizzes->count() < 3 ? 'h-[100vh]' : '' }}">
+        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $quizzes->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="flex gap-3">
                     <a href="/"><img src="/asset/back logo.svg" alt=""></a>
@@ -30,7 +30,7 @@
                 <li>{{ ($quizzes->currentPage() - 1) * $quizzes->perPage() + $loop->index + 1 }}</li>
                 <li class="">{{ $quiz->duration }} minute</li>
                 <li class="col-span-2 whitespace-normal">{{ $quiz->name }}</li>
-                <li class="col-span-4">{{ $quiz->description }}</li>
+                <li class="col-span-4">{!! Str::limit($quiz->description, 90) !!}</li>
                 <li class="">{{ $quiz->questions->count() }} Question</li>
                 <div class="flex items-center gap-[4px]">
                     <a href="/quizzes/{{ $quiz->slug }}">

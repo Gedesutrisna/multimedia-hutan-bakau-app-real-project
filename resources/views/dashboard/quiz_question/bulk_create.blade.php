@@ -594,13 +594,6 @@
     </div>
     <script>
 
-        const titleInput = document.querySelector('#name');
-        const slugInput = document.querySelector('#slug');
-
-        titleInput.addEventListener('change', function() {
-        const titleValue = titleInput.value.toLowerCase().trim().replace(/\s+/g, '-');
-        slugInput.value = titleValue;
-        });
 
         function previewImage() {
             const imgInputs = document.querySelectorAll('input[type="file"][name^="questions"]');

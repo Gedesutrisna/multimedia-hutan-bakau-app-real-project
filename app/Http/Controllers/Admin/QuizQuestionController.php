@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Quiz;
+use App\Models\QuizAnswer;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreQuizQuestionRequest;
 use App\Http\Requests\UpdateQuizQuestionRequest;
@@ -17,9 +21,10 @@ class QuizQuestionController extends Controller
         $questions = QuizQuestion::latest()->filter(request(['search']))->paginate(7)->withQueryString();
         return view('dashboard.quiz_question.index',compact('questions'));
     }
-    public function show(QuizQuestion $question)
+    public function show(Quiz $quiz, QuizQuestion $question)
     {
         return view('dashboard.quiz_question.show', [
+            'quiz' => $quiz,
             'question' => $question,
         ]);
     }
@@ -32,6 +37,11 @@ class QuizQuestionController extends Controller
     {
         $quizzes = Quiz::all();
         return view('dashboard.quiz_question.bulk_create',compact('quizzes'));
+    }
+    public function bulkCreateDumy()
+    {
+        $quizzes = Quiz::all();
+        return view('dashboard.quiz_question.bulk_create_dumy',compact('quizzes'));
     }
     public function edit(QuizQuestion $question)
     {
@@ -60,7 +70,7 @@ class QuizQuestionController extends Controller
             $validatedData['image'] = $randomFileName;
         }
         QuizQuestion::create($validatedData);
-        return redirect('/dashboard/questions')->with('success','QuizQuestion Added Successfully!');
+        return redirect('/dashboard/questions')->with('success','Question Added Successfully!');
     }
 
     public function bulkStore(Request $request)
@@ -97,8 +107,42 @@ class QuizQuestionController extends Controller
 
         QuizQuestion::insert($questionsToInsert);
 
-        return redirect('/dashboard/questions')->with('success','Quiz Questions Added Successfully!');
+        return redirect('/dashboard/questions')->with('success','Questions Added Successfully!');
     }
+    public function bulkStoreDumy(Request $request)
+    {
+        $validatedData = $request->validate([
+            'quiz_id' => 'required|exists:quizzes,id',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $quizId = $validatedData['quiz_id'];
+        $existingQuestionCount = Quiz::findOrFail($quizId)->questions()->count();
+
+        if ($existingQuestionCount >= 15) {
+            return redirect()->back()->with('error', 'Cannot add more questions. The quiz already has the maximum number of questions.');
+        }
+
+        $questionsToInsert = [];
+        $quantity = $validatedData['quantity'];
+
+        for ($i = 0, $j = 1; $i < $quantity; $i++ , $j++) {
+            $question = [
+                'quiz_id' => $quizId,
+                'question' => "question $j", 
+                'image' => null,    
+                'created_at' => Carbon::now(),    
+                'updated_at' => Carbon::now(),    
+            ];
+
+            $questionsToInsert[] = $question;
+        }
+
+        QuizQuestion::insert($questionsToInsert);
+
+        return redirect('/dashboard/questions')->with('success','Questions Added Successfully!');
+    }
+
 
     public function update(UpdateQuizQuestionRequest $request, QuizQuestion $question)
     {
@@ -111,16 +155,21 @@ class QuizQuestionController extends Controller
         }
         if(isset($randomFileName)) {
             $validatedData['image'] = $randomFileName;
-            if ($question->image) {
-                Storage::delete('images/' . $question->image);
+            $oldImagePath = public_path('images/') . $question->image;
+            if(File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
             }
         }
         $question->update($validatedData);
-        return redirect('/dashboard/questions')->with('success','QuizQuestion Updated Successfully!');
+        return redirect('/dashboard/questions')->with('success','Question Updated Successfully!');
     }
     public function destroy(QuizQuestion $question)
     {
+        $relatedAnswersCount = QuizAnswer::where('quiz_question_id', $question->id)->count();
+        if ($relatedAnswersCount > 0) {
+            return back()->with('error', 'Cannot delete question. It has related answers.')->withInput();
+        }
         $question->delete();
-        return back()->with('success','QuizQuestion Deleted Successfully!');
+        return back()->with('success', 'Question deleted successfully!');
     }
 }

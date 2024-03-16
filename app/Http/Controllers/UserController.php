@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateUserRequest;
 
@@ -24,8 +25,9 @@ class UserController extends Controller
         }
         if(isset($randomFileName)) {
             $validatedData['image'] = $randomFileName;
-            if (auth()->user()->image) {
-                Storage::delete('images/' . auth()->user()->image);
+            $oldImagePath = public_path('images/') . auth()->user()->image;
+            if(File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
             }
         }
 

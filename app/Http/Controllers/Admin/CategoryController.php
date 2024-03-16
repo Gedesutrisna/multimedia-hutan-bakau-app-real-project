@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\StoreCategoryRequest;
@@ -46,7 +47,11 @@ class CategoryController extends Controller
     }
     public function destroy(Category $category)
     {
+        $relatedBlogsCount = Blog::where('category_id', $category->id)->count();
+        if ($relatedBlogsCount > 0) {
+            return back()->with('error', 'Cannot delete category. It has related blogs.')->withInput();
+        }
         $category->delete();
-        return back()->with('success','Category Deleted Successfully!');
+        return back()->with('success', 'Category deleted successfully!');
     }
 }

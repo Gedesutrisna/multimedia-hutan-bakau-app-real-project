@@ -89,7 +89,7 @@
 
 @layer components {
 	.sidebar-container {
-		@apply fixed bg-white lg:px-[26px] md:px-[33px] 2xl:px-[50px] xl:px-[35px] py-[40px] px-[20px] h-full top-0 left-0;
+		@apply fixed bg-white lg:px-[26px] md:px-[33px] 2xl:px-[50px] xl:px-[35px] py-[24px] px-[20px] h-full top-0 left-0;
 	}
 }
 

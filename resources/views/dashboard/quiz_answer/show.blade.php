@@ -7,8 +7,19 @@
 
     <div class="content-main p-[32px]">
         <div class="flex gap-3">
-            <a href="/dashboard/answers"><img src="/asset/back logo.svg" alt=""></a>
+            <a href="/dashboard/quizzes/{{ $quiz->slug }}/questions/{{ $question->id }}">
+                <img src="/asset/back logo.svg" alt="">
+            </a>
             <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Answer</p>
+        </div>
+        <div class="grid grid-cols-1 mt-9 gap-4">
+            <div class="">
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Quiz</label>
+            <input name="quiz_id" value="{{ old('quiz_id', $answer->quiz_question->quiz->name) }}" disabled
+                type="text"
+                class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
+               style="resize: none" @error('quiz_id') is-invalid @enderror/>
+            </div>
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">

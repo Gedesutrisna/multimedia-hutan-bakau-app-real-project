@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('quiz_answers', function (Blueprint $table) {
             $table->id();
+            $table->string('option');
             $table->string('answer_text')->nullable();
             $table->string('answer_image')->nullable();
             $table->foreignId('quiz_question_id');
-            $table->enum('is_correct',['true','false']);
             $table->timestamps();
         });
     }

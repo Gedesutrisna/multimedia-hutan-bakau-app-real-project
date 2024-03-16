@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreBlogRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateBlogRequest;
@@ -62,8 +63,9 @@ class BlogController extends Controller
         }
         if(isset($randomFileName)) {
             $validatedData['assets'] = $randomFileName;
-            if ($blog->assets) {
-                Storage::delete('images/' . $blog->assets);
+            $oldImagePath = public_path('images/') . $blog->assets;
+            if(File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
             }
         }
         $blog->update($validatedData);

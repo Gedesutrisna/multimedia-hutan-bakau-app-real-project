@@ -13,10 +13,14 @@
 		/>
 		<link rel="stylesheet" type="text/css" href="/css/trix.css">
 		<script type="text/javascript" src="/js/trix.js"></script>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
 		<link rel="stylesheet" href="/css/richtexteditor/rte_theme_default.css" />
         @vite('resources/css/app.css')
 		<meta name="body" content="" />
 	</head>
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 	<script type="text/javascript" src="/js/richtexteditor/rte.js"></script>
 	<script type="text/javascript" src='/js/richtexteditor/all_plugins.js'></script>
 	<script src="/js/script.js"></script>

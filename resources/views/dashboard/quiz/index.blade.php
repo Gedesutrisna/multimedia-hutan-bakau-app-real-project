@@ -4,7 +4,7 @@
     <!-- Main content -->
 
 
-        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $quizzes->count() < 3 ? 'h-[100vh]' : '' }}">
+        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $quizzes->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
                     <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Quizzes</h1>
@@ -34,7 +34,7 @@
                 <li>{{ ($quizzes->currentPage() - 1) * $quizzes->perPage() + $loop->index + 1 }}</li>
                 <li class="">{{ $quiz->duration }} minute</li>
                 <li class="col-span-2 whitespace-normal">{{ $quiz->name }}</li>
-                <li class="col-span-4">{{ $quiz->description }}</li>
+                <li class="col-span-4">{!! Str::limit($quiz->description, 110) !!}</li>
                 <li class="">{{ $quiz->questions->count() }} Question</li>
                 <div class="flex items-center gap-[4px]">
                     <a href="/dashboard/quizzes/{{ $quiz->slug }}">

@@ -6,7 +6,9 @@ use App\Models\Quiz;
 use App\Models\QuizAnswer;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreQuizAnswerRequest;
 use App\Http\Requests\UpdateQuizAnswerRequest;
@@ -18,9 +20,11 @@ class QuizAnswerController extends Controller
         $answers = QuizAnswer::latest()->filter(request(['search']))->paginate(7)->withQueryString();
         return view('dashboard.quiz_answer.index',compact('answers'));
     }
-    public function show(QuizAnswer $answer)
+    public function show(Quiz $quiz, QuizQuestion $question, QuizAnswer $answer)
     {
         return view('dashboard.quiz_answer.show', [
+            'quiz' => $quiz,
+            'question' => $question,
             'answer' => $answer,
         ]);
     }
@@ -33,6 +37,13 @@ class QuizAnswerController extends Controller
     {
         $questions = QuizQuestion::all();
         return view('dashboard.quiz_answer.bulk_create',compact('questions'));
+    }
+
+    public function bulkCreateDumy()
+    {
+        $quizzes = Quiz::all();
+        $questions = QuizQuestion::all();
+        return view('dashboard.quiz_answer.bulk_create_dumy',compact('questions','quizzes'));
     }
     public function edit(QuizAnswer $answer)
     {
@@ -54,8 +65,9 @@ class QuizAnswerController extends Controller
             $validatedData['answer_image'] = $randomFileName;
         }
         QuizAnswer::create($validatedData);
-        return redirect('/dashboard/answers')->with('success','QuizAnswer Added Successfully!');
+        return redirect('/dashboard/answers')->with('success','Answer Added Successfully!');
     }
+    
     public function bulkStore(Request $request)
     {
         $validatedData = $request->validate([
@@ -65,7 +77,22 @@ class QuizAnswerController extends Controller
             'answers.*.is_correct' => 'required',
         ]);
 
+        $isCorrectCount = 0;
+        foreach ($validatedData['answers'] as $answerData) {
+            if ($answerData['is_correct'] == "true") {
+                $isCorrectCount++;
+            }
+            if (isset($answerData['answer_text']) && isset($answerData['answer_image'])) {
+                return back()->with('error', 'Cannot add answer text and answer image at the same time, just choose one.');
+            }
+        }
+
+        if ($isCorrectCount != 1) {
+            return back()->with('error', 'Only one answer can be marked as correct.');
+        }
+
         $questionId = $validatedData['quiz_question_id'];
+
         $existingAnswerCount = QuizQuestion::findOrFail($questionId)->answers()->count();
 
         if ($existingAnswerCount >= 4) {
@@ -80,12 +107,12 @@ class QuizAnswerController extends Controller
                 'answer_text' => null,
                 'answer_image' => null, 
             ];
-        
+
             // Cek apakah ada teks jawaban
             if (isset($answerData['answer_text'])) {
                 $answer['answer_text'] = $answerData['answer_text'];
             }
-        
+
             // Cek apakah ada gambar jawaban
             if (isset($answerData['answer_image'])) {
                 $fileExtension = $answerData['answer_image']->getClientOriginalExtension();
@@ -95,15 +122,88 @@ class QuizAnswerController extends Controller
             }
             $answersToInsert[] = $answer;
         }
-        
+
         QuizAnswer::insert($answersToInsert);
 
-        return redirect('/dashboard/answers')->with('success','Quiz Questions Added Successfully!');
+        return redirect('/dashboard/answers')->with('success','Answer Added Successfully!');
     }
+
+    public function bulkStoreDumy(Request $request)
+    {
+        $validatedData = $request->validate([
+            'quiz_question_id' => 'required|exists:quiz_questions,id',
+            'quantity' => 'required|integer|min:1', 
+        ]);
+
+        $questionId = $validatedData['quiz_question_id'];
+        $existingAnswerCount = QuizQuestion::findOrFail($questionId)->answers()->count();
+
+        if ($existingAnswerCount >= 4) {
+            return redirect()->back()->with('error', 'Cannot add more answers. The answer already has maximum number of answers.');
+        }
+
+        $answersToInsert = [];
+        $quantity = $validatedData['quantity'];
+
+        for ($i = 0; $i < $quantity; $i++) {
+            $answer = [
+                'quiz_question_id' => $questionId,
+                'is_correct' => "false",
+                'answer_text' => null, 
+                'answer_image' => null,    
+                'created_at' => Carbon::now(),    
+                'updated_at' => Carbon::now(),    
+            ];
+
+            $answersToInsert[] = $answer;
+        }
+
+        QuizAnswer::insert($answersToInsert);
+
+        return redirect('/dashboard/answers')->with('success','Questions Added Successfully!');
+    }
+    
+    // public function update(UpdateQuizAnswerRequest $request, QuizAnswer $answer)
+    // {
+    //     $validatedData = $request->validated();
+    //     $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
+    //     if($request->hasFile('answer_image')){
+    //         $fileExtension = $request->file('answer_image')->getClientOriginalExtension();
+    //         $randomFileName = hash('md5', time()) . '.' . $fileExtension;
+    //         $request->file('answer_image')->move('images/', $randomFileName);
+    //     }
+    //     if(isset($randomFileName)) {
+    //         $validatedData['answer_image'] = $randomFileName;
+    //         $oldImagePath = public_path('images/') . $answer->answer_image;
+    //         if(File::exists($oldImagePath)) {
+    //             File::delete($oldImagePath);
+    //         }
+    //     }
+    //     $answer->update($validatedData);
+    //     return redirect('/dashboard/answers')->with('success','Answer Updated Successfully!');
+    // }
     public function update(UpdateQuizAnswerRequest $request, QuizAnswer $answer)
     {
         $validatedData = $request->validated();
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
+        
+        if(array_key_exists('answer_text', $validatedData) && array_key_exists('answer_image', $validatedData)) {
+            return back()->with('error', 'Cannot add answer text and answer image at the same time, just choose one.');
+        }        
+
+        $quizQuestionId = $answer->quiz_question_id;
+
+        $isCorrectCount = QuizAnswer::where('quiz_question_id', $quizQuestionId)
+            ->where('is_correct', "true")
+            ->where('id', '!=', $answer->id)
+            ->count();
+
+        
+        if ($isCorrectCount > 0 && $request->input('is_correct') == "true") {
+            return back()->with('error', 'There is already a correct answer for this question.');
+        }
+        
+        
         if($request->hasFile('answer_image')){
             $fileExtension = $request->file('answer_image')->getClientOriginalExtension();
             $randomFileName = hash('md5', time()) . '.' . $fileExtension;
@@ -111,16 +211,18 @@ class QuizAnswerController extends Controller
         }
         if(isset($randomFileName)) {
             $validatedData['answer_image'] = $randomFileName;
-            if ($answer->answer_image) {
-                Storage::delete('images/' . $answer->answer_image);
+            $oldImagePath = public_path('images/') . $answer->answer_image;
+            if(File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
             }
         }
+
         $answer->update($validatedData);
-        return redirect('/dashboard/answers')->with('success','QuizAnswer Updated Successfully!');
+        return redirect('/dashboard/answers')->with('success', 'Answer Updated Successfully!');
     }
     public function destroy(QuizAnswer $answer)
     {
         $answer->delete();
-        return back()->with('success','QuizAnswer Deleted Successfully!');
+        return back()->with('success','Answer Deleted Successfully!');
     }
 }

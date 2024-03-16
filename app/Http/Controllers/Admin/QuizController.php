@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Quiz;
+use App\Models\QuizAnswer;
+use App\Models\QuizQuestion;
+use Illuminate\Support\Carbon;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreQuizRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateQuizRequest;
@@ -31,6 +35,21 @@ class QuizController extends Controller
             'quiz' => $quiz,
         ]);
     }
+    // public function store(StoreQuizRequest $request)
+    // {
+    //     $validatedData = $request->validated();
+    //     if($request->hasFile('image')){
+    //         $fileExtension = $request->file('image')->getClientOriginalExtension();
+    //         $randomFileName = hash('md5', time()) . '.' . $fileExtension;
+    //         $request->file('image')->move('images/', $randomFileName);
+    //     }
+    //     $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
+    //     if(isset($randomFileName)) {
+    //         $validatedData['image'] = $randomFileName;
+    //     }
+    //     Quiz::create($validatedData);
+    //     return redirect('/dashboard/quizzes')->with('success','Quiz Added Successfully!');
+    // }
     public function store(StoreQuizRequest $request)
     {
         $validatedData = $request->validated();
@@ -43,9 +62,49 @@ class QuizController extends Controller
         if(isset($randomFileName)) {
             $validatedData['image'] = $randomFileName;
         }
-        Quiz::create($validatedData);
+        $quiz = Quiz::create($validatedData);
+
+        //create question
+        $questionsToInsert = [];
+        $questionIds = [];
+        for ($i = 0, $j = 1; $i < 15; $i++, $j++) {
+            $question = [
+                'quiz_id' => $quiz->id,
+                'question' => "question $j", 
+                'image' => null,    
+                'correct' => "A",    
+                'created_at' => Carbon::now(),    
+                'updated_at' => Carbon::now(),    
+            ];
+            $createdQuestion = QuizQuestion::create($question);
+            $questionsToInsert[] = $createdQuestion;
+            $questionIds[] = $createdQuestion->id;
+        }
+        
+        $answersToInsert = [];
+        $optionLetters = ['A', 'B', 'C', 'D'];
+        foreach ($questionIds as $questionId) {
+            foreach ($optionLetters as $optionLetter) {
+                $answer = [
+                    'quiz_question_id' => $questionId,
+                    'option' => $optionLetter,
+                    'answer_text' => null, 
+                    'answer_image' => null,    
+                    'created_at' => Carbon::now(),    
+                    'updated_at' => Carbon::now(),    
+                ];
+                $answersToInsert[] = $answer;
+            }
+        }
+        QuizAnswer::insert($answersToInsert);
+        
         return redirect('/dashboard/quizzes')->with('success','Quiz Added Successfully!');
+        
     }
+    
+
+    
+
     public function update(UpdateQuizRequest $request, Quiz $quiz)
     {
         $validatedData = $request->validated();
@@ -57,8 +116,9 @@ class QuizController extends Controller
         }
         if(isset($randomFileName)) {
             $validatedData['image'] = $randomFileName;
-            if ($quiz->image) {
-                Storage::delete('images/' . $quiz->image);
+            $oldImagePath = public_path('images/') . $quiz->image;
+            if(File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
             }
         }
         $quiz->update($validatedData);
@@ -66,7 +126,11 @@ class QuizController extends Controller
     }
     public function destroy(Quiz $quiz)
     {
+        $relatedQuestionsCount = QuizQuestion::where('quiz_id', $quiz->id)->count();
+        if ($relatedQuestionsCount > 0) {
+            return back()->with('error', 'Cannot delete quiz. It has related questions.')->withInput();
+        }
         $quiz->delete();
-        return back()->with('success','Quiz Deleted Successfully!');
+        return back()->with('success', 'Quiz deleted successfully!');
     }
 }

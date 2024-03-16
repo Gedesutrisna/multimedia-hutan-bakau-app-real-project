@@ -25,7 +25,7 @@ class UpdateAdminRequest extends FormRequest
             'name' => 'required|string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'email' => 'required|email|max:255',
-            'password' => 'string|min:8',
+            'password' => 'string',
         ];
     }
 }

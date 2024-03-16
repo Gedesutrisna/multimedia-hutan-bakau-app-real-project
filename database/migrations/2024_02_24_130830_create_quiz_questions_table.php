@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('question');
             $table->string('image')->nullable();
             $table->foreignId('quiz_id');
+            $table->string('correct');
             $table->timestamps();
         });
     }

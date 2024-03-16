@@ -4,7 +4,7 @@
     <!-- Main content -->
 
 
-        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $answers->count() < 3 ? 'h-[100vh]' : '' }}">
+        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $answers->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
                     <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Answers</h1>
@@ -13,6 +13,9 @@
                     {{-- <a href="/dashboard/answers/create">
                         <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />Create Answer</button>
                     </a> --}}
+                    <a href="/dashboard/answers/bulk-create-dumy">
+                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />Create Answer</button>
+                    </a>
                     <a href="/dashboard/answers/bulk-create">
                         <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />Create 4 Answer</button>
                     </a>
@@ -42,11 +45,13 @@
                     @elseif($answer->is_correct == "false")
                     <li class="">Incorrect</li>
                     @endif
-                    @if (empty($answer->answer_image))
-                    <li class="col-span-5">{{ $answer->answer_text }}</li>
-                    @else
-                    <li class="col-span-5"><img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px"></li>
-                    @endif
+                    @if (empty($answer->answer_image) && !empty($answer->answer_text))
+                        <li class="col-span-5">{{ Str::limit($answer->answer_text, 130) }}</li>
+                    @elseif (!empty($answer->answer_image) && empty($answer->answer_text))
+                        <li class="col-span-5"><img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px"></li>
+                    @elseif (empty($answer->answer_image) && empty($answer->answer_text))
+                        <li class="col-span-5">-</li>
+                    @endif                
                     <div class="flex items-center gap-[4px]">
                         <a href="/dashboard/answers/{{ $answer->id }}">
                             <button

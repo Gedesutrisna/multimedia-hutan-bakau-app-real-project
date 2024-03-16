@@ -46,7 +46,7 @@
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Description</label>
                 <textarea name="description" value="{{ old('description', $quiz->description) }}"
-                    type="text"
+                    type="text" id="description"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
                     placeholder="Enter description.." style="resize: none" @error('description') is-invalid @enderror
                 >{{ old('description', $quiz->description) }}</textarea>
@@ -87,7 +87,7 @@
 
     </div>
     <script>
-        let body = new RichTextEditor("#body");
+        let description = new RichTextEditor("#description");
 
         const titleInput = document.querySelector('#title');
         const slugInput = document.querySelector('#slug');

@@ -4,14 +4,14 @@
     <!-- Main content -->
 
 
-        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $categories->count() < 4 ? 'h-[100vh]' : '' }}">
-            <div class="sm:flex sm:justify-between block items-end">
+        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body  {{ $users->count() < 4 ? 'h-[100vh]' : '' }} ">
+            <div class="sm:flex sm:justify-between block items-end">   
                 <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Categories</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Users</h1>
                 </div>
                 <div class="">
-                    <a href="/dashboard/categories/create">
-                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />New Category</button>
+                    <a href="/dashboard/users/create">
+                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />New User</button>
                     </a>
                 </div>
             </div>
@@ -21,19 +21,21 @@
                     class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start"
                 >
                     <li class="">#</li>
-                    <li class="col-span-2">Name</li>
-                    <li class="col-span-6">Description</li>
+                    <li class="">Image</li>
+                    <li class="col-span-3">Name</li>
+                    <li class="col-span-4">Email</li>
                     <li class=""></li>
                 </ul>
-                @foreach ($categories as $category)
+                @foreach ($users as $user)
                 <ul
                 class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start"
             >
-                <li>{{ ($categories->currentPage() - 1) * $categories->perPage() + $loop->index + 1 }}</li>
-                <li class="col-span-2 whitespace-normal">{{ $category->name }}</li>
-                <li class="col-span-6">{{ Str::limit($category->description, 160) }}</li>
+                <li>{{ ($users->currentPage() - 1) * $users->perPage() + $loop->index + 1 }}</li>
+                <li class=""><img src="{{ asset('images/'.$user->image) }}" alt="" style="width: 40px"></li>
+                <li class="col-span-3 whitespace-normal">{{ $user->name }}</li>
+                <li class="col-span-4 whitespace-normal">{{ $user->email }}</li>
                 <div class="flex items-center gap-[4px]">
-                    <a href="/dashboard/categories/{{ $category->slug }}">
+                    <a href="/dashboard/users/{{ $user->id }}">
                         <button
                             class="py-[6px] px-[3px] bg-[#E1E7F7] rounded-[5px] w-[32px] h-[32px] flex justify-center items-center"
                         >
@@ -60,7 +62,7 @@
                             </svg>
                         </button>
                     </a>
-                    <a href="/dashboard/categories/{{ $category->slug }}/edit">
+                    <a href="/dashboard/users/{{ $user->id }}/edit">
                         <button
                             class="py-[6px] px-[3px] bg-[#F5F0E9] rounded-[5px] w-[32px] h-[32px] flex justify-center items-center"
                         >
@@ -84,7 +86,7 @@
                         </button>
                     </a>
                         
-                    <button class="py-[6px] px-[3px] bg-[#F1E2E6] rounded-[5px] w-[32px] h-[32px] flex justify-center items-center" onclick="my_modal_4{{ $category->id }}.showModal()">	
+                    <button class="py-[6px] px-[3px] bg-[#F1E2E6] rounded-[5px] w-[32px] h-[32px] flex justify-center items-center" onclick="my_modal_4{{ $user->id }}.showModal()">	
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path
                                 d="M9.28242 0C9.52796 0.0933731 9.79337 0.153622 10.0152 0.286536C10.6125 0.644362 10.9151 1.1916 10.9388 1.88896C10.9438 2.03946 10.9395 2.19029 10.9395 2.36458C11.0097 2.36458 11.0702 2.36458 11.1307 2.36458C11.9172 2.36466 12.7036 2.36124 13.49 2.36628C13.9257 2.36908 14.2125 2.71069 14.1292 3.11577C14.0864 3.32377 13.9658 3.48047 13.7687 3.55484C13.658 3.59668 13.6375 3.65522 13.6376 3.76071C13.6402 5.92184 13.6399 8.08292 13.6386 10.244C13.6385 10.3476 13.6385 10.4549 13.6132 10.5539C13.5402 10.8393 13.2656 11.0217 12.9611 11.0012C12.681 10.9824 12.4432 10.7622 12.4026 10.4781C12.3909 10.3961 12.39 10.3121 12.39 10.229C12.3894 8.09908 12.3895 5.96925 12.3895 3.83938C12.3895 3.77251 12.3895 3.70563 12.3895 3.62672C9.46333 3.62672 6.55018 3.62672 3.62054 3.62672C3.61787 3.6823 3.61295 3.73738 3.61295 3.79251C3.61258 6.99511 3.61208 10.1977 3.613 13.4003C3.61325 14.2366 4.13128 14.7496 4.9708 14.7497C7.01238 14.7498 9.05397 14.7506 11.0955 14.7492C11.7317 14.7488 12.2322 14.3552 12.3618 13.7555C12.3836 13.6544 12.383 13.5486 12.3961 13.4455C12.4396 13.1028 12.7208 12.8595 13.0478 12.8802C13.3948 12.9021 13.6405 13.1774 13.6375 13.5409C13.6283 14.6329 12.8749 15.6118 11.8158 15.905C11.6813 15.9422 11.5438 15.9684 11.4077 15.9998C9.13659 15.9998 6.86555 15.9998 4.59447 15.9998C4.56518 15.9905 4.53648 15.9772 4.50644 15.9726C3.84228 15.8726 3.30258 15.5568 2.88863 15.0303C2.51348 14.5531 2.35981 14.0053 2.36056 13.4009C2.36469 10.2032 2.36194 7.00548 2.3644 3.80776C2.36448 3.67913 2.3529 3.5918 2.20615 3.53905C2.02582 3.47426 1.91824 3.32014 1.8752 3.13144C1.78157 2.72128 2.06999 2.36924 2.51177 2.36633C3.29825 2.36116 4.08473 2.3647 4.87126 2.36462C4.9318 2.36462 4.99234 2.36462 5.04671 2.36462C5.05538 2.33099 5.06017 2.32091 5.06026 2.31083C5.0613 2.18062 5.06001 2.05042 5.06246 1.92025C5.07601 1.20239 5.3855 0.644279 6.00053 0.278953C6.21857 0.149456 6.47877 0.0909568 6.71972 4.19608e-05C7.57391 2.94995e-07 8.42815 0 9.28242 0ZM6.31498 2.35379C7.44792 2.35379 8.56352 2.35379 9.68583 2.35379C9.68583 2.172 9.69883 1.99967 9.68299 1.83C9.6537 1.51597 9.38213 1.25743 9.06426 1.25368C8.35681 1.24531 7.64916 1.24556 6.94172 1.25343C6.61706 1.25702 6.34219 1.52222 6.31727 1.84125C6.30436 2.00633 6.31498 2.17325 6.31498 2.35379Z"
@@ -104,17 +106,17 @@
                             />
                         </svg>
                         </button>
-                        <dialog id="my_modal_4{{ $category->id }}" class="modal">
+                        <dialog id="my_modal_4{{ $user->id }}" class="modal">
                           <div class="modal-box flex">
                             <div class="flex justify-between">
                                 <div class="">
-                                    <p class="font-Urbanist font-semibold text-[28px] ">Delete Category {{ $category->title }}</p>
-                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Category Record Deletion: Are you sure you want to delete this category record? This action cannot be undone, and the category record will be permanently removed from the system.</p>
-                                    <form method="POST" action="/dashboard/categories/{{ $category->slug }}">
+                                    <p class="font-Urbanist font-semibold text-[28px] ">Delete User {{ $user->name }}</p>
+                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm User Record Deletion: Are you sure you want to delete this user record? This action cannot be undone, and the user record will be permanently removed from the system.</p>
+                                    <form method="POST" action="/dashboard/users/{{ $user->id }}">
                                         @csrf
                                         @method('delete')    
                                         <div class="flex items-center justify-between w-full mt-8 gap-2">
-                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete Category</button>
+                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete User</button>
                                             <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Delete</button>
                                         </div>
                                     </form>
@@ -131,7 +133,7 @@
                 @endforeach
             </div>
             <div class="mt-3">
-                {{ $categories->links() }}
+                {{ $users->links() }}
             </div>
         </div>
 

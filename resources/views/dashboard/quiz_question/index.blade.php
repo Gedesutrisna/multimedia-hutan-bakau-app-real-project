@@ -4,7 +4,7 @@
     <!-- Main content -->
 
 
-        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $questions->count() < 3 ? 'h-[100vh]' : '' }}">
+        <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $questions->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
                     <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Questions</h1>
@@ -13,6 +13,9 @@
                     {{-- <a href="/dashboard/questions/create">
                         <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />Create Question</button>
                     </a> --}}
+                    <a href="/dashboard/questions/bulk-create-dumy">
+                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />Create Question</button>
+                    </a>
                     <a href="/dashboard/questions/bulk-create">
                         <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />Create 15 Question</button>
                     </a>
@@ -32,13 +35,11 @@
                     <li>{{ ($questions->currentPage() - 1) * $questions->perPage() + $loop->index + 1 }}</li>
                     <li class="col-span-2">{{ $question->quiz->name }}</li>
                     @if (empty($question->image))
-                        
                     <li class="">-</li>
                     @else
-                        
                     <li class=""><img src="{{ asset('images/'.$question->image) }}" alt="" style="width: 40px"></li>
                     @endif
-                    <li class="col-span-5">{{ $question->question }}</li>
+                    <li class="col-span-5">{{ Str::limit($question->question, 130) }}</li>
                     <div class="flex items-center gap-[4px]">
                         <a href="/dashboard/questions/{{ $question->id }}">
                             <button

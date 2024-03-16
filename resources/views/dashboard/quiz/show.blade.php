@@ -22,7 +22,7 @@
                 <li class=""><img src="{{ asset('images/'.$quiz->image) }}" alt="" style="width: 40px"></li>
                 <li class="">{{ $quiz->duration }} minute</li>
                 <li class="col-span-2 whitespace-normal">{{ $quiz->name }}</li>
-                <li class="col-span-5">{{ $quiz->description }}</li>
+                <li class="col-span-5">{!! $quiz->description !!}</li>
                 <li class="">{{ $quiz->questions->count() }} Question</li>
             </ul>
         </div>
@@ -34,15 +34,14 @@
         <div class="overflow-x-auto">
             <ul class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
                 <li class="">#</li>
-                <li class="col-span-2">Quiz</li>
                 <li class="">Image</li>
-                <li class="col-span-5">Question</li>
+                <li class="col-span-6">Question</li>
+                <li class="">Correct Answer</li>
                 <li class=""></li>
             </ul>
             @foreach ($quiz->questions as $question)
             <ul class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start">
                 <li>{{ $loop->iteration }}</li>
-                <li class="col-span-2">{{ $question->quiz->name }}</li>
                 @if (empty($question->image))
                     
                 <li class="">-</li>
@@ -50,9 +49,10 @@
                     
                 <li class=""><img src="{{ asset('images/'.$question->image) }}" alt="" style="width: 40px"></li>
                 @endif
-                <li class="col-span-5">{{ $question->question }}</li>
+                <li class="col-span-6">{{ $question->question }}</li>
+                <li class="">{{ $question->correct }}</li>
                 <div class="flex items-center gap-[4px]">
-                    <a href="/dashboard/questions/{{ $question->id }}">
+                    <a href="/dashboard/quizzes/{{ $quiz->slug }}/questions/{{ $question->id }}">
                         <button
                             class="py-[6px] px-[3px] bg-[#E1E7F7] rounded-[5px] w-[32px] h-[32px] flex justify-center items-center"
                         >

@@ -48,7 +48,7 @@ class QuizController extends Controller
     //         $validatedData['image'] = $randomFileName;
     //     }
     //     Quiz::create($validatedData);
-    //     return redirect('/dashboard/quizzes')->with('success','Quiz Added Successfully!');
+    //     return redirect('/dashboard/quizzes')->with('success','Kuis Berhasil Ditambahkan!');
     // }
     public function store(StoreQuizRequest $request)
     {
@@ -98,7 +98,7 @@ class QuizController extends Controller
         }
         QuizAnswer::insert($answersToInsert);
         
-        return redirect('/dashboard/quizzes')->with('success','Quiz Added Successfully!');
+        return redirect('/dashboard/quizzes')->with('success','Kuis Berhasil Ditambahkan!, beserta pertanyaan dan jawabannya');
         
     }
     
@@ -122,15 +122,15 @@ class QuizController extends Controller
             }
         }
         $quiz->update($validatedData);
-        return redirect('/dashboard/quizzes')->with('success','Quiz Updated Successfully!');
+        return redirect('/dashboard/quizzes')->with('success','Kuis Berhasil Diupdate!');
     }
     public function destroy(Quiz $quiz)
     {
         $relatedQuestionsCount = QuizQuestion::where('quiz_id', $quiz->id)->count();
         if ($relatedQuestionsCount > 0) {
-            return back()->with('error', 'Cannot delete quiz. It has related questions.')->withInput();
+            return back()->with('error', 'Tidak bisa menghapus kuis. Karena memiliki relasi dengan pertanyaan dan jawaban.')->withInput();
         }
         $quiz->delete();
-        return back()->with('success', 'Quiz deleted successfully!');
+        return back()->with('success','Kuis Berhasil Dihapus!');
     }
 }

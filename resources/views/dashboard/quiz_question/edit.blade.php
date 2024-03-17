@@ -10,7 +10,7 @@
             <a href="/dashboard/quizzes/{{ $question->quiz->slug }}">
                 <img src="/asset/back logo.svg" alt="">
             </a>
-            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Question</p>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Pertanyaan</p>
         </div>
         <form action="/dashboard/questions/{{ $question->id }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -18,7 +18,7 @@
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
-                    >Quiz</label
+                    >Kuis</label
                 >
                 <select name="quiz_id" id="" class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none" @error('quiz_id') is-invalid @enderror>
                     @foreach ($quizzes as $quiz)
@@ -43,7 +43,23 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Question</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Jawaban Benar</label>
+                <select name="correct" id="" class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none" @error('correct') is-invalid @enderror>
+                    <option value="A" {{ (old('correct', $question->correct) == 'A') ? 'selected' : '' }}>A</option>
+                    <option value="B" {{ (old('correct', $question->correct) == 'B') ? 'selected' : '' }}>B</option>
+                    <option value="C" {{ (old('correct', $question->correct) == 'C') ? 'selected' : '' }}>C</option>
+                    <option value="D" {{ (old('correct', $question->correct) == 'D') ? 'selected' : '' }}>D</option>
+                </select>                
+                @error('correct')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+        <div class="grid grid-cols-1 mt-9 gap-4">
+            <div class="">
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Pertanyaan</label>
                 <input name="question" id="question" value="{{ old('question',$question->question) }}"
                     type="text"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
@@ -59,7 +75,7 @@
 
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Gambar</label>
                 <input name="image" id="image" value="{{ old('image', $question->image) }}" onchange="previewImage()"
                     type="file"
                     class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
@@ -80,8 +96,8 @@
 
         <input type="hidden" class="form-control @error('slug') is-invalid @enderror form-control-sm" name="slug" id="slug" value="{{ old('slug', $question->id) }}" required>
         <div class="flex items-center gap-2 mt-[26px]">
-            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit Question</button>
-            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Cancel Edit</button>
+            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit Pertanyaan</button>
+            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal Edit</button>
         </div>
     </form>
 

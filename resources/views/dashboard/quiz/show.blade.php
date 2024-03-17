@@ -8,35 +8,35 @@
     <div class="content-main p-[32px]">
         <div class="flex gap-3">
             <a href="/dashboard/quizzes"><img src="/asset/back logo.svg" alt=""></a>
-            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Quiz {{ $quiz->name }}</p>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Kuis {{ $quiz->name }}</p>
         </div>
         <div class="overflow-x-auto">
             <ul class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
-                <li class="">Image</li>
-                <li class="">Duration</li>
-                <li class="col-span-2">Name</li>
-                <li class="col-span-5">Description</li>
-                <li class="">Question</li>
+                <li class="">Gambar</li>
+                <li class="">Durasi</li>
+                <li class="col-span-2">Nama</li>
+                <li class="col-span-5">Deskripsi</li>
+                <li class="">Pertanyaan</li>
             </ul>
             <ul class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start">
                 <li class=""><img src="{{ asset('images/'.$quiz->image) }}" alt="" style="width: 40px"></li>
-                <li class="">{{ $quiz->duration }} minute</li>
+                <li class="">{{ $quiz->duration }} menit</li>
                 <li class="col-span-2 whitespace-normal">{{ $quiz->name }}</li>
                 <li class="col-span-5">{!! $quiz->description !!}</li>
-                <li class="">{{ $quiz->questions->count() }} Question</li>
+                <li class="">{{ $quiz->questions->count() }} Pertanyaan</li>
             </ul>
         </div>
         <div class="sm:flex sm:justify-between block items-end mt-4">
             <div class="">
-                <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Questions</h1>
+                <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Data Pertanyaan</h1>
             </div>
         </div>
         <div class="overflow-x-auto">
             <ul class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
                 <li class="">#</li>
-                <li class="">Image</li>
-                <li class="col-span-6">Question</li>
-                <li class="">Correct Answer</li>
+                <li class="">Gambar</li>
+                <li class="col-span-5">Pertanyaan</li>
+                <li class="col-span-2">Jawaban Benar</li>
                 <li class=""></li>
             </ul>
             @foreach ($quiz->questions as $question)
@@ -49,8 +49,8 @@
                     
                 <li class=""><img src="{{ asset('images/'.$question->image) }}" alt="" style="width: 40px"></li>
                 @endif
-                <li class="col-span-6">{{ $question->question }}</li>
-                <li class="">{{ $question->correct }}</li>
+                <li class="col-span-5">{{ $question->question }}</li>
+                <li class="col-span-2">{{ $question->correct }}</li>
                 <div class="flex items-center gap-[4px]">
                     <a href="/dashboard/quizzes/{{ $quiz->slug }}/questions/{{ $question->id }}">
                         <button
@@ -127,14 +127,14 @@
                         <div class="modal-box flex">
                             <div class="flex justify-between">
                                 <div class="">
-                                    <p class="font-Urbanist font-semibold text-[28px] ">Delete Question</p>
-                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Question Record Deletion: Are you sure you want to delete this question record? This action cannot be undone, and the question record will be permanently removed from the system.</p>
-                                    <form method="POST" action="/dashboard/questions/{{ $question->id }}">
+                                    <p class="font-Urbanist font-semibold text-[28px] ">Hapus Pertanyaan</p>
+                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Pertanyaan: Apakah Anda yakin ingin menghapus catatan pertanyaan ini? Tindakan ini tidak dapat dibatalkan, dan rekaman pertanyaan akan dihapus secara permanen dari sistem.
+                                        <form method="POST" action="/dashboard/questions/{{ $question->id }}">
                                         @csrf
                                         @method('delete')    
                                         <div class="flex items-center justify-between w-full mt-8 gap-2">
-                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete Question</button>
-                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Delete</button>
+                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Hapus Pertanyaan</button>
+                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Batal Hapus</button>
                                         </div>
                                     </form>
                                 </div>

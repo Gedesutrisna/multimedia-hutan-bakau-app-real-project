@@ -64,7 +64,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:admin']], function
 });
 
 
-Route::group([ 'middleware' => ['auth:web']], function () {
+Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/profile', [UserController::class, 'index'])->name('profile');
     Route::put('/profile/update', [UserController::class, 'update'])->name('user.update');
 

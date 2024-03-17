@@ -41,7 +41,7 @@ class UserController extends Controller
         }
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
         User::create($validatedData);
-        return redirect('/dashboard/users')->with('success', 'User Added Successfully!');
+        return redirect('/dashboard/users')->with('success', 'Pengguna Berhasil Ditambahkan!');
     }
     
     public function edit(User $user)
@@ -68,12 +68,12 @@ class UserController extends Controller
         }
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
         $user->update($validatedData);
-        return back()->with('success', 'Profile berhasil diperbaharui!');
+        return back()->with('success', 'Pengguna berhasil Diupdate!');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return back()->with('success','User Deleted Successfully!');
+        return back()->with('success','Pengguna Berhasil Dihapus!');
     }
 }

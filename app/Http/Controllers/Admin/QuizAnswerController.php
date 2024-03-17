@@ -65,7 +65,7 @@ class QuizAnswerController extends Controller
             $validatedData['answer_image'] = $randomFileName;
         }
         QuizAnswer::create($validatedData);
-        return redirect('/dashboard/answers')->with('success','Answer Added Successfully!');
+        return redirect('/dashboard/answers')->with('success','Jawaban Berhasil Ditambahkan!');
     }
     
     public function bulkStore(Request $request)
@@ -83,12 +83,12 @@ class QuizAnswerController extends Controller
                 $isCorrectCount++;
             }
             if (isset($answerData['answer_text']) && isset($answerData['answer_image'])) {
-                return back()->with('error', 'Cannot add answer text and answer image at the same time, just choose one.');
+                return back()->with('error', 'Tidak bisa menambahkan teks jawaban dan gambar jawaban secara bersamaan, cukup pilih salah satu.');
             }
         }
 
         if ($isCorrectCount != 1) {
-            return back()->with('error', 'Only one answer can be marked as correct.');
+            return back()->with('error', 'Hanya satu jawaban yang dapat ditandai benar.');
         }
 
         $questionId = $validatedData['quiz_question_id'];
@@ -96,7 +96,7 @@ class QuizAnswerController extends Controller
         $existingAnswerCount = QuizQuestion::findOrFail($questionId)->answers()->count();
 
         if ($existingAnswerCount >= 4) {
-            return redirect()->back()->with('error', 'Cannot add more answers. The question already has maximum number of answers.');
+            return back()->with('error', 'Tidak dapat menambahkan jawaban lagi. Jawabannya sudah memiliki jumlah jawaban maksimal.');
         }
 
         $answersToInsert = [];
@@ -125,7 +125,7 @@ class QuizAnswerController extends Controller
 
         QuizAnswer::insert($answersToInsert);
 
-        return redirect('/dashboard/answers')->with('success','Answer Added Successfully!');
+        return redirect('/dashboard/answers')->with('success','Jawaban Berhasil Ditambahkan!');
     }
 
     public function bulkStoreDumy(Request $request)
@@ -139,7 +139,7 @@ class QuizAnswerController extends Controller
         $existingAnswerCount = QuizQuestion::findOrFail($questionId)->answers()->count();
 
         if ($existingAnswerCount >= 4) {
-            return redirect()->back()->with('error', 'Cannot add more answers. The answer already has maximum number of answers.');
+            return back()->with('error', 'Tidak dapat menambahkan jawaban lagi. Jawabannya sudah memiliki jumlah jawaban maksimal.');
         }
 
         $answersToInsert = [];
@@ -160,7 +160,7 @@ class QuizAnswerController extends Controller
 
         QuizAnswer::insert($answersToInsert);
 
-        return redirect('/dashboard/answers')->with('success','Questions Added Successfully!');
+        return redirect('/dashboard/answers')->with('success','Jawaban Berhasil Ditambahkan!');
     }
     
     // public function update(UpdateQuizAnswerRequest $request, QuizAnswer $answer)
@@ -180,29 +180,16 @@ class QuizAnswerController extends Controller
     //         }
     //     }
     //     $answer->update($validatedData);
-    //     return redirect('/dashboard/answers')->with('success','Answer Updated Successfully!');
+    //     return redirect('/dashboard/answers')->with('success','Jawaban Berhasil Diupdate!');
     // }
     public function update(UpdateQuizAnswerRequest $request, QuizAnswer $answer)
     {
         $validatedData = $request->validated();
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
-        
-        if(array_key_exists('answer_text', $validatedData) && array_key_exists('answer_image', $validatedData)) {
-            return back()->with('error', 'Cannot add answer text and answer image at the same time, just choose one.');
-        }        
 
-        $quizQuestionId = $answer->quiz_question_id;
-
-        $isCorrectCount = QuizAnswer::where('quiz_question_id', $quizQuestionId)
-            ->where('is_correct', "true")
-            ->where('id', '!=', $answer->id)
-            ->count();
-
-        
-        if ($isCorrectCount > 0 && $request->input('is_correct') == "true") {
-            return back()->with('error', 'There is already a correct answer for this question.');
+        if (!empty($validatedData['answer_text']) && !empty($validatedData['answer_image'])) {
+            return back()->with('error', 'Tidak bisa menambahkan teks jawaban dan gambar jawaban secara bersamaan, cukup pilih salah satu.');
         }
-        
         
         if($request->hasFile('answer_image')){
             $fileExtension = $request->file('answer_image')->getClientOriginalExtension();
@@ -218,11 +205,11 @@ class QuizAnswerController extends Controller
         }
 
         $answer->update($validatedData);
-        return redirect('/dashboard/answers')->with('success', 'Answer Updated Successfully!');
+        return back()->with('success', 'Jawaban Berhasil Dipdate!');
     }
     public function destroy(QuizAnswer $answer)
     {
         $answer->delete();
-        return back()->with('success','Answer Deleted Successfully!');
+        return back()->with('success','Jawaban Berhasil Dihapus!');
     }
 }

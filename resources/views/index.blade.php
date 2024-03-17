@@ -16,7 +16,7 @@
                 <h1 class="text-cyan-500 font-Urbanist text-[28px] font-semibold"> - Profile</h1>
             </a>
             <a href="/quiz/results">
-                <h1 class="text-cyan-500 font-Urbanist text-[28px] font-semibold"> - Quiz Results</h1>
+                <h1 class="text-cyan-500 font-Urbanist text-[28px] font-semibold"> - Hasil Kuis</h1>
             </a>
             @else
             <a href="/login">
@@ -26,10 +26,10 @@
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
                     <a href="/blogs">
-                        <h1 class="text-cyan-500 font-Urbanist text-[28px] font-semibold"> - Go To Blogs</h1>
+                        <h1 class="text-cyan-500 font-Urbanist text-[28px] font-semibold"> - Blog</h1>
                     </a>
                     <a href="/quizzes">
-                        <h1 class="text-cyan-500 font-Urbanist text-[28px] font-semibold"> - Go To Quizzes</h1>
+                        <h1 class="text-cyan-500 font-Urbanist text-[28px] font-semibold"> - Quiz</h1>
                     </a>
                 </div>
             </div>

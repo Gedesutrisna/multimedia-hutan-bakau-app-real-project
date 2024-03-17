@@ -57,7 +57,7 @@ class QuizQuestionController extends Controller
         $existingQuestionCount = Quiz::findOrFail($quizId)->questions()->count();
 
         if ($existingQuestionCount >= 15) {
-            return redirect()->back()->with('error', 'Cannot add more questions. The quiz already has maximum number of questions.');
+            return redirect()->back()->with('error', 'Tidak dapat menambahkan pertanyaan lagi. Kuis sudah memiliki jumlah pertanyaan maksimum.');
         }
         
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
@@ -70,7 +70,7 @@ class QuizQuestionController extends Controller
             $validatedData['image'] = $randomFileName;
         }
         QuizQuestion::create($validatedData);
-        return redirect('/dashboard/questions')->with('success','Question Added Successfully!');
+        return back()->with('success','Pertanyaan Berhasil Ditambahkan!');
     }
 
     public function bulkStore(Request $request)
@@ -85,7 +85,7 @@ class QuizQuestionController extends Controller
         $existingQuestionCount = Quiz::findOrFail($quizId)->questions()->count();
 
         if ($existingQuestionCount >= 15) {
-            return redirect()->back()->with('error', 'Cannot add more questions. The quiz already has maximum number of questions.');
+            return redirect()->back()->with('error', 'Tidak dapat menambahkan pertanyaan lagi. Kuis sudah memiliki jumlah pertanyaan maksimum.');
         }
 
         $questionsToInsert = [];
@@ -107,7 +107,7 @@ class QuizQuestionController extends Controller
 
         QuizQuestion::insert($questionsToInsert);
 
-        return redirect('/dashboard/questions')->with('success','Questions Added Successfully!');
+        return redirect('/dashboard/questions')->with('success','Pertanyaan Berhasil Ditambahkan!');
     }
     public function bulkStoreDumy(Request $request)
     {
@@ -120,7 +120,7 @@ class QuizQuestionController extends Controller
         $existingQuestionCount = Quiz::findOrFail($quizId)->questions()->count();
 
         if ($existingQuestionCount >= 15) {
-            return redirect()->back()->with('error', 'Cannot add more questions. The quiz already has the maximum number of questions.');
+            return back()->with('error', 'Tidak bisa menambahkan teks jawaban dan gambar jawaban secara bersamaan, cukup pilih salah satu.');
         }
 
         $questionsToInsert = [];
@@ -140,7 +140,7 @@ class QuizQuestionController extends Controller
 
         QuizQuestion::insert($questionsToInsert);
 
-        return redirect('/dashboard/questions')->with('success','Questions Added Successfully!');
+        return redirect('/dashboard/questions')->with('success','Pertanyaan Berhasil Ditambahkan!');
     }
 
 
@@ -161,15 +161,15 @@ class QuizQuestionController extends Controller
             }
         }
         $question->update($validatedData);
-        return redirect('/dashboard/questions')->with('success','Question Updated Successfully!');
+        return back()->with('success','Pertanyaan Berhasil Diupdate!');
     }
     public function destroy(QuizQuestion $question)
     {
         $relatedAnswersCount = QuizAnswer::where('quiz_question_id', $question->id)->count();
         if ($relatedAnswersCount > 0) {
-            return back()->with('error', 'Cannot delete question. It has related answers.')->withInput();
+            return back()->with('error', 'Tidak bisa menghapus Pertanyaan. Karena memiliki relasi dengan jawaban.')->withInput();
         }
         $question->delete();
-        return back()->with('success', 'Question deleted successfully!');
+        return back()->with('success', 'Pertanyaan Berhasil Dihapus!');
     }
 }

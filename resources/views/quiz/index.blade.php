@@ -8,7 +8,7 @@
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="flex gap-3">
                     <a href="/"><img src="/asset/back logo.svg" alt=""></a>
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Quizzes</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Data Kuis</h1>
                 </div>
             </div>
 
@@ -17,10 +17,10 @@
                     class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start"
                 >
                     <li class="">#</li>
-                    <li class="">Duration</li>
-                    <li class="col-span-2">Name</li>
-                    <li class="col-span-4">Description</li>
-                    <li class="">Question</li>
+                    <li class="">Durasi</li>
+                    <li class="col-span-2">Nama</li>
+                    <li class="col-span-4">Deskripsi</li>
+                    <li class="">Pertanyaan</li>
                     <li class=""></li>
                 </ul>
                 @foreach ($quizzes as $quiz)
@@ -28,10 +28,10 @@
                 class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start"
                 >
                 <li>{{ ($quizzes->currentPage() - 1) * $quizzes->perPage() + $loop->index + 1 }}</li>
-                <li class="">{{ $quiz->duration }} minute</li>
+                <li class="">{{ $quiz->duration }} menit</li>
                 <li class="col-span-2 whitespace-normal">{{ $quiz->name }}</li>
                 <li class="col-span-4">{!! Str::limit($quiz->description, 90) !!}</li>
-                <li class="">{{ $quiz->questions->count() }} Question</li>
+                <li class="">{{ $quiz->questions->count() }} Pertanyaan</li>
                 <div class="flex items-center gap-[4px]">
                     <a href="/quizzes/{{ $quiz->slug }}">
                         <button

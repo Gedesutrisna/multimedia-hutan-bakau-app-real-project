@@ -8,14 +8,14 @@
     <div class="content-main p-[32px]">
         <div class="flex gap-3">
             <a href="/dashboard/quizzes"><img src="/asset/back logo.svg" alt=""></a>
-            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Add New Quiz</p>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Tambah Kuis</p>
         </div>
         <form action="/dashboard/quizzes" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
         <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Name</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Nama</label>
                 <input name="name" id="name" value="{{ old('name') }}"
                     type="text"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
@@ -28,7 +28,7 @@
                 @enderror
             </div>
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Duration</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Durasi</label>
                 <input name="duration" id="duration" value="{{ old('duration') }}"
                     type="number"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
@@ -43,7 +43,7 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Description</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Deskripsi</label>
                 <textarea name="description" id="description" value="{{ old('description') }}"
                     type="text"
                     style="resize: none" @error('description') is-invalid @enderror
@@ -58,7 +58,7 @@
         
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Gambar</label>
                 <input name="image" id="image" value="{{ old('image') }}" onchange="previewImage()"
                     type="file"
                     class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
@@ -78,8 +78,8 @@
         <hr class="mt-1">
 
         <div class="flex items-center gap-2 mt-[26px]">
-            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Add New Quiz</button>
-            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Cancel Add</button>
+            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Tambah Kuis</button>
+            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal</button>
         </div>
     </form>
 

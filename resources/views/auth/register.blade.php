@@ -43,14 +43,14 @@
 										value="{{ old('password') }}"
 									/>
 								</div>
-								<button type="submit" class="button-login">Login account<img src="/asset/arrow-btn.svg" alt="" /></button>
+								<button type="submit" class="button-login">Login akun<img src="/asset/arrow-btn.svg" alt="" /></button>
 							</form>
 						</div>
 
 						<hr class="my-[22px]" />
 
 						<div class="flex justify-center xl:justify-start">
-							<a href="/login" class="text-center font-Urbanist text-[14px] font-medium text-[#858585] xl:text-left">Already have an account?<span class="text-primary"> Login </span></a>
+							<a href="/login" class="text-center font-Urbanist text-[14px] font-medium text-[#858585] xl:text-left">Sudah mempunyai akun?<span class="text-primary"> Login </span></a>
 						</div>
 
 					</div>

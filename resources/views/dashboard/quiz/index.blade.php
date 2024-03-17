@@ -7,11 +7,11 @@
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $quizzes->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Quizzes</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Data Kuis</h1>
                 </div>
                 <div class="">
                     <a href="/dashboard/quizzes/create">
-                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />New Quiz</button>
+                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/add-icon.svg" alt="" />Tambah Kuis</button>
                     </a>
                 </div>
             </div>
@@ -21,10 +21,10 @@
                     class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start"
                 >
                     <li class="">#</li>
-                    <li class="">Duration</li>
-                    <li class="col-span-2">Name</li>
-                    <li class="col-span-4">Description</li>
-                    <li class="">Question</li>
+                    <li class="">Durasi</li>
+                    <li class="col-span-2">Nama</li>
+                    <li class="col-span-4">Deskripsi</li>
+                    <li class="">Pertanyaan</li>
                     <li class=""></li>
                 </ul>
                 @foreach ($quizzes as $quiz)
@@ -32,10 +32,10 @@
                 class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start"
                 >
                 <li>{{ ($quizzes->currentPage() - 1) * $quizzes->perPage() + $loop->index + 1 }}</li>
-                <li class="">{{ $quiz->duration }} minute</li>
+                <li class="">{{ $quiz->duration }} menit</li>
                 <li class="col-span-2 whitespace-normal">{{ $quiz->name }}</li>
                 <li class="col-span-4">{!! Str::limit($quiz->description, 110) !!}</li>
-                <li class="">{{ $quiz->questions->count() }} Question</li>
+                <li class="">{{ $quiz->questions->count() }} Pertanyaan</li>
                 <div class="flex items-center gap-[4px]">
                     <a href="/dashboard/quizzes/{{ $quiz->slug }}">
                         <button
@@ -112,14 +112,14 @@
                           <div class="modal-box flex">
                             <div class="flex justify-between">
                                 <div class="">
-                                    <p class="font-Urbanist font-semibold text-[28px] ">Delete Quiz {{ $quiz->title }}</p>
-                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Quiz Record Deletion: Are you sure you want to delete this quiz record? This action cannot be undone, and the quiz record will be permanently removed from the system.</p>
-                                    <form method="POST" action="/dashboard/quizzes/{{ $quiz->slug }}">
+                                    <p class="font-Urbanist font-semibold text-[28px] ">Hapus Kuis {{ $quiz->title }}</p>
+                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Kuis: Apakah Anda yakin ingin menghapus catatan kuis ini? Tindakan ini tidak dapat dibatalkan, dan rekaman kuis akan dihapus secara permanen dari sistem.
+                                        <form method="POST" action="/dashboard/quizzes/{{ $quiz->slug }}">
                                         @csrf
                                         @method('delete')    
                                         <div class="flex items-center justify-between w-full mt-8 gap-2">
-                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete Quiz</button>
-                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Delete</button>
+                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Hapus Kuis</button>
+                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Batal Hapus</button>
                                         </div>
                                     </form>
                                 </div>

@@ -47,7 +47,7 @@ class QuizResultController extends Controller
     //         if ($previousResult) {
     //             $previousResult->delete();
     //         }
-    //         return redirect('/quiz/results')->with('success', 'Successfully completed the quiz!');
+    //         return redirect('/quiz/results')->with('success', 'Berhasil menyelesaikan kuis!');
     //     }
 
     //     $countQuestions = count($validatedData['questions']);
@@ -81,7 +81,7 @@ class QuizResultController extends Controller
     //     if ($previousResult) {
     //         $previousResult->delete();
     //     }
-    //     return redirect('/quiz/results')->with('success', 'Successfully completed the quiz!');
+    //     return redirect('/quiz/results')->with('success', 'Berhasil menyelesaikan kuis!');
     // }
 
     public function store(Request $request)
@@ -110,7 +110,7 @@ class QuizResultController extends Controller
 
             $quiz_result = QuizResult::create($quizResultData);
 
-            return redirect('/quiz/results')->with('success', 'Successfully completed the quiz!, You got '.$quiz_result->point.' scores, corret answer 0, from '. $countQuestions.' question');
+            return redirect('/quiz/results')->with('success', 'Berhasil menyelesaikan kuis!, Kamu mendapatkan '.$quiz_result->point.' nilai, jawaban benar 0, dari '. $countQuestions.' pertanyaan');
         }
 
         $countQuestions = count($validatedData['questions']);
@@ -148,8 +148,7 @@ class QuizResultController extends Controller
         }
         $quiz_result = QuizResult::create($quizResultData);
 
-
-        return redirect('/quiz/results')->with('success', 'Successfully completed the quiz!, You got '.$quiz_result->point.' scores, corret answer '.$countCorrectAnswers.', from '. $countQuestions.' question');
+        return redirect('/quiz/results')->with('success', 'Berhasil menyelesaikan kuis!, Kamu mendapatkan '.$quiz_result->point.' nilai, jawaban benar '.$countCorrectAnswers.', dari '. $countQuestions.' pertanyaan');
     }
 
 }

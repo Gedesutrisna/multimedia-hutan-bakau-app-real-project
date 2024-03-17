@@ -74,7 +74,7 @@
                                 </div>
 
                                 <p class="text-appointment ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/blogs*') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
-                                    Blogs
+                                    Blog
                                 </p>
                             </a>
                         </nav>
@@ -116,7 +116,7 @@
                                 </div>
 
                                 <p class="text-appointment ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/categories**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
-                                    Categories
+                                    Kategori
                                 </p>
                             </a>
                         </nav>
@@ -158,7 +158,7 @@
                                 </div>
 
                                 <p class="text-record ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/quizzes**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
-                                    Quizzes
+                                    Kuis
                                 </p>
                             </a>
                         </nav>
@@ -201,7 +201,7 @@
                                 </div>
 
                                 <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/quiz/results**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
-                                    Quiz Results
+                                    Hasil Kuis
                                 </p>
                             </a>
                         </nav>
@@ -217,7 +217,7 @@
                                 </div>
 
                                 <p class="text-immunization ms-3 font-Urbanist text-[15px] {{ request()->is('dashboard/users**') ? 'text-active' : 'text-[#858585]' }} hidden lg:flex">
-                                    Users
+                                    Pengguna
                                 </p>
                             </a>
                         </nav>

@@ -11,11 +11,11 @@
 					<div class="right-wrapper-login mb-[120px]">
 
 						<div class="flex justify-center xl:justify-start">
-							<button class="banner-btn-login mb-4">Login Account Page</button>
+							<button class="banner-btn-login mb-4">Halaman Login</button>
 						</div>
 
 						<p class="login-dashboard">
-							Log in to Our Dashboard System
+							Login ke Dashboard
 						</p>
 
 						<div class="flex w-full flex-col items-center xl:items-start">
@@ -23,7 +23,7 @@
                                 @csrf
                                 @method('POST')
 								<div class="input-email-login mt-[24px] w-full xl:w-[340px]">
-									<input name="email" class="placeholder-email-login focus:outline-none" type="text" placeholder="Enter your email.." 
+									<input name="email" class="placeholder-email-login focus:outline-none" type="text" placeholder="Enter your email.." @error('email') is-invalid @enderror
                                     @if (isset($_COOKIE["email"]))
                                         value="{{ $_COOKIE['email'] }}"
                                     @else
@@ -37,15 +37,20 @@
                                     @enderror
 								</div>
 								<div class="input-password-login mt-2 w-full xl:w-[340px]">
-									<input name="password" class="placeholder-password-login focus:outline-none" type="password" placeholder="Enter your password.."
+									<input name="password" class="placeholder-password-login focus:outline-none" type="password" placeholder="Enter your password.."@error('password') is-invalid @enderror
 									@if (isset($_COOKIE["password"]))
 									value="{{ $_COOKIE['password'] }}"
 									@else
 										value="{{ old('password') }}"
 									@endif
 									/>
+									@error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
 								</div>
-								<button type="submit" class="button-login">Login account<img src="/asset/arrow-btn.svg" alt="" /></button>
+								<button type="submit" class="button-login">Login akun<img src="/asset/arrow-btn.svg" alt="" /></button>
 							</form>
 						</div>
 

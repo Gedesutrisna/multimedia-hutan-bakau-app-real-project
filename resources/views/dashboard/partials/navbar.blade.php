@@ -15,7 +15,7 @@
                 name="search"
                 id="" style="background-image: url('/asset/search.svg')"
                 class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-                placeholder="Search anything.."
+                placeholder="Cari apa saja.."
             />
         @elseif (request()->is('dashboard/blogs*'))
         <form action="/dashboard/blogs" method="get" class="w-[100%]">
@@ -24,7 +24,7 @@
                 name="search"
                 id="" style="background-image: url('/asset/search.svg')"
                 class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-                placeholder="Search anything.."
+                placeholder="Cari apa saja.."
             />
         </form>
         @elseif(request()->is('dashboard/categories*'))
@@ -34,7 +34,7 @@
                 name="search"
                 id="" style="background-image: url('/asset/search.svg')"
                 class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-                placeholder="Search anything.."
+                placeholder="Cari apa saja.."
             />
         </form>
         @elseif(request()->is('dashboard/quizzes*'))
@@ -44,7 +44,7 @@
                 name="search"
                 id="" style="background-image: url('/asset/search.svg')"
                 class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-                placeholder="Search anything.."
+                placeholder="Cari apa saja.."
             />
         </form>
         @elseif(request()->is('dashboard/questions*'))
@@ -54,7 +54,7 @@
                 name="search"
                 id="" style="background-image: url('/asset/search.svg')"
                 class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-                placeholder="Search anything.."
+                placeholder="Cari apa saja.."
             />
         </form>
         
@@ -65,7 +65,7 @@
                 name="search"
                 id="" style="background-image: url('/asset/search.svg')"
                 class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-                placeholder="Search anything.."
+                placeholder="Cari apa saja.."
             />
         </form>
         
@@ -76,7 +76,7 @@
             name="search"
             id="" style="background-image: url('/asset/search.svg')"
             class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-            placeholder="Search anything.."
+            placeholder="Cari apa saja.."
         />
         </form>
 
@@ -87,7 +87,7 @@
             name="search"
             id="" style="background-image: url('/asset/search.svg')"
             class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
-            placeholder="Search anything.."
+            placeholder="Cari apa saja.."
         />
         </form>
         

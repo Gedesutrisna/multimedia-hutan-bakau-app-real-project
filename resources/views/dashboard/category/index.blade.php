@@ -7,11 +7,11 @@
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $categories->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Categories</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Data Kategori</h1>
                 </div>
                 <div class="">
                     <a href="/dashboard/categories/create">
-                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />New Category</button>
+                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/add-icon.svg" alt="" />Tambah Kategori</button>
                     </a>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                     class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start"
                 >
                     <li class="">#</li>
-                    <li class="col-span-2">Name</li>
-                    <li class="col-span-6">Description</li>
+                    <li class="col-span-2">Nama</li>
+                    <li class="col-span-6">Deskripsi</li>
                     <li class=""></li>
                 </ul>
                 @foreach ($categories as $category)
@@ -108,14 +108,14 @@
                           <div class="modal-box flex">
                             <div class="flex justify-between">
                                 <div class="">
-                                    <p class="font-Urbanist font-semibold text-[28px] ">Delete Category {{ $category->title }}</p>
-                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Category Record Deletion: Are you sure you want to delete this category record? This action cannot be undone, and the category record will be permanently removed from the system.</p>
-                                    <form method="POST" action="/dashboard/categories/{{ $category->slug }}">
+                                    <p class="font-Urbanist font-semibold text-[28px] ">Hapus Kategori {{ $category->title }}</p>
+                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Kategori: Apakah Anda yakin ingin menghapus catatan kategori ini? Tindakan ini tidak dapat dibatalkan, dan rekaman kategori akan dihapus secara permanen dari sistem.
+                                        <form method="POST" action="/dashboard/categories/{{ $category->slug }}">
                                         @csrf
                                         @method('delete')    
                                         <div class="flex items-center justify-between w-full mt-8 gap-2">
-                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete Category</button>
-                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Delete</button>
+                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Hapus Kategori</button>
+                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Batal Hapus</button>
                                         </div>
                                     </form>
                                 </div>

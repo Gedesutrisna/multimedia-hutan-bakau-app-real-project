@@ -10,7 +10,7 @@
                     <a href="/dashboard/quizzes/{{ $quiz->slug }}">
                         <img src="/asset/back logo.svg" alt="">
                     </a>
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Question</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Pertanyaan</h1>
                 </div>
             </div>
 
@@ -18,11 +18,11 @@
                 <ul
                     class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start"
                 >
-                    <li class="col-span-2">Quiz</li>
-                    <li class="">Image</li>
-                    <li class="col-span-5">Question</li>
-                    <li class="">Answer</li>
-                    <li class="">Correct Answer</li>
+                    <li class="col-span-2">Kuis</li>
+                    <li class="">Gambar</li>
+                    <li class="col-span-4">Pertanyaan</li>
+                    <li class="">Jawaban</li>
+                    <li class="col-span-2">Jawaban Benar</li>
                 </ul>
                 <ul
                 class="grid grid-cols-10 bg-transparent place-items-start py-[20px] px-[14px] text-[15px] font-Urbanist font-medium text-[#08112F] border-b border-[#D9DADE text-[#08112F] font-Urbanist text-[15px] font-medium w-[1000px] xl:w-full place-items-start"
@@ -35,9 +35,9 @@
                     
                 <li class=""><img src="{{ asset('images/'.$question->image) }}" alt="" style="width: 40px"></li>
                 @endif
-                <li class="col-span-5">{{ $question->question }}</li>
-                <li class="">{{ $question->answers->count() }} Answer</li>
-                <li class="">{{ $question->correct }}</li>
+                <li class="col-span-4">{{ $question->question }}</li>
+                <li class="">{{ $question->answers->count() }} Jawaban</li>
+                <li class="col-span-2">{{ $question->correct }}</li>
                 {{-- @if ($question->answers->is_correct == "true")
                 <li class="">{{ $question->answers-> }}</li>
                 @endif --}}
@@ -45,13 +45,13 @@
             </div>
             <div class="sm:flex sm:justify-between block items-end mt-4">
                 <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Answers</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Data Jawaban</h1>
                 </div>
             </div>
             <div class="overflow-x-auto">
                 <ul class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
                     <li class="">#</li>
-                    <li class="col-span-8">Answer</li>
+                    <li class="col-span-8">Jawaban</li>
                     <li class=""></li>
                 </ul>
                 @foreach ($question->answers as $i => $answer)
@@ -140,14 +140,14 @@
                             <div class="modal-box flex">
                                 <div class="flex justify-between">
                                     <div class="">
-                                        <p class="font-Urbanist font-semibold text-[28px] ">Delete Answer</p>
-                                        <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Answer Record Deletion: Are you sure you want to delete this answer record? This action cannot be undone, and the answer record will be permanently removed from the system.</p>
-                                        <form method="POST" action="/dashboard/answers/{{ $answer->id }}">
+                                        <p class="font-Urbanist font-semibold text-[28px] ">Hapus Jawaban</p>
+                                        <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Jawaban: Apakah Anda yakin ingin menghapus catatan jawaban ini? Tindakan ini tidak dapat dibatalkan, dan rekaman jawaban akan dihapus secara permanen dari sistem.
+                                            <form method="POST" action="/dashboard/answers/{{ $answer->id }}">
                                             @csrf
                                             @method('delete')    
                                             <div class="flex items-center justify-between w-full mt-8 gap-2">
-                                                <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete Answer</button>
-                                                <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Delete</button>
+                                                <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Hapus Jawaban</button>
+                                                <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Batal Hapus</button>
                                             </div>
                                         </form>
                                     </div>

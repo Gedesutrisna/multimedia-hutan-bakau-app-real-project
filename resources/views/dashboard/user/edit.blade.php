@@ -8,14 +8,14 @@
     <div class="content-main p-[32px]">
         <div class="flex gap-3">
             <a href="/dashboard/users"><img src="/asset/back logo.svg" alt=""></a>
-            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit User {{ $user->name }}</p>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Pengguna {{ $user->name }}</p>
         </div>
         <form action="/dashboard/users/{{ $user->id }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Name</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Nama</label>
                 <input name="name" id="name" value="{{ old('name',$user->name) }}"
                     type="text"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
@@ -60,7 +60,7 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Gambar</label>
                 <input name="image" id="image" value="{{ old('image', $user->image) }}" onchange="previewImage()"
                     type="file"
                     class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
@@ -81,8 +81,8 @@
         
 
         <div class="flex items-center gap-2 mt-[26px]">
-            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit User</button>
-            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Cancel Edit</button>
+            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit Pengguna</button>
+            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal Edit</button>
         </div>
     </form>
 

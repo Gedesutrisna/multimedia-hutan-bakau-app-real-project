@@ -7,16 +7,16 @@
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $quiz_results->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Quiz Results</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Hasil Kuis</h1>
                 </div>
             </div>
 
             <div class="overflow-x-auto">
                 <ul class="grid grid-cols-9 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start">
                     <li class="">#</li>
-                    <li class="">Point</li>
-                    <li class="col-span-4">User name</li>
-                    <li class="col-span-2">Quiz</li>
+                    <li class="">Nilai</li>
+                    <li class="col-span-4">Nama Pengguna</li>
+                    <li class="col-span-2">Kuis</li>
                     <li class=""></li>
                 </ul>
                 @foreach ($quiz_results as $quiz_result)
@@ -51,14 +51,14 @@
                             <div class="modal-box flex">
                                 <div class="flex justify-between">
                                     <div class="">
-                                        <p class="font-Urbanist font-semibold text-[28px] ">Delete Question</p>
-                                        <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Question Record Deletion: Are you sure you want to delete this quiz_result record? This action cannot be undone, and the quiz_result record will be permanently removed from the system.</p>
+                                        <p class="font-Urbanist font-semibold text-[28px] ">Hapus Hasil Kuis Pengguna {{ $quiz_result->user->name }}</p>
+                                        <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Hasil Kuis: Apakah Anda yakin ingin menghapus catatan hasil kuis ini? Tindakan ini tidak dapat dibatalkan, dan rekaman hasil kuis akan dihapus secara permanen dari sistem.</p>
                                         <form method="POST" action="/dashboard/quiz/results/{{ $quiz_result->id }}">
                                             @csrf
                                             @method('delete')    
                                             <div class="flex items-center justify-between w-full mt-8 gap-2">
-                                                <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete Question</button>
-                                                <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Delete</button>
+                                                <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Hapus Hasil Kuis</button>
+                                                <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Hapus</button>
                                             </div>
                                         </form>
                                     </div>

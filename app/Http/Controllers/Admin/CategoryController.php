@@ -36,22 +36,22 @@ class CategoryController extends Controller
         $validatedData = $request->validated();
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
         Category::create($validatedData);
-        return redirect('/dashboard/categories')->with('success','Category Added Successfully!');
+        return redirect('/dashboard/categories')->with('success','Kategori Berhasil Ditambahkan!');
     }
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $validatedData = $request->validated();
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
         $category->update($validatedData);
-        return redirect('/dashboard/categories')->with('success','Category Updated Successfully!');
+        return redirect('/dashboard/categories')->with('success','Kategori Berhasil Diupdate!');
     }
     public function destroy(Category $category)
     {
         $relatedBlogsCount = Blog::where('category_id', $category->id)->count();
         if ($relatedBlogsCount > 0) {
-            return back()->with('error', 'Cannot delete category. It has related blogs.')->withInput();
+            return back()->with('error', 'Tidak bisa menghapus kategori. Karena memiliki relasi dengan blog.')->withInput();
         }
         $category->delete();
-        return back()->with('success', 'Category deleted successfully!');
+        return back()->with('success', 'Kategori Berhasil Dihapus!');
     }
 }

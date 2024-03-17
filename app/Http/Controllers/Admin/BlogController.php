@@ -42,7 +42,7 @@ class BlogController extends Controller
         }
         $validatedData['admin_id'] = auth()->guard('admin')->user()->id;
         Blog::create($validatedData);
-        return redirect('/dashboard/blogs')->with('success', 'Blog Added Successfully!');
+        return redirect('/dashboard/blogs')->with('success', 'Blog Berhasil Ditambahkan!');
     }
     
     public function edit(Blog $blog)
@@ -69,11 +69,11 @@ class BlogController extends Controller
             }
         }
         $blog->update($validatedData);
-        return redirect('/dashboard/blogs')->with('success','Blog Updated Successfully!');
+        return redirect('/dashboard/blogs')->with('success','Blog Berhasil Diupdate!');
     }
     public function destroy(Blog $blog)
     {
         $blog->delete();
-        return back()->with('success','Blog Deleted Successfully!');
+        return back()->with('success','Blog Berhasil Dihapus!');
     }
 }

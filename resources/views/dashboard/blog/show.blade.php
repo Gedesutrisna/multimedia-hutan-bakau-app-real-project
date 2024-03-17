@@ -12,7 +12,7 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Title</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Judul</label>
                 <input name="title" id="title" value="{{ old('title',$blog->title) }}"
                     type="text"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
@@ -21,7 +21,7 @@
             </div>
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
-                    >Category</label
+                    >Kategori</label
                 >
                 <input name="category_id" id="category_id" value="{{ old('category_id',$blog->category->name) }}"
                 type="text"
@@ -32,7 +32,7 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Body</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Teks</label>
                 <textarea name="body" value="{{ old('body', $blog->body) }}" disabled
                     type="text"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white h-[250px]"
@@ -42,7 +42,7 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium mb-2">Image</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium mb-2">Gambar</label>
                 @if($blog->assets)
                 <img class="img-preview" id="img-preview" src="{{ asset('images/'.$blog->assets) }}" frameborder="0" style="width: 200px">
                 @else

@@ -21,15 +21,15 @@ class LoginController extends Controller
             $request->session()->regenerate();
             setcookie("email", $credentials["email"], time() + (7 * 24 * 60 * 60));
             setcookie("password", $credentials["password"], time() + (7 * 24 * 60 * 60));  
-            return redirect('/dashboard')->with('success','Login Behasil !');
+            return redirect('/dashboard')->with('success','Login Berhasil !');
         }
-        return back()->with('error','Login Failed !');
+        return back()->with('error','Login Gagal !');
     }
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login/admin')->with('succes','Logout Successfully !');
+        return redirect('/login/admin')->with('succes','Logout Berhasil !');
     }
 }

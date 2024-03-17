@@ -7,11 +7,11 @@
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body  {{ $users->count() < 4 ? 'h-[100vh]' : '' }} ">
             <div class="sm:flex sm:justify-between block items-end">   
                 <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Users</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Pengguna</h1>
                 </div>
                 <div class="">
                     <a href="/dashboard/users/create">
-                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/+-icon.svg" alt="" />New User</button>
+                        <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/add-icon.svg" alt="" />Tambah Pengguna</button>
                     </a>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                     class="grid grid-cols-10 bg-[#E4E5E9] rounded-[8px] p-[16px] mt-9 text-[14px] font-Urbanist font-medium text-[#78797A] w-[1000px] xl:w-full place-items-start"
                 >
                     <li class="">#</li>
-                    <li class="">Image</li>
-                    <li class="col-span-3">Name</li>
+                    <li class="">Gambar</li>
+                    <li class="col-span-3">Nama</li>
                     <li class="col-span-4">Email</li>
                     <li class=""></li>
                 </ul>
@@ -110,14 +110,14 @@
                           <div class="modal-box flex">
                             <div class="flex justify-between">
                                 <div class="">
-                                    <p class="font-Urbanist font-semibold text-[28px] ">Delete User {{ $user->name }}</p>
-                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm User Record Deletion: Are you sure you want to delete this user record? This action cannot be undone, and the user record will be permanently removed from the system.</p>
-                                    <form method="POST" action="/dashboard/users/{{ $user->id }}">
+                                    <p class="font-Urbanist font-semibold text-[28px] ">Hapus Pengguna {{ $user->name }}</p>
+                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Pengguan: Apakah Anda yakin ingin menghapus catatan pengguna ini? Tindakan ini tidak dapat dibatalkan, dan rekaman pengguna akan dihapus secara permanen dari sistem.
+                                        <form method="POST" action="/dashboard/users/{{ $user->id }}">
                                         @csrf
                                         @method('delete')    
                                         <div class="flex items-center justify-between w-full mt-8 gap-2">
-                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Delete User</button>
-                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Delete</button>
+                                            <button class="px-[20px] py-[16px] bg-[#6E62E5] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Hapus Pengguna</button>
+                                            <button class="px-[20px] py-[16px] bg-[#ADAEB1] rounded-[6px] font-Urbanist font-medium text-[15px] text-white w-full">Cancel Hapus</button>
                                         </div>
                                     </form>
                                 </div>

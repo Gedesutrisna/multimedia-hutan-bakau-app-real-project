@@ -11,7 +11,7 @@
 					<div class="right-wrapper-login mb-[100px]">
 
 						<p class="login-dashboard">
-							Log in 
+							Login 
 						</p>
 
 						<div class="flex w-full flex-col items-center xl:items-start">
@@ -41,14 +41,14 @@
 									@endif
 									/>
 								</div>
-								<button type="submit" class="button-login">Login account<img src="/asset/arrow-btn.svg" alt="" /></button>
+								<button type="submit" class="button-login">Login akun<img src="/asset/arrow-btn.svg" alt="" /></button>
 							</form>
 						</div>
 
 						<hr class="my-[22px]" />
 
 						<div class="flex justify-center xl:justify-start">
-							<a href="/register" class="text-center font-Urbanist text-[14px] font-medium text-[#858585] xl:text-left">Don’t have an account?<span class="text-primary"> Register for Free </span></a>
+							<a href="/register" class="text-center font-Urbanist text-[14px] font-medium text-[#858585] xl:text-left">Tidak mempunyai akun?<span class="text-primary"> Daftar gratis </span></a>
 						</div>
 
 					</div>

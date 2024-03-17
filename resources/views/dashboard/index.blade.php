@@ -7,27 +7,27 @@
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0">
             <div class="grid 2xl:grid-cols-5 mt-[20px] md:mb-0 lg:mb-[42px] gap-5 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3">
                 <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px] flex flex-col">
-                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Blogs</p>
+                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Blog</p>
                     <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $blogs->count() }}</p>
                 </div>
 
                 <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
-                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Quizzes</p>
+                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Kuis</p>
                     <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $quizzes->count() }}</p>
             </div>
 
                 <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
-                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Questions</p>
+                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Pertanyaan</p>
                     <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $questions->count() }}</p>
                 </div>
 
                 <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
-                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Answers</p>
+                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Jawaban</p>
                     <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $answers->count() }}</p>
                 </div>
 
                 <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
-                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Quiz Results</p>
+                    <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Hasil Kuis</p>
                     <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $quiz_results->count() }}</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <div
                         class="xl:py-[32px] lg:px-[28px] xl:px-[36px] flex flex-col rounded-xl bg-white bg-clip-border"
                     >
-                        <div class="mx-4 mt-4 flex flex-col gap-4 rounded-none bg-transparent bg-clip-border text-gray-700">
+                        <div class="flex flex-col gap-4 rounded-none bg-transparent bg-clip-border text-gray-700">
                             <div>
                                 <div class="flex justify-between">
                                     <h6 class="font-Urbanist text-[20px] font-semibold text-[#141414]">Statistik</h6>
@@ -53,13 +53,14 @@
 
                 <div class="banner-schedule xl:col-span-5 lg:col-span-5 w-full h-full mt-5 lg:mt-0">
                     <div
-                        class="xl:ms-5 lg:ms-0 xl:mt-0 xl:py-[26px] px-[24px] md:py-[28px] lg:py-[25px] py-[25px] rounded-[16px] bg-white h-full"
+                        class="xl:ms-5 lg:ms-0 xl:mt-0 xl:py-[32px] px-[28px] md:py-[28px] lg:py-[25px] py-[25px] rounded-[16px] bg-white h-full"
                     >
-                        <p class="text-[#141414] font-Urbanist text-[20px] font-semibold lg:pt-2">Notification</p>
+                        <p class="text-[#141414] font-Urbanist text-[20px] font-semibold ">Pemberitahuan</p>
+                        <hr class="mt-4" />
                         @foreach ($quiz_results->take(3) as $quiz_result)
-                        <div class="ps-4 py-4 rounded-l-[8px] rounded-tr-[8px] bg-[#F5F6FB] mt-[18px] relative">
+                        <div class="px-4 py-4 rounded-l-[8px] rounded-tr-[8px] bg-[#F5F6FB] mt-[18px] relative">
                             <p class="text-[#3D3D3E] font-Urbanist text-[14px] font-medium">
-                                {{ $quiz_result->user->name }} successfully did the quiz {{ $quiz_result->quiz->name }} with score {{ $quiz_result->point }}
+                                {{ $quiz_result->user->name }} berhasil mengerjakan kuis {{ $quiz_result->quiz->name }} dengan nilai {{ $quiz_result->point }}
                             </p>
                             <div class="flex items-center mt-[14px] lg:space-x-[8px] xl:space-x-[42px]">
                                 <p class="text-[#3D3D3E] font-Urbanist text-[12px] font-medium flex items-center">
@@ -127,7 +128,7 @@
                             fontWeight: 400
                         }
                     },
-                    categories: ["Quiz","User did the quiz"]
+                    categories: ["Kuis","Pengguna mengerjakan kuis"]
                 },
                 yaxis: {
                     labels: {

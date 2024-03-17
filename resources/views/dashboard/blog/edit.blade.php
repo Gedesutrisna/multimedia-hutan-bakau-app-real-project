@@ -15,7 +15,7 @@
         @method('PUT')
         <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Title</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Judul</label>
                 <input name="title" id="title" value="{{ old('title',$blog->title) }}"
                     type="text"
                     class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
@@ -29,7 +29,7 @@
             </div>
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
-                    >Category</label
+                    >Kategori</label
                 >
                 <select name="category_id" id="" class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none" @error('category_id') is-invalid @enderror>
                     @foreach ($categories as $category)
@@ -49,7 +49,7 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] mb-2 font-Urbanist text-[#535355] font-medium">Body</label>
+                <label for="" class="block text-[14px] mb-2 font-Urbanist text-[#535355] font-medium">Teks</label>
                 <textarea name="body" id="body" value="{{ old('body', $blog->body) }}"
                     type="text"
                     style="resize: none" @error('body') is-invalid @enderror
@@ -64,7 +64,7 @@
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Image</label>
+                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Gambar</label>
                 <input name="assets" id="assets" value="{{ old('assets', $blog->assets) }}" onchange="previewImage()"
                     type="file"
                     class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
@@ -87,7 +87,7 @@
         <input type="hidden" class="form-control @error('slug') is-invalid @enderror form-control-sm" name="slug" id="slug" value="{{ old('slug', $blog->slug) }}" required>
         <div class="flex items-center gap-2 mt-[26px]">
             <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit Blog</button>
-            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Cancel Edit</button>
+            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal Edit</button>
         </div>
     </form>
 

@@ -65,6 +65,6 @@ class QuizResultController extends Controller
     public function destroy(QuizResult $quiz_result)
     {
         $quiz_result->delete();
-        return back()->with('success','Quiz Result Deleted Successfully!');
+        return back()->with('success','Hasil Kuis Berhasil Dihapus!');
     }
 }

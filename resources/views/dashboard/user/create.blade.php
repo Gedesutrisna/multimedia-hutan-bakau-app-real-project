@@ -78,8 +78,8 @@
         
 
         <div class="flex items-center gap-2 mt-[26px]">
-            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Tambah Pengguna</button>
-            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal</button>
+            <button type="submit" class="py-[14px] px-4 bg-[#428574] text-white rounded-[8px]">Tambah Pengguna</button>
+            <button type="button" class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal</button>
         </div>
     </form>
 
@@ -98,5 +98,7 @@
                 imgPreview.style.display = 'none';
             }
         }
+        
+        
     </script>
 @endsection

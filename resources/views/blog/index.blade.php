@@ -18,7 +18,7 @@
                 >
                     <li class="">#</li>
                     <li class="col-span-2">Title</li>
-                    <li class="">Category</li>`
+                    <li class="">Category</li>
                     <li class="col-span-5">Body</li>
                     <li class=""></li>
                 </ul>

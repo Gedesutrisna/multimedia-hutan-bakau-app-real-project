@@ -6,29 +6,29 @@
 
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0">
             <div class="grid 2xl:grid-cols-5 mt-[20px] md:mb-0 lg:mb-[42px] gap-5 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3">
-                <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px] flex flex-col">
+                <div class="py-[14px] px-[28px] bg-white border-l-[#428574] border-l-[6px] rounded-[6px] flex flex-col">
                     <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Blog</p>
-                    <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $blogs->count() }}</p>
+                    <p class="text-[#428574] font-Urbanist text-[26px] font-bold">{{ $blogs->count() }}</p>
                 </div>
 
-                <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
+                <div class="py-[14px] px-[28px] bg-white border-l-[#428574] border-l-[6px] rounded-[6px]">
                     <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Kuis</p>
-                    <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $quizzes->count() }}</p>
+                    <p class="text-[#428574] font-Urbanist text-[26px] font-bold">{{ $quizzes->count() }}</p>
             </div>
 
-                <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
+                <div class="py-[14px] px-[28px] bg-white border-l-[#428574] border-l-[6px] rounded-[6px]">
                     <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Pertanyaan</p>
-                    <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $questions->count() }}</p>
+                    <p class="text-[#428574] font-Urbanist text-[26px] font-bold">{{ $questions->count() }}</p>
                 </div>
 
-                <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
+                <div class="py-[14px] px-[28px] bg-white border-l-[#428574] border-l-[6px] rounded-[6px]">
                     <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Jawaban</p>
-                    <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $answers->count() }}</p>
+                    <p class="text-[#428574] font-Urbanist text-[26px] font-bold">{{ $answers->count() }}</p>
                 </div>
 
-                <div class="py-[14px] px-[28px] bg-white border-l-[#6E62E5] border-l-[6px] rounded-[6px]">
+                <div class="py-[14px] px-[28px] bg-white border-l-[#428574] border-l-[6px] rounded-[6px]">
                     <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Hasil Kuis</p>
-                    <p class="text-[#6E62E5] font-Urbanist text-[26px] font-bold">{{ $quiz_results->count() }}</p>
+                    <p class="text-[#428574] font-Urbanist text-[26px] font-bold">{{ $quiz_results->count() }}</p>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
 
                 // ... (konfigurasi lainnya tetap sama)
 
-                colors: ["#8C80FF","6E62E5"],
+                colors: ["#428574"],
                 chart: {
                     type: "bar",
                     height: 250,

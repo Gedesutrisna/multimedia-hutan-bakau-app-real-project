@@ -226,7 +226,7 @@
 
 @layer components {
 	.active {
-		@apply bg-[#6E62E5] text-black;
+		@apply bg-[#428574] text-black;
 	}
 }
 

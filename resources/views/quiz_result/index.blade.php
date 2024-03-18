@@ -28,7 +28,7 @@
                     <li class="col-span-2">{{ $quiz_result->quiz->name }}</li>
                     <div class="col-span-2">
                         <a href="/quizzes/{{ $quiz_result->quiz->slug }}">
-                            <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/add-icon.svg" alt="" />Kerjakan Kembali</button>
+                            <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#428574] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/add-icon.svg" alt="" />Kerjakan Kembali</button>
                         </a>
                     </div>
                 </ul>

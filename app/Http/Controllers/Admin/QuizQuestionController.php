@@ -18,7 +18,8 @@ class QuizQuestionController extends Controller
 {
     public function index()
     {
-        $questions = QuizQuestion::latest()->filter(request(['search']))->paginate(7)->withQueryString();
+        // $questions = QuizQuestion::latest()->filter(request(['search']))->paginate(7)->withQueryString();
+        $questions = QuizQuestion::all();
         return view('dashboard.quiz_question.index',compact('questions'));
     }
     public function show(Quiz $quiz, QuizQuestion $question)

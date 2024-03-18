@@ -13,7 +13,7 @@
             </div>
             <div class="">
                 <a href="/quiz/{{ $quiz->slug }}/attempt">
-                    <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#6E62E5] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/add-icon.svg" alt="" />Kerjakan Kuis</button>
+                    <button class="mt-[14px] sm:mt-0 py-[14px] px-[16px] bg-[#428574] rounded-[4px] gap-2 flex items-center text-white font-Urbanist text-[14px] font-medium"><img src="/asset/add-icon.svg" alt="" />Kerjakan Kuis</button>
                 </a>
             </div>
         </div>

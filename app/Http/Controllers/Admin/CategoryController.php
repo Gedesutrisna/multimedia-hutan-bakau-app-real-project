@@ -12,7 +12,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::latest()->filter(request(['search']))->paginate(7)->withQueryString();
+        // $categories = Category::latest()->filter(request(['search']))->paginate(7)->withQueryString();
+        $categories = Category::all();
         return view('dashboard.category.index',compact('categories'));
     }
     public function show(Category $category)

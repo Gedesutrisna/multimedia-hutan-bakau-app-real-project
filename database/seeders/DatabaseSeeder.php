@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
         Blog::create([
             'title' => 'Manfaat Ekonomi dari Hutan Bakau',
             'slug' => 'manfaat-ekonomi-hutan-bakau',
-            'body' => 'Selain manfaat lingkungan, hutan bakau juga \memiliki manfaat ekonomi yang signifikan. Masyarakat lokal dapat mengambil manfaat dari hasil hutan bakau seperti kayu bakau, tanaman obat tradisional, dan sumber daya ikan yang melimpah di sekitar hutan bakau.',
+            'body' => 'Selain manfaat lingkungan, hutan bakau juga memiliki manfaat ekonomi yang signifikan. Masyarakat lokal dapat mengambil manfaat dari hasil hutan bakau seperti kayu bakau, tanaman obat tradisional, dan sumber daya ikan yang melimpah di sekitar hutan bakau.',
             'assets' => '/profile-img.svg',
             'category_id' => 1,
             'admin_id' => 1,
@@ -117,6 +117,38 @@ class DatabaseSeeder extends Seeder
             'admin_id' => 1,
         ]);
         
+        Blog::create([
+            'title' => 'Menyelamatkan Harimau Sumatera: Strategi Kolaboratif',
+            'slug' => 'menyelamatkan-harimau-sumatera-strategi-kolaboratif',
+            'body' => 'Harimau Sumatera, yang merupakan asli hutan hujan Indonesia, menghadapi kepunahan akibat hilangnya habitat dan perburuan liar. Kerjasama internasional sangat penting untuk kelangsungan hidup mereka. Upaya bersama dalam restorasi habitat, tindakan anti-perburuan, dan keterlibatan masyarakat dapat menjamin masa depan bagi kucing besar yang megah ini.',
+            'assets' => '/profile-img.svg',
+            'category_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Blog::create([
+            'title' => 'Konservasi Hutan Boreal: Upaya Lintas Batas',
+            'slug' => 'konservasi-hutan-boreal-lintas-batas',
+            'body' => 'Hutan boreal, yang membentang di wilayah utara Amerika Utara, Eropa, dan Asia, menyimpan keanekaragaman hayati unik dan cadangan karbon yang besar. Kerjasama internasional sangat penting untuk mengatasi tantangan seperti penebangan, pertambangan, dan perubahan iklim. Dengan bekerja sama, kita dapat memastikan kelangsungan ekosistem kritis ini.',
+            'assets' => '/profile-img.svg',
+            'category_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Blog::create([
+            'title' => 'Hutan Amazon: Tanggung Jawab Global',
+            'slug' => 'hutan-amazon-tanggung-jawab-global',
+            'body' => 'Hutan Amazon, sering disebut sebagai paru-paru bumi, menghadapi ancaman luar biasa akibat deforestasi, perubahan iklim, dan penebangan liar. Kerjasama internasional sangat penting untuk melindungi hotspot keanekaragaman hayati ini. Negara-negara harus bekerja sama untuk mengatasi kerugian hutan, mendorong praktik berkelanjutan, dan menjaga harta alam berharga ini.',
+            'assets' => '/profile-img.svg',
+            'category_id' => 1,
+            'admin_id' => 1,
+        ]);
+        Blog::create([
+            'title' => 'Upaya Kolaboratif untuk Pelestarian Hutan Mangrove',
+            'slug' => 'upaya-kolaboratif-pelestarian-mangrove',
+            'body' => 'Hutan mangrove memainkan peran penting dalam ekosistem pantai, memberikan habitat bagi berbagai spesies, dan berfungsi sebagai pelindung alami terhadap badai dan erosi. Kerjasama internasional sangat diperlukan untuk menjaga kelestarian hutan ini. Berbagai negara dan organisasi internasional telah bergabung dalam program-program yang bertujuan melindungi ekosistem kritis ini.',
+            'assets' => '/profile-img.svg',
+            'category_id' => 1,
+            'admin_id' => 1,
+        ]);
 
         Quiz::create([
             'name' => 'Quiz Bakau Trees ',
@@ -609,7 +641,7 @@ class DatabaseSeeder extends Seeder
 
         QuizResult::create([
             'point' => 94,
-            'quiz_id' => 2,
+            'quiz_id' => 1,
             'user_id' => 1,
         ]);
 

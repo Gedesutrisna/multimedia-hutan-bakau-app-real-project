@@ -86,8 +86,8 @@
 
         <input type="hidden" class="form-control @error('slug') is-invalid @enderror form-control-sm" name="slug" id="slug" value="{{ old('slug', $blog->slug) }}" required>
         <div class="flex items-center gap-2 mt-[26px]">
-            <button type="submit" class="py-[14px] px-4 bg-[#6E62E5] text-white rounded-[8px]">Edit Blog</button>
-            <button class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal Edit</button>
+            <button type="submit" class="py-[14px] px-4 bg-[#428574] text-white rounded-[8px]">Edit Blog</button>
+            <button type="button" class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal Edit</button>
         </div>
     </form>
 

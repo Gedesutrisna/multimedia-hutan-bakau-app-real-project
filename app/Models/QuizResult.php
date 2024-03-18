@@ -24,4 +24,11 @@ class QuizResult extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where('point', 'like', '%' . $search . '%');
+        });
+    }
+
 }

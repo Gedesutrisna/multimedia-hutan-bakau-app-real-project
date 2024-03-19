@@ -31,7 +31,7 @@
     
                 <div class="grid lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 mt-[48px] gap-[44px] w-full h-full">
                     @foreach ($blogs as $blog)
-                    <a href="/blogs">
+                    <a href="/blogs/{{ $blog->slug }}">
                         <div class="">
                             <div class="relative">
                                 <img class="w-full h-full" src="{{ asset('/images'.$blog->assets) }}" alt="">
@@ -40,13 +40,14 @@
                             
                             <div class="mt-3">
                                 <p class="2xl:text-[27px] xl:text-[24px] font-Urbanist font-bold">{{ $blog->title }}</p>
-                                <p class="font-Urbanist mt-3 text-[14px] font-medium leading-[18px] text-[#101828]">{!! Str::limit($blog->body, 90) !!}</p>
+                                <p class="font-Urbanist mt-3 text-[14px] font-medium leading-[18px] text-[#101828]">{!! Str::limit($blog->body, 80) !!}</p>
                                 <p class="font-semibold font-Urbanist text-[14px] text-[#101828] mt-3">{{ $blog->created_at->format('d M Y') }}</p>
                             </div> 
                         </div>
                     </a>
                     @endforeach
                 </div>
+                
             </div>
             
             <div class="flex justify-center mt-[48px]">

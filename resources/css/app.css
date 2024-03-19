@@ -296,10 +296,46 @@
 	}
 }
 
+@layer components {
+	.banner-btn {
+		@apply py-[14px] px-[20px] rounded-[4px] bg-[#D9E9E4] font-Urbanist text-[16px] font-medium text-[#1A3C40];
+	}
+}
+
+@layer components {
+	.input-email {
+		@apply flex h-[57px] justify-start rounded-[4px];
+	}
+}
+
+@layer components {
+	.input-password {
+		@apply flex h-[57px] justify-start rounded-[4px];
+	}
+}
+
+@layer components {
+	.placeholder-email {
+		@apply py-[19px] px-[22px] w-full bg-white outline-none rounded-[4px] font-Urbanist font-medium text-[14px] text-[#858585];
+	}
+}
+
+@layer components {
+	.placeholder-password {
+		@apply py-[19px] px-[22px] w-full bg-white outline-none rounded-[4px] font-Urbanist font-medium text-[14px] text-[#858585];
+	}
+}
+
 .sidebar-container {
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 1000; /* Atur nilai sesuai kebutuhan */
 	/* tambahkan properti lain sesuai kebutuhan */
+}
+
+hr {
+	height: 1px;
+	background-color: #bfbab0;
+	border: none;
 }

@@ -20,13 +20,11 @@
 	<script type="text/javascript" src="/js/richtexteditor/rte.js"></script>
 	<script type="text/javascript" src='/js/richtexteditor/all_plugins.js'></script>
 	<script src="/js/script.js"></script>
-	<body class="bg-body overflow-x-hidden ">
+	<body class="bg-[#D7D1C6]">
         @include('sweetalert::alert')
-		<main class="md:grid-cols-12 md:grid">
-		<section class="main-content col-span-10">
-            @yield('container')
-		</section>
-		</main>
+		@include('partials.navbar')
+		@yield('container')
+		@include('partials.footer')
     </body>
 
 </html>

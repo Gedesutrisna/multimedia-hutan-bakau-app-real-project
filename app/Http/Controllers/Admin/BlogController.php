@@ -14,8 +14,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        // $blogs = Blog::with(['category'])->latest()->filter(request(['search']))->paginate(7)->withQueryString();
-        $blogs = Blog::all();
+        $blogs = Blog::with(['category'])->latest()->filter(request(['search']))->get();
         return view('dashboard.blog.index',compact('blogs'));
     }
     public function show(Blog $blog)

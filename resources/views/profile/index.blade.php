@@ -1,102 +1,82 @@
 @extends('layouts.main')
 @section('container')
+<div class="container mx-auto">
+    <div class="flex items-center mt-[48px] gap-4">
+        <button class="p-[14px]"><img src="/assets/back-button.svg" alt=""></button>
+        <p class="font-Urbanist text-[36px] font-bold">Profile</p>
+    </div>
 
-    <!-- Main content -->
-
-
-
-    <div class="content-main p-[32px]">
-        <div class="flex gap-3">
-            <a href="/"><img src="/asset/back logo.svg" alt=""></a>
-            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Profile {{ auth()->user()->name }}</p>
-        </div>
-        <form action="/profile/update" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Nama</label>
-                <input name="name" id="name" value="{{ old('name',auth()->user()->name) }}"
-                    type="text"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                    placeholder="Enter name.." @error('name') is-invalid @enderror
-                />
-                @error('name')
-                <div class="invalid-feedback">
-                    {{ $message }}
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+        <div class="col-span-6 mt-[48px]">
+            <p class="font-Urbanist text-[36px] font-bold">Info</p>
+            <form action="/profile/update" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="input-email mt-[14px] w-full xl:w-[515px]">
+                    <input name="image"  @error('image') is-invalid @enderror value="{{ old('image',auth()->user()->image) }}" class="placeholder-email" type="text" placeholder="Enter your image.." />
+                    @error('image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
-                @enderror
-            </div>
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Email</label>
-                <input name="email" id="email" value="{{ old('email',auth()->user()->email) }}"
-                    type="email"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                    placeholder="Enter email.." @error('email') is-invalid @enderror
-                />
-                @error('email')
-                <div class="invalid-feedback">
-                    {{ $message }}
+                <div class="input-email mt-[8px] w-full xl:w-[515px]">
+                    <input name="name"  @error('name') is-invalid @enderror value="{{ old('name',auth()->user()->name) }}" class="placeholder-email" type="text" placeholder="Enter your name.." />
+                    @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
-                @enderror
-            </div>
-        </div>
-        <div class="grid grid-cols-1 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] mb-2 font-Urbanist text-[#535355] font-medium">Password</label>
-                <input name="password" id="password" value="{{ old('password',auth()->user()->password) }}"
-                    type="password"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none"
-                    placeholder="Enter password.." @error('password') is-invalid @enderror
-                />
-                @error('password')
-                <div class="invalid-feedback">
-                    {{ $message }}
+                <div class="input-email mt-[8px] w-full xl:w-[515px]">
+                    <input name="email"  @error('email') is-invalid @enderror value="{{ old('email',auth()->user()->email) }}" class="placeholder-email" type="email" placeholder="Enter your email.." />
+                    @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
-                @enderror
-            </div>
-        </div>
-        <div class="grid grid-cols-1 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Gambar</label>
-                <input name="image" id="image" value="{{ old('image') }}" onchange="previewImage()"
-                    type="file"
-                    class="my-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
-                    placeholder="Enter image.." @error('image') is-invalid @enderror
-                />
-                @error('image')
-                <div class="invalid-feedback">
-                    {{ $message }}
+                <div class="input-password mt-[8px] w-full xl:w-[515px]">
+                    <input name="password"  @error('password') is-invalid @enderror value="{{ old('password',auth()->user()->password) }}" class="placeholder-password" type="password" placeholder="Enter your password.." />
+                    @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
-                @enderror
-                @if(auth()->user()->image)
-                <img class="img-preview" id="img-preview" src="{{ asset('images/'.auth()->user()->image) }}" frameborder="0" style="width: 200px">
-                @else
-                <img class="img-preview" id="img-preview" src="" frameborder="0">
-                @endif
+                <button type="submit" class="mt-[18px] w-full bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4  xl:w-[515px] sm:px-[40px] rounded-[6px]">Update Profile</button>
+            </form>
+        </div> 
+        <div class="mt-[48px] gap-[24px] col-span-6 lg:ms-[50px] mb-10">
+            <p class="font-Urbanist text-[36px] font-bold mb-[14px]">Quiz History</p>
+            @foreach (auth()->user()->quizResults as $quiz_result)
+            
+            <div class="p-4 bg-[#428574] rounded-[3px] w-full">
+                <p class="font-Urbanist font-bold text-[20px] text-white">Telah berhasil mengerjakan quiz {{ $quiz_result->quiz->name }}</p>
+                <div class="flex items-start mt-3">
+                    <img class="w-[60px]" src="{{ asset('images/'.$quiz_result->user->image) }}" alt="">
+                    <div class="ms-4">
+                        <p class="font-Urbanist font-bold text-[20px] text-white">Nilai : {{ $quiz_result->point }} /100</p>
+                        <p class="text-base text-white font-Urbanist">Benar {{ round($quiz_result->point * $quiz_result->quiz->questions->count() / 100) }} dari total {{ $quiz_result->quiz->questions->count() }} soal</p>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <hr class="my-[24px] w-[100%] text-[#1A3C40]" />
+                </div>
+                <div class="flex flex-col items-end justify-between sm:flex-row">
+                    <p class="text-[14px] font-semibold text-white font-Urbanist">{{ $quiz_result->created_at->format('d M Y') }}</p>
+                    <a class="" href="/quizzes/{{ $quiz_result->quiz->slug }}">
+                        <button class="w-full bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4 px-[48px] rounded-[6px]">Kerjakan Kembali</button>
+                    </a>
+                </div> 
             </div>
+            
+            @endforeach
         </div>
         
-
-        <input type="hidden" class="form-control @error('slug') is-invalid @enderror form-control-sm" name="slug" id="slug" value="{{ old('slug') }}" required>
-        <div class="flex items-center gap-2 mt-[26px]">
-            <button type="submit" class="py-[14px] px-4 bg-[#428574] text-white rounded-[8px]">Edit Profile</button>
-            <button type="button" class="py-[14px] px-4 bg-[#ADAEB1] text-white rounded-[8px]">Batal Edit</button>
-        </div>
-    </form>
-
     </div>
+</div>
     <script>
-        // let body = new RichTextEditor("#body");
-
-        const titleInput = document.querySelector('#title');
-        const slugInput = document.querySelector('#slug');
-
-        titleInput.addEventListener('change', function() {
-        const titleValue = titleInput.value.toLowerCase().trim().replace(/\s+/g, '-');
-        slugInput.value = titleValue;
-        });
-
         function previewImage(){
             const img = document.querySelector('#assets');
             const imgPreview = document.querySelector('#img-preview');

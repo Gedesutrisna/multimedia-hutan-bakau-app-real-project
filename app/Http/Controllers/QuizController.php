@@ -11,7 +11,7 @@ class QuizController extends Controller
 {
     public function index()
     {
-        $quizzes = Quiz::latest()->filter(request(['search']))->paginate(7)->withQueryString();
+        $quizzes = Quiz::latest()->filter(request(['search']))->get();
         return view('quiz.index',compact('quizzes'));
     }
     public function show(Quiz $quiz)

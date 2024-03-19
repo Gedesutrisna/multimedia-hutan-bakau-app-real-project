@@ -109,7 +109,7 @@
                                         <div class="flex justify-between">
                                             <div class="">
                                                 <p class="font-Urbanist font-semibold text-[28px] ">Hapus Kategori {{ $category->title }}</p>
-                                                <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Kategori Record Deletion: Are you sure you want to delete this kategori record? This action cannot be undone, and the kategori record will be permanently removed from the system.</p>
+                                                <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Kategori Blog: Apakah Anda yakin ingin menghapus catatan kategori ini? Tindakan ini tidak dapat dibatalkan, dan rekaman kategori akan dihapus secara permanen dari sistem.</p>
                                                 <form method="POST" action="/dashboard/categories/{{ $category->slug }}">
                                                     @csrf
                                                     @method('delete')    

@@ -15,8 +15,7 @@ class QuizResultController extends Controller
      */
     public function index()
     {
-        // $quiz_results = QuizResult::latest()->filter(request(['search']))->paginate(7)->withQueryString();
-        $quiz_results = QuizResult::all();
+        $quiz_results = QuizResult::latest()->filter(request(['search']))->get();
         return view('dashboard.quiz_result.index',compact('quiz_results'));
     }
 

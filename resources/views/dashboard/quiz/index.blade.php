@@ -35,7 +35,11 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $quiz->duration }} menit</td>
                                 <td>{{ $quiz->name }}</td>
-                                <td>{!! Str::limit($quiz->description, 110) !!}</td>
+                                @if (strlen($quiz->description) > 1000)
+                                    <td>{!! Str::limit($quiz->description, 200) !!}</td>
+                                @else
+                                    <td>{!! Str::limit($quiz->description, 80) !!}</td>
+                                @endif
                                 <td>{{ $quiz->questions->count() }} pertanyaan</td>
                                 <td class="text-center flex gap-1">
                                     <a href="/dashboard/quizzes/{{ $quiz->slug }}">
@@ -114,7 +118,7 @@
                                             <div class="flex justify-between">
                                                 <div class="">
                                                     <p class="font-Urbanist font-semibold text-[28px] ">Hapus Kuis {{ $quiz->name }}</p>
-                                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Kuis Record Deletion: Are you sure you want to delete this kuis record? This action cannot be undone, and the kuis record will be permanently removed from the system.</p>
+                                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Kuis: Apakah Anda yakin ingin menghapus catatan kuis ini? Tindakan ini tidak dapat dibatalkan, dan rekaman kuis akan dihapus secara permanen dari sistem.</p>
                                                     <form method="POST" action="/dashboard/quizzes/{{ $quiz->slug }}">
                                                         @csrf
                                                         @method('delete')    

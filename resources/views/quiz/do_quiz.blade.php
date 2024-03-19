@@ -1,95 +1,133 @@
-@extends('layouts.main')
+@extends('layouts.main-no-tb')
 @section('container')
-
-<!-- Main content -->
-<div class="content-main p-[32px] h-[100vh]">
-    <p id="countdown">{{ $quiz->duration }}</p>
-    <form id="quizForm" action="/quiz/results" method="POST" class="space-y-4">
-        @csrf
-        @method('POST')
-        <!-- Question Loop -->
-        <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
-        @foreach ($quiz->questions as $questionIndex => $question)
-        <div class="flex flex-col mb-4" style="display: {{ $questionIndex == 0 ? 'flex' : 'none' }};">
-            <label for="q{{ $loop->iteration }}" class="text-lg text-gray-800 mb-2">
-                {{ $loop->iteration }}. {{ $question->question }}
-            </label>
-            <input type="hidden" name="questions[{{ $questionIndex }}][quiz_question_id]" value="{{ $question->id }}">
-            @foreach ($question->answers as $answerIndex => $answer)
-                
-            <div class="flex items-center space-x-4">
-                <input type="radio" id="q{{ $loop->parent->iteration }}a{{ $answerIndex }}" name="answers[{{ $questionIndex }}][answer_id]"
-                value="{{ $loop->iteration }}" class="mr-2" required>
-                <label for="q{{ $loop->parent->iteration }}a{{ $answerIndex }}" class="text-gray-700">
-                    @if (empty($answer->answer_image))
-                        
-                    {{ $answer->option }}) {{ $answer->answer_text ?? '' }}
-                    @else
-                    <div class="flex gap-3">
-                        {{ $answer->option }})  <img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px">
+<div class="container mx-auto">
+    <div class="py-[50px] xl:px-[100px] 2xl:px-[185px]">
+        <form id="quizForm" action="/quiz/results" method="POST">
+            @csrf
+            @method('POST')
+            <input type="hidden" name="quiz_id" value="{{ $quiz->id }}">
+            <div class="flex justify-center ">
+                <div class="absolute w-[200px] py-[12px] bg-[#428574] rounded-[200px] text-center font-Urbanist font-bold text-white top-[24px]">
+                    <p id="countdown">{{ $quiz->duration }}</p>
+                </div>
+                <div class="">
+                    @foreach ($quiz->questions as $questionIndex => $question)
+                    <div class="box-question">
+                        <div class="bg-white w-[100%]  rounded-[4px] p-[40px]">
+                            @if (empty($question->image))
+                            @else
+                            <img class="w-[100px] h-[100px] mx-auto my-3" src="{{ asset('/images'.$question->image) }}" alt="">
+                            @endif
+                            <label for="q{{ $loop->iteration }}" class="text-lg text-gray-800">
+                                <p class="font-Urbanist mt-3 text-[16px] font-medium text-[#101828]"> {{ $loop->iteration }}. {{ $question->question }} </p>
+                            </label>
+                            <input type="hidden" name="questions[{{ $questionIndex }}][quiz_question_id]" value="{{ $question->id }}">
+                        </div>
+                        <div class="grid grid-cols-2 gap-[24px] mt-[24px]">
+                            @foreach ($question->answers as $answerIndex => $answer)
+                            <div class="box-answer w-full h-full bg-white rounded-[12px] p-[18px] ">
+                                <input type="radio" id="q{{ $loop->parent->iteration }}a{{ $answerIndex }}" name="answers[{{ $questionIndex }}][answer_id]"
+                                value="{{ $loop->iteration }}" class="mr-2" required>
+                                <label for="q{{ $loop->parent->iteration }}a{{ $answerIndex }}" class="text-gray-700">
+                                    @if (empty($answer->answer_image) && !empty($answer->answer_text))
+                                        <p class="font-Urbanist text-[16px] font-medium text-[#101828]"> {{ $answer->option }}. {{ $answer->answer_text }} </p>
+                                    @elseif (!empty($answer->answer_image) && empty($answer->answer_text))
+                                    <div class="flex gap-2">
+                                        <p class="font-Urbanist text-[16px] font-medium text-[#101828]"> {{ $answer->option }}.</p> <img src="{{ asset('images/'.$answer->answer_image) }}" alt="" style="width: 40px">
+                                    </div>
+                                    @elseif (empty($answer->answer_image) && empty($answer->answer_text))
+                                        -
+                                    @endif  
+                                </label>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
-                        
-                    @endif
-                </label>
+                    @endforeach
+                </div>
             </div>
-            @endforeach
-        </div>
-        @endforeach
-        
-
-        <hr>
-
-        <!-- Navigation Buttons -->
-        <div class="flex justify-between">
+         <div class="flex justify-between mt-[24px]">
             <button type="button" onclick="prevQuestion()"
-                class="bg-blue-500 hover:bg-blue-600 
-                    text-white px-2 py-1 rounded-md">
+                class="bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4 px-[20px] sm:px-[40px] rounded-[6px]">
                 Previous
             </button>
             <button type="button" onclick="nextQuestion()"
-                    class="bg-blue-500 hover:bg-blue-600 
-                        text-white px-4 py-1 rounded-md">
+                class="bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4 px-[20px] sm:px-[40px] rounded-[6px]" 
+                id="nextButton">
                 Next
             </button>
-        </div>
-        <hr>
-
-        <button type="button" onclick="submitQuiz()"
-                class="bg-green-500 text-white px-4 py-2 
-                rounded-md mt-8">
-            Submit
-        </button>
-    </form>
-
-</div>
+            <button type="button" onclick="submitQuiz()"
+                class="bg-[#1A3C40] font-Urbanist text-base font-semibold text-white py-4 px-[20px] sm:px-[40px] rounded-[6px]" 
+                style="display: none;" 
+                id="submitButton">
+                Submit
+            </button>
+        </form>
+    </div>
 </div>
 
 <script>
 let currentQuestionIndex = 0;
+const totalQuestions = {{ count($quiz->questions) }};
 
 function showQuestion(index) {
-    const questions = document.querySelectorAll('.flex.flex-col');
+    const questions = document.querySelectorAll('.box-question');
     questions.forEach((question, i) => {
-        question.style.display = i === index ? 'flex' : 'none';
+        question.style.display = i === index ? 'block' : 'none';
     });
+    if (index === totalQuestions - 1) {
+        document.getElementById('nextButton').style.display = 'none';
+        document.getElementById('submitButton').style.display = 'block';
+    } else {
+        document.getElementById('nextButton').style.display = 'block';
+        document.getElementById('submitButton').style.display = 'none';
+    }
+}
+
+function saveAnswer(questionIndex, answerIndex) {
+    const answers = JSON.parse(localStorage.getItem('answers')) || [];
+    answers[questionIndex] = answerIndex;
+    localStorage.setItem('answers', JSON.stringify(answers));
+}
+
+function loadSavedAnswer() {
+    const answers = JSON.parse(localStorage.getItem('answers'));
+    if (answers && answers.length > 0) {
+        currentQuestionIndex = answers.length - 1;
+        for (let i = 0; i < answers.length; i++) {
+            if (answers[i] !== undefined) {
+                document.querySelector(`input[name="answers[${i}][answer_id]"][value="${answers[i]}"]`).checked = true;
+            }
+        }
+    }
+}
+
+loadSavedAnswer();
+
+function submitQuiz() {
+    localStorage.removeItem('remainingTime');
+    localStorage.removeItem('answers');
+    document.getElementById("quizForm").submit();
 }
 
 function nextQuestion() {
-    currentQuestionIndex = Math.min(currentQuestionIndex + 1, {{ count($quiz->questions) - 1 }});
+    const selectedAnswer = document.querySelector(`input[name="answers[${currentQuestionIndex}][answer_id]"]:checked`);
+    if (selectedAnswer) {
+        saveAnswer(currentQuestionIndex, selectedAnswer.value);
+    }
+    currentQuestionIndex = Math.min(currentQuestionIndex + 1, totalQuestions - 1);
     showQuestion(currentQuestionIndex);
 }
 
 function prevQuestion() {
+    const selectedAnswer = document.querySelector(`input[name="answers[${currentQuestionIndex}][answer_id]"]:checked`);
+    if (selectedAnswer) {
+        saveAnswer(currentQuestionIndex, selectedAnswer.value);
+    }
     currentQuestionIndex = Math.max(currentQuestionIndex - 1, 0);
     showQuestion(currentQuestionIndex);
 }
 
-function submitQuiz() {
-    // Hapus nilai yang tersimpan di local storage
-    localStorage.removeItem('remainingTime');
-    // Kirim formulir kuis
-    document.getElementById("quizForm").submit();
-}
 
 
 showQuestion(currentQuestionIndex);
@@ -120,7 +158,6 @@ let timer = setInterval(() => {
         submitQuiz(); 
     }
 }, 1000);
-
 
 </script>
 @endsection

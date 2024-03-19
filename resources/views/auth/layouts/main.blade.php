@@ -13,10 +13,10 @@
 		/>
         @vite('resources/css/app.css')
 	</head>
-	<body class="overflow-auto xl:overflow-hidden">
+	<body class="overflow-hidden">
+		<main class="login-page">
         @include('sweetalert::alert')
-        <div>
             @yield('container')
-        </div>
+		</main>
     </body>
 </html>

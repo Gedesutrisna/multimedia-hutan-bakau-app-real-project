@@ -14,8 +14,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        // $users = User::latest()->filter(request(['search']))->paginate(7)->withQueryString();
-        $users = User::all();
+        $users = User::latest()->filter(request(['search']))->get();
         return view('dashboard.user.index',compact('users'));
     }
     public function show(User $user)

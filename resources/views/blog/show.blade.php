@@ -1,58 +1,26 @@
 @extends('layouts.main')
 @section('container')
 
-    <!-- Main content -->
-
-
-
-    <div class="content-main p-[32px]">
-        <div class="flex gap-3">
-            <a href="/blogs"><img src="/asset/back logo.svg" alt=""></a>
-            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Blog {{ $blog->title }}</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Judul</label>
-                <input name="title" id="title" value="{{ old('title',$blog->title) }}"
-                    type="text"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
-                    placeholder="Enter title.." @error('title') is-invalid @enderror disabled
-                />
-            </div>
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium"
-                    >Kategori</label
-                >
-                <input name="category_id" id="category_id" value="{{ old('category_id',$blog->category->name) }}"
-                type="text"
-                class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white"
-                placeholder="Enter category_id.." @error('category_id') is-invalid @enderror disabled
-            />
+        <div class="container mx-auto">
+            <a href="/blogs" class="absolute">
+                <button class=""><img src="/assets/back-button.svg" alt=""></button>
+            </a>
+            <div class="py-[50px] xl:px-[100px] 2xl:px-[185px]">
+                <div class="flex justify-center">
+                    <div class="bg-[#eeeeee] w-[1000px] h-[100%] rounded-[4px] py-[60px]">
+                        <div class="mx-auto w-[800px]">
+                            <p class="font-Urbanist text-[24px] sm:text-[42px] md:text-[48px] lg:text-[64px] font-bold text-center">{{ $blog->title }}</p>
+                            <div class="mt-[24px] h-[300px] overflow-hidden rounded-[4px]">
+                                <img class="w-full" src="{{ asset('images/'.$blog->assets) }}" alt="">
+                            </div>
+    
+                            <div class="blog-main">
+                                <p class="text-[20px] sm:text-[18px] font-Urbanist font-normal mt-[24px] text-justify">{!! $blog->body !!}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Teks</label>
-                <textarea name="body" value="{{ old('body', $blog->body) }}" disabled
-                    type="text"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white h-[250px]"
-                    placeholder="Enter body.." style="resize: none" @error('body') is-invalid @enderror
-                >{!! $blog->body !!}</textarea>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 mt-9 gap-4">
-            <div class="">
-                <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium mb-2">Gambar</label>
-                @if($blog->assets)
-                <img class="img-preview" id="img-preview" src="{{ asset('images/'.$blog->assets) }}" frameborder="0" style="width: 200px">
-                @else
-                <img class="img-preview" id="img-preview" src="" frameborder="0">
-                @endif
-            </div>
-        </div>
-        
-
-
-    </div>
 
 @endsection

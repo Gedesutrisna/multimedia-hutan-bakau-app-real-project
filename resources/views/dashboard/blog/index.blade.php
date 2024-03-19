@@ -34,7 +34,11 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $blog->title }}</td>
                                 <td>{{ $blog->category->name }}</td>
-                                <td>{!! Str::limit($blog->body, 135) !!}</td>
+                                @if (strlen($blog->body) > 1000)
+                                    <td>{!! Str::limit($blog->body, 670) !!}</td>
+                                @else
+                                    <td>{!! Str::limit($blog->body, 70) !!}</td>
+                                @endif
                                 <td class="text-center flex gap-1">
                                     <a href="/dashboard/blogs/{{ $blog->slug }}">
                                         <button
@@ -112,7 +116,7 @@
                                             <div class="flex justify-between">
                                                 <div class="">
                                                     <p class="font-Urbanist font-semibold text-[28px] ">Hapus Blog {{ $blog->title }}</p>
-                                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Confirm Blog Record Deletion: Are you sure you want to delete this blog record? This action cannot be undone, and the blog record will be permanently removed from the system.</p>
+                                                    <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Catatan Blog: Apakah Anda yakin ingin menghapus catatan blog ini? Tindakan ini tidak dapat dibatalkan, dan rekaman blog akan dihapus secara permanen dari sistem.</p>
                                                     <form method="POST" action="/dashboard/blogs/{{ $blog->slug }}">
                                                         @csrf
                                                         @method('delete')    
@@ -139,14 +143,17 @@
             {{-- <div class="mt-3">
                 {{ $blogs->links() }}
             </div> --}}
+            
         </div>
         <script>
             $(document).ready(function() {
                 var table = $('#example').DataTable({
-                        responsive: true
+                        responsive: true,
+
                     })
                     .columns.adjust()
                     .responsive.recalc();
+                    
             });
         </script>
 

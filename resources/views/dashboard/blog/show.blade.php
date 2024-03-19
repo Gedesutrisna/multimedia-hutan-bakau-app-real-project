@@ -33,11 +33,7 @@
         <div class="grid grid-cols-1 mt-9 gap-4">
             <div class="">
                 <label for="" class="block text-[14px] font-Urbanist text-[#535355] font-medium">Teks</label>
-                <textarea name="body" value="{{ old('body', $blog->body) }}" disabled
-                    type="text"
-                    class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] focus:outline-none bg-white h-[250px]"
-                    placeholder="Enter body.." style="resize: none" @error('body') is-invalid @enderror
-                >{!! $blog->body !!}</textarea>
+                <div class="mt-2 py-[18px] px-[16px] w-full border border-[#E1E2E6] rounded-[4px] bg-white h-[250px] overflow-y-auto">{!! $blog->body !!}</div>
             </div>
         </div>
         <div class="grid grid-cols-1 mt-9 gap-4">

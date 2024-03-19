@@ -7,7 +7,7 @@
         <div class="content-main p-[32px] lg:ms-10 xl:ms-4 2xl:ms-0 bg-body {{ $quiz_results->count() < 4 ? 'h-[100vh]' : '' }}">
             <div class="sm:flex sm:justify-between block items-end">
                 <div class="">
-                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Hasil Kuis</h1>
+                    <h1 class="text-[#141414] font-Urbanist text-[28px] font-semibold">Data Kuis</h1>
                 </div>
             </div>
 

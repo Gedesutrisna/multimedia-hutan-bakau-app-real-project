@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.addEventListener("click", function (event) {
 		const isClickInsideNavbar =
 			sidebar.contains(event.target) || hamburgerButton.contains(event.target);
-
+			
 		// Menyembunyikan atau menampilkan sidebar hanya jika yang diklik adalah tombol hamburger-menu
 		if (isClickInsideNavbar && event.target.classList.contains("hamburger-menu")) {
 			toggleSidebar();
 		}
-
+		
 		// Menyembunyikan sidebar jika yang diklik di luar sidebar dan sidebar sedang ditampilkan
 		if (!isClickInsideNavbar && !sidebar.classList.contains("hidden")) {
 			toggleSidebar();
@@ -22,30 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	function toggleSidebar() {
 		// Mengubah class 'hidden' untuk menampilkan atau menyembunyikan sidebar secara penuh
 		sidebar.classList.toggle("hidden");
-
+		
 		// Mengubah class 'hidden' pada elemen-elemen di dalam sidebar berdasarkan ukuran layar
 		const elementsToToggle = document.querySelectorAll(
 			".text-dashboard, .text-appointment, .text-record, .text-immunization, .text-report, .text-setting, .text-logout"
-		);
+			);
 		elementsToToggle.forEach((element) => {
 			element.classList.toggle("hidden", sidebar.classList.contains("hidden"));
 		});
 	}
-});
-
- // JavaScript to toggle sidebar visibility
-const burgerIcon = document.getElementById('burger-icon');
-const closeIcon = document.getElementById('close-icon');
-const sidebar = document.getElementById('sidebar');
-
-const hideSidebar = () => {
-	sidebar.classList.add('hidden');
-};
-
-burgerIcon.addEventListener('click', () => {
-	sidebar.classList.toggle('hidden');
-});
-
-closeIcon.addEventListener('click', () => {
-	hideSidebar();
 });

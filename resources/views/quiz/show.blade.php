@@ -3,11 +3,11 @@
 <div class="container mx-auto">
     <div class="py-[50px] xl:px-[100px] 2xl:px-[185px]">
         <div class="flex justify-center">
-            <div class="absolute px-[132px] py-[12px] bg-[#428574] rounded-[200px] text-base font-Urbanist font-bold text-white top-[130px]">Materi</div>
+            <div class="absolute px-[132px] py-[12px] bg-[#428574] rounded-[200px] text-base font-Urbanist font-bold text-white top-[120px] md:top-[130px]">Materi</div>
             <div class="bg-[#eeeeee] w-[1000px] h-[100%] rounded-[4px]">
-                <div class="mx-auto w-[800px]">
+                <div class="px-[20px] mx-auto w-full md:w-[800px]">
                     <p class="font-Urbanist text-[24px] sm:text-[42px] md:text-[48px] lg:text-[64px] font-bold text-center mt-[40px] mb-[24px]">{{ $quiz->name }}</p>
-                    <div class="h-[300px] overflow-hidden rounded-[4px]">
+                    <div class="h-full overflow-hidden rounded-[4px]">
                         <img class="w-full" src="{{ asset('/images'.$quiz->image) }}" alt="">
                     </div>
                     <div class="mb-[60px] overflow-hidden ">

@@ -58,7 +58,7 @@
         
         <section class="mt-[80px]">
             <div class="container mx-auto">
-                <div class="grid grid-cols-1 xl:grid-cols-12 items-center">
+                <div class="grid grid-cols-1 xl:grid-cols-12 items-center gap-[16px]">
                     <div class="col-span-6">
                         <button class="py-[18.5px] px-[38.5px] font-Urbanist font-semibold text-[#1A3C40] bg-[#D9E9E4] rounded-[999px]">Jelajahi Fitur-Fitur Terbaik Kami</button>
                         <h1 class="font-semibold font-Urbanist text-[48px] sm:text-[62px] lg:text-[52px] xl:text-[62px] leading-[65px] mt-[32px]">Menemukan <span class="text-[#1A3C40]">Keistimewaan Kami</span> Bersama Anda</h1>
@@ -180,7 +180,7 @@
     
         <section class="mt-[80px]">
             <div class="container mx-auto">
-                <div class="flex sm:flex-col xl:flex-row justify-between lg:gap-[28px] xl:gap-0">
+                <div class="lg:flex md:flex-col lg:flex-row items-center justify-between lg:gap-[28px] xl:gap-0">
                     <p class="font-Urbanist font-bold text-[32px] sm:text-[38px] xl:text-[52px] leading-normal xl:leading-[65px] mb-4 lg:mb-0 text-[#000000]">Relawan, Saksi Perubahan, <br> Penyala Harapan.</p>
                     <p class="text-[16px] font-Urbanist font-medium text-[#000000] flex items-center text-justify xl:w-[457px]">Dengan setiap langkahnya, relawan menjadi saksi perubahan, menyulut api harapan di tengah kegelapan, dan menerangi jalan menuju masa depan yang lebih baik bagi mereka yang membutuhkan.</p>
                 </div>

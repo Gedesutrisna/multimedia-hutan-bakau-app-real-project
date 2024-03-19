@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Keindahan Hutan Bakau: Ekosistem yang Unik',
             'slug' => 'keindahan-hutan-bakau-ekosistem-unik',
             'body' => 'Hutan bakau adalah salah satu ekosistem yang unik di dunia, dengan kemampuannya untuk tumbuh di wilayah pantai yang tergenang air asin. Hutan bakau tidak hanya menjadi rumah bagi berbagai jenis flora dan fauna, tetapi juga memberikan manfaat penting bagi lingkungan dan manusia.',
-            'assets' => '/example.svg',
+            'assets' => '/blog-1.svg',
             'category_id' => 1,
             'admin_id' => 1,
         ]);

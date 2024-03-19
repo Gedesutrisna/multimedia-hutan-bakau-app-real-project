@@ -23,7 +23,7 @@
                             </label>
                             <input type="hidden" name="questions[{{ $questionIndex }}][quiz_question_id]" value="{{ $question->id }}">
                         </div>
-                        <div class="grid grid-cols-2 gap-[24px] mt-[24px]">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-[24px] mt-[24px]">
                             @foreach ($question->answers as $answerIndex => $answer)
                             <div class="box-answer w-full h-full bg-white rounded-[12px] p-[18px] ">
                                 <input type="radio" id="q{{ $loop->parent->iteration }}a{{ $answerIndex }}" name="answers[{{ $questionIndex }}][answer_id]"

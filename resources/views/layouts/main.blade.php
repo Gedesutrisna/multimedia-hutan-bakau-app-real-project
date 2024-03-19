@@ -4,7 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<link rel="stylesheet" href="./output.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -19,12 +18,12 @@
 	</head>
 	<script type="text/javascript" src="/js/richtexteditor/rte.js"></script>
 	<script type="text/javascript" src='/js/richtexteditor/all_plugins.js'></script>
-	<script src="/js/script.js"></script>
 	<body class="bg-[#D7D1C6]">
         @include('sweetalert::alert')
 		@include('partials.navbar')
 		@yield('container')
 		@include('partials.footer')
+		<script src="/js/script-home.js"></script>
     </body>
 
 </html>

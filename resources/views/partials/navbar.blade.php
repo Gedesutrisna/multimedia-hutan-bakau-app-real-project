@@ -44,8 +44,18 @@
                 <a href="/" class="font-Urbanist font-semibold text-base text-[#1A3C40]">Home</a>
                 <a href="/blogs" class="font-Urbanist font-semibold text-base text-[#1A3C40]">Blog</a>
                 <a href="/quizzes" class="font-Urbanist font-semibold text-base text-[#1A3C40]">Kuis</a>
+                @if (auth()->check())
+                <a href="/profile" ><button class="bg-white font-Urbanist text-base font-semibold text-[#1A3C40] py-4 px-[40px] rounded-[4px] flex gap-3">{{ auth()->user()->name }} 
+                    @if (empty(auth()->user()->image))
+                    <img src="/assets/user-profile.svg" alt="">
+                    @else
+                    <img class="w-[24px] h-[24px]" src="{{ asset('images/'.auth()->user()->image) }}" alt="">
+                    @endif
+                </button></a> 
+                @else
                 <a href="/register" class="font-Urbanist text-base font-semibold text-[#1A3C40]">Sign Up</a>
-                <a href="/login"><button class="bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4 px-[40px] rounded-[6px]">Sign In</button></a> 
+                <a href="/login"><button class="bg-white font-Urbanist text-base font-semibold text-[#1A3C40] py-4 px-[40px] rounded-[4px]">Sign In</button></a> 
+                @endif
             </div>
         </div>
 </div>

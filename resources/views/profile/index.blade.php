@@ -1,15 +1,23 @@
 @extends('layouts.main')
 @section('container')
 <div class="container mx-auto">
-    <div class="flex items-center mt-[48px] gap-4">
+    <div class="flex items-center mt-[48px] justify-between">
+    <div class="flex items-center gap-4">
         <a href="/">
             <button><img src="/assets/back-button.svg" alt=""></button>
         </a>
         <p class="font-Urbanist text-[36px] font-bold">Profile</p>
     </div>
-
+    <form class="mb-0" action="/logout" method="POST">
+        @csrf
+        <button type="submit" class="bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4  xl:w-[125px] px-[40px] sm:px-[40px] rounded-[6px]">Logout</button>
+    </form>
+    </div>
+    <div class="flex justify-center">
+        <hr class="my-[24px] w-[100%] text-[#1A3C40]" />
+    </div>
     <div class="grid grid-cols-1 lg:grid-cols-12">
-        <div class="col-span-6 mt-[48px]">
+        <div class="col-span-6 mt-[30px]">
             <p class="font-Urbanist text-[36px] font-bold">Info</p>
             <form action="/profile/update" method="post" enctype="multipart/form-data">
                 @csrf
@@ -56,7 +64,7 @@
                 <button type="submit" class="mt-[90px] w-full bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4  xl:w-[515px] sm:px-[40px] rounded-[6px]">Update Profile</button>
             </form>
         </div> 
-        <div class="mt-[48px] gap-[24px] col-span-6 lg:ms-[50px] mb-10">
+        <div class="mt-[30px] gap-[24px] col-span-6 lg:ms-[50px] mb-10">
             <p class="font-Urbanist text-[36px] font-bold mb-[14px]">Quiz History</p>
             @foreach (auth()->user()->quizResults as $quiz_result)
             
@@ -73,7 +81,7 @@
                     <hr class="my-[24px] w-[100%] text-[#1A3C40]" />
                 </div>
                 <div class="flex flex-col items-end justify-between sm:flex-row">
-                    <p class="text-[14px] font-semibold text-white font-Urbanist">{{ $quiz_result->created_at->format('d M Y') }}</p>
+                    <p class="mb-3 md:mb-0 text-[14px] font-semibold text-white font-Urbanist">{{ $quiz_result->created_at->format('d M Y') }}</p>
                     <a class="" href="/quizzes/{{ $quiz_result->quiz->slug }}">
                         <button class="w-full bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4 px-[48px] rounded-[6px]">Kerjakan Kembali</button>
                     </a>

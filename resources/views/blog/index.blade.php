@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
 <div class="flex items-center justify-center mt-[68px]">
-    <div class="w-[500px] px-4 py-3 relative bg-[#428574] rounded-[4px]">
+    <div class="md:w-[100%] lg:w-[500px]  px-4 py-3 relative bg-[#428574] rounded-[4px]">
         <form action="/blogs" method="get" class="w-[100%]">
         <input name="search" class="bg-transparent font-Urbanist font-medium text-[20px] placeholder:text-[#D9E9E4] rounded-[4px] ps-[50px] outline-none text-[#D9E9E4]" type="text" name="" id="" placeholder="Cari Blog">
         <img class="absolute top-0 mt-[16px]" src="/assets/search-img.svg" alt="">

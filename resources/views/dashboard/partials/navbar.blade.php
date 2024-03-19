@@ -102,7 +102,7 @@
             @if (empty(auth()->guard('admin')->user()->image))
             <img class="" src="/asset/profile-img.svg" alt="" />
             @else
-            <img class="photo-profile" src="{{ asset('images/'.auth()->guard('admin')->user()->image) }}" alt="">
+            <img class="w-[40px] h-[40px]"  class="photo-profile" src="{{ asset('images/'.auth()->guard('admin')->user()->image) }}" alt="">
             @endif
             <p class="flex-none ps-3 font-Urbanist text-base font-medium text-[#141414] invisible sm:visible">
                 {{ auth()->guard('admin')->user()->name }}

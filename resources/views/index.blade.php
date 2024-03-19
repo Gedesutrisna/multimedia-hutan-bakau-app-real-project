@@ -34,7 +34,7 @@
                     <a href="/blogs">
                         <div class="">
                             <div class="relative">
-                                <img class="w-full h-full " src="{{ asset('/images'.$blog->assets) }}" alt="">
+                                <img class="w-full h-full" src="{{ asset('/images'.$blog->assets) }}" alt="">
                                 <div class="absolute px-[28px] py-[5.5px] bg-[#D9E9E4] bottom-0 right-0 font-Urbanist text-[12px] font-semibold">Blog</div>
                             </div>
                             

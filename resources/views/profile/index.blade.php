@@ -2,7 +2,9 @@
 @section('container')
 <div class="container mx-auto">
     <div class="flex items-center mt-[48px] gap-4">
-        <button class="p-[14px]"><img src="/assets/back-button.svg" alt=""></button>
+        <a href="/">
+            <button><img src="/assets/back-button.svg" alt=""></button>
+        </a>
         <p class="font-Urbanist text-[36px] font-bold">Profile</p>
     </div>
 
@@ -12,14 +14,6 @@
             <form action="/profile/update" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="input-email mt-[14px] w-full xl:w-[515px]">
-                    <input name="image"  @error('image') is-invalid @enderror value="{{ old('image',auth()->user()->image) }}" class="placeholder-email" type="text" placeholder="Enter your image.." />
-                    @error('image')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div>
                 <div class="input-email mt-[8px] w-full xl:w-[515px]">
                     <input name="name"  @error('name') is-invalid @enderror value="{{ old('name',auth()->user()->name) }}" class="placeholder-email" type="text" placeholder="Enter your name.." />
                     @error('name')
@@ -44,7 +38,22 @@
                     </div>
                     @enderror
                 </div>
-                <button type="submit" class="mt-[18px] w-full bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4  xl:w-[515px] sm:px-[40px] rounded-[6px]">Update Profile</button>
+                <div class="input-email mt-[14px] w-full xl:w-[515px]">
+                    <div class="w-full">
+                        <input name="image" id="image" onchange="previewImage()"  @error('image') is-invalid @enderror value="{{ old('image',auth()->user()->image) }}" class="placeholder-email" type="file" placeholder="Enter your image.." />
+                        @error('image')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        @if(auth()->user()->image)
+                        <img class="img-preview mt-3" id="img-preview" src="{{ asset('images/'.auth()->user()->image) }}" frameborder="0" style="width: 50px">
+                        @else
+                        <img class="img-preview mt-3" id="img-preview" src="" frameborder="0">
+                        @endif
+                    </div>
+                </div>
+                <button type="submit" class="mt-[90px] w-full bg-[#D9E9E4] font-Urbanist text-base font-semibold text-[#1A3C40] py-4  xl:w-[515px] sm:px-[40px] rounded-[6px]">Update Profile</button>
             </form>
         </div> 
         <div class="mt-[48px] gap-[24px] col-span-6 lg:ms-[50px] mb-10">
@@ -78,12 +87,12 @@
 </div>
     <script>
         function previewImage(){
-            const img = document.querySelector('#assets');
+            const img = document.querySelector('#image');
             const imgPreview = document.querySelector('#img-preview');
             if (img.files.length > 0) {
                 const blob = URL.createObjectURL(img.files[0]);
                 imgPreview.style.display = 'block';
-                imgPreview.style.height = '200px';
+                imgPreview.style.height = '50px';
                 imgPreview.src = blob;
             } else {
                 imgPreview.style.display = 'none';

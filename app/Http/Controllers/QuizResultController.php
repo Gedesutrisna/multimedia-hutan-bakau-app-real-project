@@ -110,7 +110,7 @@ class QuizResultController extends Controller
 
             $quiz_result = QuizResult::create($quizResultData);
 
-            return redirect('/quiz/results')->with('success', 'Berhasil menyelesaikan kuis!, Kamu mendapatkan '.$quiz_result->point.' nilai, jawaban benar 0, dari '. $countQuestions.' pertanyaan');
+            return redirect('/profile')->with('success', 'Berhasil menyelesaikan kuis!, Kamu mendapatkan '.$quiz_result->point.' nilai, jawaban benar 0, dari '. $countQuestions.' pertanyaan');
         }
 
         $countQuestions = count($validatedData['questions']);
@@ -148,7 +148,7 @@ class QuizResultController extends Controller
         }
         $quiz_result = QuizResult::create($quizResultData);
 
-        return redirect('/quiz/results')->with('success', 'Berhasil menyelesaikan kuis!, Kamu mendapatkan '.$quiz_result->point.' nilai, jawaban benar '.$countCorrectAnswers.', dari '. $countQuestions.' pertanyaan');
+        return redirect('/profile')->with('success', 'Berhasil menyelesaikan kuis!, Kamu mendapatkan '.$quiz_result->point.' nilai, jawaban benar '.$countCorrectAnswers.', dari '. $countQuestions.' pertanyaan');
     }
 
 }

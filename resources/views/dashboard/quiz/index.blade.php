@@ -35,11 +35,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $quiz->duration }} menit</td>
                                 <td>{{ $quiz->name }}</td>
-                                @if (strlen($quiz->description) > 1000)
-                                    <td>{!! Str::limit($quiz->description, 200) !!}</td>
-                                @else
-                                    <td>{!! Str::limit($quiz->description, 80) !!}</td>
-                                @endif
+                                    <td>{!! Str::limit($quiz->description, 180) !!}</td>
                                 <td>{{ $quiz->questions->count() }} pertanyaan</td>
                                 <td class="text-center flex gap-1">
                                     <a href="/dashboard/quizzes/{{ $quiz->slug }}">

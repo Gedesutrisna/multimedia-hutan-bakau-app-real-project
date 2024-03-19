@@ -27,9 +27,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($categories as $index => $category)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td class="index-column"></td>
                             <td>{{ $category->name }}</td>
                             <td>{{ $category->description }}</td>
                             <td class="text-center flex gap-1">
@@ -138,13 +138,17 @@
             </div> --}}
         </div>
         <script>
-            $(document).ready(function() {
-                var table = $('#example').DataTable({
-                        responsive: true
-                    })
-                    .columns.adjust()
-                    .responsive.recalc();
+    $(document).ready(function () {
+        // Inisialisasi DataTable
+        var table = $('#example').DataTable();
+
+        // Tambahkan nomor urutan pada setiap baris
+        table.on('order.dt search.dt', function () {
+            table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
             });
+        }).draw();
+    });
         </script>
 
 @endsection

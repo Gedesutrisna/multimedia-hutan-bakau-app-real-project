@@ -34,11 +34,11 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $blog->title }}</td>
                                 <td>{{ $blog->category->name }}</td>
-                                @if (strlen($blog->body) > 1000)
-                                    <td>{!! Str::limit($blog->body, 670) !!}</td>
-                                @else
-                                    <td>{!! Str::limit($blog->body, 70) !!}</td>
-                                @endif
+                                {{-- @if (strlen($blog->body) > 300) --}}
+                                    <td>{!! Str::limit($blog->body, 180) !!}</td>
+                                {{-- @else --}}
+                                    {{-- <td>{!! Str::limit($blog->body, 70) !!}</td> --}}
+                                {{-- @endif --}}
                                 <td class="text-center flex gap-1">
                                     <a href="/dashboard/blogs/{{ $blog->slug }}">
                                         <button

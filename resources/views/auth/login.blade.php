@@ -1,7 +1,7 @@
 @extends('auth.layouts.main')
 @section('container')
-		<div class="container-fluid bg-[#D7D1C6]">
-			<div class="xl:grid xl:grid-cols-12 2xl:place-items-center">
+		<div class="container-fluid bg-[#D7D1C6] h-[100vh]">
+			<div class="h-[100vh] xl:grid xl:grid-cols-12 2xl:place-items-center">
 
 				<div class="sm:mx-[50px] xl:col-span-6 pt-[60px] xl:pt-[80px] 2xl:pt-0">
 					<div class="flex justify-center">

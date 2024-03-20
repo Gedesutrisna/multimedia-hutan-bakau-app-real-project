@@ -75,7 +75,7 @@
             <div class="flex">
                 @foreach (auth()->user()->quizResults as $quiz_result)
                 
-                <div class="p-4 bg-[#428574] rounded-[3px] w-[400px] md:w-[480px] me-[20px]">
+                <div class="p-4 bg-[#428574] rounded-[3px] w-[400px] md:w-[480px] me-[20px] mb-2">
                     <p class="font-Urbanist font-bold text-[20px] text-white">Telah berhasil mengerjakan quiz {{ $quiz_result->quiz->name }}</p>
                     <div class="flex items-start mt-3">
                         <img class="w-[60px]" src="{{ asset('images/'.$quiz_result->user->image) }}" alt="">

@@ -4,6 +4,9 @@
 	<div class="h-[100vh] xl:grid xl:grid-cols-12 2xl:place-items-center">
 
 		<div class="sm:mx-[50px] xl:col-span-6 pt-[60px] xl:pt-[40px] 2xl:pt-0">
+			<a href="/" class="absolute left-[6px] md:left-[50px]">
+				<button class=""><img src="/assets/back-button.svg" alt=""></button>
+			</a>
 			<div class="flex justify-center">
 				<button class="banner-btn mb-[8px]">Menjelajah Kehidupan Pesisir Eksotis Terpelihara Alami</button>
 			</div>

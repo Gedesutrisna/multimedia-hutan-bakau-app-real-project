@@ -82,7 +82,7 @@
     
                             <div class="p-[24px] w-full h-full bg-[#428574] rounded-[4px]">
                                 <div class="">
-                                    <img src="/assets/Membangkitkan-1.svg" alt="">
+                                    <img src="/assets/restorasi.svg" alt="">
                                 </div>
                                 <p class="font-Urbanist font-medium text-[24px] mb-[0px] mt-[18px] text-white">Restorasi</p>
                                 <p class="font-normal font-Urbanist text-[14px] text-white">Memulihkan Kembali Hutan Bakau Terancam</p>
@@ -90,7 +90,7 @@
     
                             <div class="p-[24px] w-full h-full bg-[#428574] rounded-[4px]">
                                 <div class="">
-                                    <img src="/assets/Membangkitkan-1.svg" alt="">
+                                    <img src="/assets/penjaga.svg" alt="">
                                 </div>
                                 <p class="font-Urbanist font-medium text-[24px] mb-[0px] mt-[18px] text-white">Penjaga</p>
                                 <p class="font-normal font-Urbanist text-[14px] text-white">Memelihara Pelindung Alam Pesisir Alami</p>
@@ -98,7 +98,7 @@
     
                             <div class="p-[24px] w-full h-full bg-[#428574] rounded-[4px]">
                                 <div class="">
-                                    <img src="/assets/Membangkitkan-1.svg" alt="">
+                                    <img src="/assets/konservasi.svg" alt="">
                                 </div>
                                 <p class="font-Urbanist font-medium text-[24px] mb-[0px] mt-[18px] text-white">Konservasi</p>
                                 <p class="font-normal font-Urbanist text-[14px] text-white">Melestarikan Warisan Hijau untuk Masa Depan</p>

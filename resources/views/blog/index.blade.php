@@ -16,7 +16,7 @@
                 
                 <a href="/blogs/{{ $blog->slug }}" class="">
                 <div class="relative">
-                    <img class="xl:w-[400px] xl:h-[214px] w-full h-full " src="{{ asset('images/'.$blog->assets) }}" alt="">
+                    <img class="2xl:w-[500px] 2xl:h-[270px] xl:w-[400px] xl:h-[214px] w-full h-full " src="{{ asset('images/'.$blog->assets) }}" alt="">
                     <div class="absolute px-[28px] py-[5.5px] bg-[#D9E9E4] bottom-0 right-0 font-Urbanist text-[12px] font-semibold">Blog</div>
                 </div>
                 

@@ -3,7 +3,7 @@
 <div class="flex items-center justify-center mt-[68px]">
     <div class="md:w-[100%] lg:w-[500px]  px-4 py-3 relative bg-[#428574] rounded-[4px]">
         <form action="/vlogs" method="get" class="w-[100%]">
-        <input name="search" class="bg-transparent font-Urbanist font-medium text-[20px] placeholder:text-[#D9E9E4] rounded-[4px] ps-[50px] outline-none text-[#D9E9E4]" type="text" name="" id="" placeholder="Cari Blog">
+        <input name="search" class="bg-transparent font-Urbanist font-medium text-[20px] placeholder:text-[#D9E9E4] rounded-[4px] ps-[50px] outline-none text-[#D9E9E4]" type="text" name="" id="" placeholder="Cari Video Blog">
         <img class="absolute top-0 mt-[16px]" src="/assets/search-img.svg" alt="">
         </form>
     </div>
@@ -16,7 +16,7 @@
                 
             <a href="/vlogs/{{ $vlog->slug }}" class="">
                 <div class="relative">
-                    <embed class="xl:w-[338px] xl:h-[250px] w-full h-full " src="{{ $vlog->url }}" type="">
+                    <embed class="2xl:w-[430px] 2xl:h-[250px] xl:w-[338px] xl:h-[250px] w-full h-full " src="{{ $vlog->url }}" type="">
                     <div class="absolute px-[28px] py-[5.5px] bg-[#D9E9E4] bottom-0 right-0 font-Urbanist text-[12px] font-semibold">Video Blog</div>
                 </div>
                 

@@ -16,9 +16,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::with(['category'])->latest()->filter(request(['search']))->get();
-        $vlogs = Vlog::latest()->filter(request(['search']))->get();
-        $all_blogs = $blogs->merge($vlogs);
-        return view('blog.index',compact('all_blogs'));
+        return view('blog.index',compact('blogs'));
     }
     public function show(Blog $blog)
     {

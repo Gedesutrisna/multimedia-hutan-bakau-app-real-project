@@ -12,6 +12,11 @@ use App\Models\Quiz;
 
 class VlogController extends Controller
 {
+    public function index()
+    {
+        $vlogs = Vlog::latest()->filter(request(['search']))->get();
+        return view('vlog.index',compact('vlogs'));
+    }
     public function show(Vlog $vlog)
     {
         return view('vlog.show', [

@@ -12,24 +12,12 @@
 <div class="mt-[44px]">
     <div class="container mx-auto">
         <div class="grid lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 mt-[48px] gap-[44px] w-full h-full">
-            @foreach ($all_blogs as $blog)
+            @foreach ($blogs as $blog)
                 
-            @if ($blog->url)
-            <a href="/vlogs/{{ $blog->slug }}" class="">
-                @elseif($blog->assets)
                 <a href="/blogs/{{ $blog->slug }}" class="">
-                @endif
                 <div class="relative">
-                    @if ($blog->url)
-                    <embed class="xl:w-[338px] xl:h-[250px] w-full h-full " src="{{ $blog->url }}" type="">
-                    @elseif($blog->assets)
                     <img class="xl:w-[400px] xl:h-[214px] w-full h-full " src="{{ asset('images/'.$blog->assets) }}" alt="">
-                    @endif
-                    @if ($blog->url)
-                    <div class="absolute px-[28px] py-[5.5px] bg-[#D9E9E4] bottom-0 right-0 font-Urbanist text-[12px] font-semibold">Video Blog</div>
-                    @elseif($blog->assets)
                     <div class="absolute px-[28px] py-[5.5px] bg-[#D9E9E4] bottom-0 right-0 font-Urbanist text-[12px] font-semibold">Blog</div>
-                    @endif
                 </div>
                 
                 <div class="mt-3">

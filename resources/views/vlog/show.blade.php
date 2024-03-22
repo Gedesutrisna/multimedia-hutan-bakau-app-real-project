@@ -2,7 +2,7 @@
 @section('container')
 
 <div class="container mx-auto">
-    <a href="/blogs" class="absolute">
+    <a href="/vlogs" class="absolute">
         <button class=""><img src="/assets/back-button.svg" alt=""></button>
     </a>
     <div class="py-[50px] xl:px-[100px] 2xl:px-[185px]">

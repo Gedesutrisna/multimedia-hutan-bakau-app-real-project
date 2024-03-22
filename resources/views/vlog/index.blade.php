@@ -21,7 +21,7 @@
                 @endif
                 <div class="relative">
                     @if ($blog->url)
-                    <embed class="xl:w-[338px] xl:h-[250px] w-full h-full " src="{{ $blog->url }}" type="">
+                    <embed class="xl:w-[338px] xl:h-[250px] w-full h-full " src="//www.youtube.com/embed/vMgbfRa3HrA?iv_load_policy=3&modestbranding=1&playinline=1&showinfo=0&rel=0&enablejsapi=1" type="">
                     @elseif($blog->assets)
                     <img class="xl:w-[400px] xl:h-[214px] w-full h-full " src="{{ asset('images/'.$blog->assets) }}" alt="">
                     @endif
@@ -33,7 +33,7 @@
                 </div>
                 
                 <div class="mt-3">
-                    <p class="2xl:text-[27px] xl:text-[24px] font-Urbanist font-bold">{{ Str::limit($blog->title, 45) }}</p>
+                    <p class="2xl:text-[27px] xl:text-[24px] font-Urbanist font-bold">{{ Str::limit($blog->title, 50) }}</p>
                     <p class="font-Urbanist mt-3 text-[14px] font-medium leading-[18px] text-[#101828]">{!! Str::limit($blog->description, 90) !!}</p>
                     <p class="font-semibold font-Urbanist text-[14px] text-[#101828] mt-3">{{ $blog->created_at->format('d M Y') }}</p>
                 </div> 

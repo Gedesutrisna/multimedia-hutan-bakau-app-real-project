@@ -7,17 +7,19 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\QuizController;
+use App\Http\Controllers\admin\VlogController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\QuizAnswerController;
 use App\Http\Controllers\admin\QuizResultController;
 use App\Http\Controllers\admin\QuizQuestionController;
+use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\BlogController as ControllersBlogController;
 use App\Http\Controllers\QuizController as ControllersQuizController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
-use App\Http\Controllers\admin\UserController as AdminUserController;
 use App\Http\Controllers\QuizResultController as ControllersQuizResultController;
+use App\Http\Controllers\VlogController as ControllersVlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:admin']], function
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::resource('/blogs', BlogController::class);
+    Route::resource('/vlogs', VlogController::class);
 
     Route::resource('/categories', CategoryController::class);
 
@@ -75,6 +78,7 @@ Route::group([ 'middleware' => ['auth']], function () {
 
 Route::resource('/quizzes', ControllersQuizController::class);
 Route::resource('/blogs', ControllersBlogController::class);
+Route::resource('/vlogs', ControllersVlogController::class);
 
 //user
 Route::get('/login', [LoginController::class,'index'])->middleware('guest')->name('login');

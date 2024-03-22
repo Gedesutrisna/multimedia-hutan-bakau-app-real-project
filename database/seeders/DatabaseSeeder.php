@@ -3,14 +3,15 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Admin;
 use App\Models\Blog;
-use App\Models\Category;
 use App\Models\Quiz;
-use App\Models\QuizAnswer;
-use App\Models\QuizQuestion;
-use App\Models\QuizResult;
 use App\Models\User;
+use App\Models\Vlog;
+use App\Models\Admin;
+use App\Models\Category;
+use App\Models\QuizAnswer;
+use App\Models\QuizResult;
+use App\Models\QuizQuestion;
 use Illuminate\Database\Seeder;
 use Symfony\Component\Console\Question\Question;
 
@@ -53,6 +54,37 @@ class DatabaseSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque sapiente reprehenderit sed aspernatur debitis libero voluptatibus soluta omnis sit officiis provident ex unde perferendis a esse, beatae quaerat blanditiis?',
         ]);
 
+        Vlog::create([
+            'title' => 'Manfaat Penting Hutan Bakau bagi Lingkungan',
+            'slug' => 'manfaat-penting-hutan-bakau-bagi-lingkungan',
+            'body' => 'Hutan bakau memberikan manfaat penting bagi lingkungan sekitarnya. Selain sebagai habitat bagi berbagai jenis flora dan fauna, hutan bakau juga berperan dalam menjaga keseimbangan ekosistem pesisir, mengurangi risiko abrasi pantai, serta menyediakan sumber daya alam yang berlimpah bagi masyarakat sekitar.',
+            'url' => 'https://www.youtube.com/embed/vMgbfRa3HrA?iv_load_policy=3&modestbranding=1&playinline=1&showinfo=0&rel=0&enablejsapi=1',
+            'admin_id' => 1,
+        ]);
+
+        Vlog::create([
+            'title' => 'Ekosistem Hutan Bakau dan Kelestariannya',
+            'slug' => 'ekosistem-hutan-bakau-dan-kelestariannya',
+            'body' => 'Kelestarian ekosistem hutan bakau sangat penting untuk menjaga keseimbangan alam dan kehidupan manusia. Namun, hutan bakau sering kali terancam oleh aktivitas manusia seperti penebangan liar dan reklamasi pantai. Oleh karena itu, perlindungan dan pelestarian hutan bakau harus menjadi prioritas bagi semua pihak.',
+            'url' => 'https://www.youtube.com/embed/vMgbfRa3HrA?iv_load_policy=3&modestbranding=1&playinline=1&showinfo=0&rel=0&enablejsapi=1',
+            'admin_id' => 1,
+        ]);
+
+        Vlog::create([
+            'title' => 'Keanekaragaman Hayati dalam Hutan Bakau',
+            'slug' => 'keanekaragaman-hayati-dalam-hutan-bakau',
+            'body' => 'Hutan bakau merupakan habitat bagi berbagai jenis flora dan fauna yang memiliki keanekaragaman hayati yang tinggi. Di dalam hutan bakau, kita dapat menemukan berbagai spesies unik seperti burung mangrove, kera ekor panjang, dan ikan-ikan kecil yang hidup di antara akar-akar bakau.',
+            'url' => 'https://www.youtube.com/embed/vMgbfRa3HrA?iv_load_policy=3&modestbranding=1&playinline=1&showinfo=0&rel=0&enablejsapi=1',
+            'admin_id' => 1,
+        ]);
+
+        Vlog::create([
+            'title' => 'Pentingnya Pendidikan Lingkungan tentang Hutan Bakau',
+            'slug' => 'pentingnya-pendidikan-lingkungan-tentang-hutan-bakau',
+            'body' => 'Pendidikan lingkungan tentang hutan bakau sangat penting untuk meningkatkan kesadaran masyarakat akan pentingnya pelestarian lingkungan. Melalui pendidikan, masyarakat dapat memahami peran dan manfaat hutan bakau serta cara-cara untuk melindunginya dari ancaman dan kerusakan.',
+            'url' => 'https://www.youtube.com/embed/vMgbfRa3HrA?iv_load_policy=3&modestbranding=1&playinline=1&showinfo=0&rel=0&enablejsapi=1',
+            'admin_id' => 1,
+        ]);
 
         Blog::create([
             'title' => 'Keindahan Hutan Bakau: Ekosistem yang Unik',

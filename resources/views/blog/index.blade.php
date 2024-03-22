@@ -22,7 +22,7 @@
                 
                 <div class="mt-3">
                     <p class="2xl:text-[27px] xl:text-[24px] font-Urbanist font-bold">{{ Str::limit($blog->title, 45) }}</p>
-                    <p class="font-Urbanist mt-3 text-[14px] font-medium leading-[18px] text-[#101828]">{!! Str::limit($blog->description, 90) !!}</p>
+                    <p class="font-Urbanist mt-3 text-[14px] font-medium leading-[18px] text-[#101828]">{!! Str::limit($blog->body, 90) !!}</p>
                     <p class="font-semibold font-Urbanist text-[14px] text-[#101828] mt-3">{{ $blog->created_at->format('d M Y') }}</p>
                 </div> 
             </a>

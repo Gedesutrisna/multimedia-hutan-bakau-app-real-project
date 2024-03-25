@@ -80,7 +80,7 @@ Route::resource('/blogs', ControllersBlogController::class);
 Route::get('/login', [LoginController::class,'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class,'login'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
-
+    
 //admin
 Route::get('/login/admin', [AdminLoginController::class,'index'])->middleware('guest')->name('login.admin');
 Route::post('/login/admin', [AdminLoginController::class,'login'])->middleware('guest');

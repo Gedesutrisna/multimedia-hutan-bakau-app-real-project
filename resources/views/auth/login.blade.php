@@ -19,7 +19,7 @@
 						<div class="input-email mt-[8px] w-full xl:w-[515px]">
 							<input name="email" class="placeholder-email" type="email" placeholder="Enter your email.." 
 							    @if (isset($_COOKIE["email"]))
-                                    value="{{ $_COOKIE['email'] }}"
+                                    {{-- value="{{ $_COOKIE['email'] }}" --}}
                                 @else
                                     value="{{ old('email') }}"
                                 @endif
@@ -29,7 +29,7 @@
 						<div class="input-password mt-[8px] w-full xl:w-[515px]">
 							<input name="password" class="placeholder-password" type="password" placeholder="Enter your password.." 
 							    @if (isset($_COOKIE["password"]))
-                                    value="{{ $_COOKIE['password'] }}"
+                                    {{-- value="{{ $_COOKIE['password'] }}" --}}
                                 @else
                                     value="{{ old('password') }}"
                                 @endif

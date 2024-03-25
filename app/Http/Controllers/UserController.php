@@ -18,15 +18,15 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $validatedData = $request->validated();
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $fileExtension = $request->file('image')->getClientOriginalExtension();
             $randomFileName = hash('md5', time()) . '.' . $fileExtension;
             $request->file('image')->move('images/', $randomFileName);
         }
-        if(isset($randomFileName)) {
+        if (isset ($randomFileName)) {
             $validatedData['image'] = $randomFileName;
             $oldImagePath = public_path('images/') . auth()->user()->image;
-            if(File::exists($oldImagePath)) {
+            if (File::exists($oldImagePath)) {
                 File::delete($oldImagePath);
             }
         }

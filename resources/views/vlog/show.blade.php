@@ -10,7 +10,7 @@
             <div class="bg-[#eeeeee] w-full md:w-[1000px] 2xl:w-[1500px] h-[100%] rounded-[4px] py-[60px]">
                 <div class="px-[20px] mx-auto w-full md:w-[800px]">
                     <p class="font-Urbanist text-[24px] sm:text-[42px] md:text-[48px] lg:text-[64px] font-bold text-center">{{ $vlog->title }}</p>
-                    <div class="mt-[24px] h-full overflow-hidden rounded-[4px]">
+                    <div class="mt-[24px] overflow-hidden rounded-[4px]" style="height:400px;">
                         <embed class="w-full h-full md:h-[400px]" src="{{ $vlog->url }}" type="">
                     </div>
 

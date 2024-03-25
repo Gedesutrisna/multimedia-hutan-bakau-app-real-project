@@ -100,7 +100,7 @@ class QuizResultController extends Controller
             ];
 
             $previousResult = QuizResult::where('quiz_id', $validatedData['quiz_id'])
-                                        ->where('user_id', 1)
+                                        ->where('user_id', auth()->user()->id)
                                         ->first();
 
             if ($previousResult) {
@@ -140,7 +140,7 @@ class QuizResultController extends Controller
         ];
 
         $previousResult = QuizResult::where('quiz_id', $validatedData['quiz_id'])
-                                    ->where('user_id', 1)
+                                    ->where('user_id', auth()->user()->id)
                                     ->first();
 
         if ($previousResult) {

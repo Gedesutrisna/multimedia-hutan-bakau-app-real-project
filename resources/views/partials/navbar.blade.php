@@ -5,6 +5,7 @@
                  <div class="hidden lg:block lg:space-x-[24px] 2xl:space-x-[48px]  2xl:ms-0">
                     <a href="/" class="font-Urbanist font-semibold text-base text-[#1A3C40]">Home</a>
                     <a href="/blogs" class="font-Urbanist font-semibold text-base text-[#1A3C40]">Blog</a>
+                    <a href="/vlogs" class="font-Urbanist font-semibold text-base text-[#1A3C40]">Video Blog</a>
                     <a href="/quizzes" class="font-Urbanist font-semibold text-base text-[#1A3C40]">Kuis</a>
                  </div>
                 <div class="hidden lg:flex items-center space-x-[40px]">

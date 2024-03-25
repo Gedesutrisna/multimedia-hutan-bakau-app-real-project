@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller;
 use App\Http\Requests\StoreBlogRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateBlogRequest;
+use App\Models\Quiz;
+use App\Models\Vlog;
 
 class BlogController extends Controller
 {

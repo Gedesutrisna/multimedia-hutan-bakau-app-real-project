@@ -8,7 +8,7 @@
     <div class="content-main p-[32px] h-[90vh]">
         <div class="flex gap-3">
             <a href="/dashboard/categories"><img src="/asset/back logo.svg" alt=""></a>
-            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Kategori {{ $category->title }}</p>
+            <p class="text-[#141414] text-[28px] font-Urbanist font-semibold">Edit Kategori {{ $category->name }}</p>
         </div>
         <form action="/dashboard/categories/{{ $category->slug }}" method="post">
         @csrf
@@ -57,12 +57,12 @@
     <script>
         let body = new RichTextEditor("#body");
 
-        const titleInput = document.querySelector('#title');
+        const nameInput = document.querySelector('#name');
         const slugInput = document.querySelector('#slug');
 
-        titleInput.addEventListener('change', function() {
-        const titleValue = titleInput.value.toLowerCase().trim().replace(/\s+/g, '-');
-        slugInput.value = titleValue;
+        nameInput.addEventListener('change', function() {
+        const nameValue = nameInput.value.toLowerCase().trim().replace(/\s+/g, '-');
+        slugInput.value = nameValue;
         });
     </script>
 @endsection

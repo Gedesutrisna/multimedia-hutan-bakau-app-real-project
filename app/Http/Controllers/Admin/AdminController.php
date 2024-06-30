@@ -18,6 +18,11 @@ class AdminController extends Controller
     public function update(UpdateAdminRequest $request, Admin $admin)
     {
         $validatedData = $request->validated();
+        if (!empty($validatedData['password'])) {
+            $validatedData['password'] = bcrypt($validatedData['password']);
+        } else {
+            unset($validatedData['password']);
+        }
         if($request->hasFile('image')){
             $fileExtension = $request->file('image')->getClientOriginalExtension();
             $randomFileName = hash('md5', time()) . '.' . $fileExtension;

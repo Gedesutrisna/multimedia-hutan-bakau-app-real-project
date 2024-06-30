@@ -108,7 +108,7 @@
                                     <div class="modal-box flex">
                                         <div class="flex justify-between">
                                             <div class="">
-                                                <p class="font-Urbanist font-semibold text-[28px] ">Hapus Kategori {{ $category->title }}</p>
+                                                <p class="font-Urbanist font-semibold text-[28px] ">Hapus Kategori {{ $category->name }}</p>
                                                 <p class="pt-4 font-Urbanist font-medium text-[15px] text-[#4D5369]">Konfirmasi Penghapusan Kategori Blog: Apakah Anda yakin ingin menghapus catatan kategori ini? Tindakan ini tidak dapat dibatalkan, dan rekaman kategori akan dihapus secara permanen dari sistem.</p>
                                                 <form method="POST" action="/dashboard/categories/{{ $category->slug }}">
                                                     @csrf

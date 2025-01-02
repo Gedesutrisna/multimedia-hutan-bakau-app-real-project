@@ -14,7 +14,7 @@
                 <div class="py-[14px] px-[28px] bg-white border-l-[#428574] border-l-[6px] rounded-[6px]">
                     <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Kuis</p>
                     <p class="text-[#428574] font-Urbanist text-[26px] font-bold">{{ $quizzes->count() }}</p>
-            </div>
+                </div>
 
                 <div class="py-[14px] px-[28px] bg-white border-l-[#428574] border-l-[6px] rounded-[6px]">
                     <p class="text-[#858585] font-Urbanist text-[13px] font-medium">Total Pertanyaan</p>

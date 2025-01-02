@@ -1,61 +1,58 @@
 @extends('auth.layouts.main')
 @section('container')
-		<main class="login-page">
-			<div class="container-fluid">
-				<div class="wrapper-content-login">
-					
-					<div class="left-wrapper-img">
-						<img class="left-img-hero hidden xl:grid" src="/asset/img-hero-login.svg" alt="" />
+		<div class="container-fluid bg-[#D7D1C6] h-[100vh]">
+			<div class="h-[100vh] xl:grid xl:grid-cols-12 2xl:place-items-center">
+				
+				<div class="sm:mx-[50px] xl:col-span-6 pt-[60px] xl:pt-[80px] 2xl:pt-0">
+					<a href="/" class="absolute left-[6px] md:left-[50px]">
+						<button class=""><img src="/assets/back-button.svg" alt=""></button>
+					</a>
+					<div class="flex justify-center">
+						<button class="banner-btn mb-[8px]">Menjelajah Kehidupan Pesisir Eksotis Terpelihara Alami</button>
 					</div>
 
-					<div class="right-wrapper-login mb-[120px]">
+					<p class="text-center font-Urbanist text-[32px] font-bold text-[#141414] xl:text-[38px] 2xl:text-[52px]"> Mempelajari <span class="text-[#428574]"> Hutan Bakau</span>
+						 <br /> Melestarikan <span class="text-[#428574]"> Alam</span>
+					</p>
 
-						<div class="flex justify-center xl:justify-start">
-							<button class="banner-btn-login mb-4">Halaman Login</button>
+					<div class="flex w-full flex-col items-center">
+						<form action="/login/admin" method="POST">
+							@csrf
+							@method('POST')
+						<div class="input-email mt-[8px] w-full xl:w-[515px]">
+							<input name="email" class="placeholder-email" type="email" placeholder="Enter your email.." 
+							    @if (isset($_COOKIE["email"]))
+                                    value="{{ $_COOKIE['email'] }}"
+                                @else
+                                    value="{{ old('email') }}"
+                                @endif
+							/>
 						</div>
 
-						<p class="login-dashboard">
-							Login ke Dashboard
-						</p>
-
-						<div class="flex w-full flex-col items-center xl:items-start">
-                            <form action="/login/admin" method="POST">
-                                @csrf
-                                @method('POST')
-								<div class="input-email-login mt-[24px] w-full xl:w-[340px]">
-									<input name="email" class="placeholder-email-login focus:outline-none" type="text" placeholder="Enter your email.." @error('email') is-invalid @enderror
-                                    @if (isset($_COOKIE["email"]))
-                                        value="{{ $_COOKIE['email'] }}"
-                                    @else
-                                        value="{{ old('email') }}"
-                                    @endif
-									/>
-                                    @error('email')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-								</div>
-								<div class="input-password-login mt-2 w-full xl:w-[340px]">
-									<input name="password" class="placeholder-password-login focus:outline-none" type="password" placeholder="Enter your password.."@error('password') is-invalid @enderror
-									@if (isset($_COOKIE["password"]))
-									value="{{ $_COOKIE['password'] }}"
-									@else
-										value="{{ old('password') }}"
-									@endif
-									/>
-									@error('email')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-								</div>
-								<button type="submit" class="button-login">Login akun<img src="/asset/arrow-btn.svg" alt="" /></button>
-							</form>
+						<div class="input-password mt-[8px] w-full xl:w-[515px]">
+							<input name="password" class="placeholder-password" type="password" placeholder="Enter your password.." 
+							    @if (isset($_COOKIE["password"]))
+                                    value="{{ $_COOKIE['password'] }}"
+                                @else
+                                    value="{{ old('password') }}"
+                                @endif
+							/>
 						</div>
 
+						<button type="submit"
+							class="mt-[18px] flex h-[49px] w-full items-center justify-center gap-2 rounded-[4px] bg-[#D9E9E4] font-Urbanist text-[14px] font-medium text-[#1A3C40] xl:w-[515px]"
+						>
+							Login account
+							<img src="/assets/arrow-btn.svg" alt="" />
+						</button>
+						</form>
 					</div>
+
+				</div>
+
+				<div class="xl:col-span-6">
+					<img src="/assets/Login-Img.svg" class="hidden xl:grid w-full h-full" />
 				</div>
 			</div>
-		</main>
+		</div>
 @endsection

@@ -95,7 +95,7 @@ class QuizResultController extends Controller
         if (!$request->filled('questions') || !$request->filled('answers')) {
             $quizResultData = [
                 'quiz_id' => $validatedData['quiz_id'],
-                'user_id' => 1,
+                'user_id' => auth()->user()->id,
                 'point' => 0,
             ];
 
@@ -135,7 +135,7 @@ class QuizResultController extends Controller
 
         $quizResultData = [
             'quiz_id' => $validatedData['quiz_id'],
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
             'point' => $totalPoints,
         ];
 

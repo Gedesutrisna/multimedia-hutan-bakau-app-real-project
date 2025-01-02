@@ -100,7 +100,7 @@
 
         <div class="avatar-profile">
             @if (empty(auth()->guard('admin')->user()->image))
-            <img class="" src="/asset/profile-img.svg" alt="" />
+            <img src="/assets/user-profile.svg" alt="">
             @else
             <img class="w-[40px] h-[40px]"  class="photo-profile" src="{{ asset('images/'.auth()->guard('admin')->user()->image) }}" alt="">
             @endif

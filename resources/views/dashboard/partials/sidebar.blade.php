@@ -268,7 +268,7 @@
                 </div>
             </div>
 
-            <div class="logout-setting-position mt-[60px]">
+            <div class="logout-setting-position mt-[45px]">
 
 
                 <hr class="line-sidebar" />

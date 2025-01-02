@@ -27,6 +27,16 @@
                 placeholder="Cari apa saja.."
             />
         </form>
+        @elseif (request()->is('dashboard/vlogs*'))
+        <form action="/dashboard/vlogs" method="get" class="w-[100%]">
+            <input
+                type="text"
+                name="search"
+                id="" style="background-image: url('/asset/search.svg')"
+                class="w-[100%] rounded-[999px] border border-[#D9DADE] bg-[#F5F6FB]  bg-[16px] bg-no-repeat px-[36px] py-[14px] focus:outline-none"
+                placeholder="Cari apa saja.."
+            />
+        </form>
         @elseif(request()->is('dashboard/categories*'))
         <form action="/dashboard/categories" method="get" class="w-[100%]">
             <input
